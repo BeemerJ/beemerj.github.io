@@ -1,3 +1,5 @@
+
+
 .main-stuff {
 
     display: flex;
@@ -6,9 +8,19 @@
     
 }
 
-.art {
+::-webkit-scrollbar {
+    display: none;
+  }
 
+.art {
+    
     display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap; 
+    align-items: baseline;
+    flex-grow: 1;
+    height: 45.5em;
+
 }
 
 .art h1 {
@@ -17,5 +29,20 @@
     letter-spacing: 2px;
     font-weight: bolder;
     text-decoration-thickness: 2px;
+
+}
+
+.images {
+
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+img {
+
+    width: 12em;
+    height: 12em;
+    padding: 9px;
+    padding-left: 0;
 
 }

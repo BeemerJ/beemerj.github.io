@@ -13,6 +13,8 @@
       -0.25em -0.05em 0 rgba(252, 248, 4, 0.75),
       0.25em 0.05em 0 rgba(44, 247, 213, 0.75);
     animation: glitch-h 128ms infinite;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: red;
   }
   
   .header span {

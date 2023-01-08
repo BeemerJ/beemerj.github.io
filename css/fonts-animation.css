@@ -86,6 +86,11 @@
   }
 }
 
+gs {
+
+  animation: glitch-n 64ms infinite;
+}
+
 @keyframes blink {
   50% {
     opacity: 0;
