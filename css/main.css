@@ -17,7 +17,7 @@ html {
 :root {
   --background-color: black;
   --background-image: url("../assets/videos/main_static.png");
-  font-family: "estyle-regular";
+  font-family: "zenantique-regular";
   text-shadow:black;
   color: #ff0f0f;
 }
@@ -40,7 +40,7 @@ body {
 /* H E A D E R   S H I T */
 
 .header {
-  margin-top: 2em;
+  margin-top: 0.25em;
   position: static;
   font-family: "planetk-regular";
   font-size: x-large;
@@ -117,7 +117,7 @@ body {
   letter-spacing: 1px;
   border: #ff0f0f solid 2px;
   background-color: black;
-  padding: 3px;
+  padding: 4px;
 }
 
 .navbar h2:hover {
@@ -215,7 +215,7 @@ body {
 .welcome {
   font-size: 22px;
   margin: 2px;
-  margin-top: 8em;
+  margin-top: 7em;
   text-align: left;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -223,7 +223,8 @@ body {
 }
 .welcome h2 {
   letter-spacing: 2px;
-  font-family: "planetk-regular";
+  font-family: "zenantique-regular";
+  font-weight: bolder;
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
@@ -256,7 +257,7 @@ body {
   margin-top: -2.3em;
   margin-bottom: 1em;
   padding: 10px;
-  border: 3px solid red;
+  border: 2px solid red;
 }
 .page-updates li {
   margin-right: 5em;
