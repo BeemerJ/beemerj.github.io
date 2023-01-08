@@ -17,7 +17,7 @@ html {
 :root {
   --background-color: black;
   --background-image: url("../assets/videos/main_static.png");
-  font-family: "zenantique-regular";
+  font-family: "dotgothic16-regular";
   text-shadow: black;
   color: red;
 }
@@ -31,6 +31,12 @@ body {
   /* background-size: cover; */
 }
 
+body h1 {
+
+  font-family: "dotgothic16-regular";
+  
+}
+
 .main {
   width: 1000px;
   margin: 0 auto;
@@ -41,10 +47,10 @@ body {
 
 .buttons ul {
   display: flex;
+  flex-direction: row;
   list-style: none;
-  padding: 4px;
-  margin-left: 1em;
-  margin-top: 3.5em;
+  padding: 0;
+  margin-top: 6em;
 }
 
 .buttons a {
@@ -80,31 +86,39 @@ body {
 
 .page-about {
   grid-column: 1 / span 4;
-  padding: 10px;
+  /* padding: 10px; */
   display: flex;
   align-items: center;
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .welcome {
+  display: flex;
+  flex-flow: column nowrap; 
+  width: fit-content;
+  left: 0;
   font-size: 22px;
   margin: 2px;
-  margin-top: 7em;
+  margin-top: 180px;
   text-align: left;
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.welcome h2 {
+.welcome h1 {
+  font-size: 33px;
   letter-spacing: 2px;
-  font-family: "zenantique-regular";
   font-weight: bolder;
-  text-decoration: underline;
   text-decoration-thickness: 2px;
 }
 
 .use-pc {
+  font-size: 12px;
   color: crimson;
+}
+
+.FUCK {
+  animation: glitch-h 64ms infinite;
 }
 
 .main-content-img {
@@ -125,6 +139,7 @@ body {
 }
 
 .page-updates {
+  font-family: "dotgothic16-regular";
   scrollbar-width: none;
   background-color: black;
   height: auto;
@@ -155,6 +170,7 @@ body {
 }
 
 .page-updates-heading {
+  color: orange;
   border: red 1px solid;
   text-align: center;
   font-size: larger;

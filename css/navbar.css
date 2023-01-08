@@ -12,7 +12,7 @@
 }
 .navbar h2 {
   font-size: 18px;
-  color: red;
+  color: orange;
   text-shadow: 0.5em 0 0 rgba(150, 0, 0, 0.75),
     -0.25em -0.05em 0 rgba(252, 248, 4, 0.75),
     0.25em 0.05em 0 rgba(44, 247, 213, 0.75);
@@ -39,7 +39,6 @@
   text-align: left;
 }
 .navbar li:hover {
-  transition: color 256ms;
   color: whitesmoke;
   border: #ff0f0f solid 1px;
   text-decoration: line-through;

@@ -1,14 +1,10 @@
 /* FOOTY BUSSINESS */
 
 .footer {
+  font-family: "dotgothic16-regular";
   grid-column: 1 / span 2;
   grid-row: 2 / 2;
   text-align: right;
-}
-
-.footer a:hover {
-  color: white;
-  animation: glitch-n 50ms infinite;
 }
 
 .silly-footer a {
@@ -21,12 +17,17 @@
 
 .silly-footer a:link {
   text-decoration: none;
-  color: crimson;
+  color: orange;
+}
+
+.silly-footer a:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .inspired {
   font-size: small;
-  color: crimson;
+  color: orange;
 }
 
 .inspired a {

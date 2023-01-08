@@ -1,14 +1,21 @@
 .main-stuff {
 
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap; 
+    width: fit-content;
     
 }
 
-.world {
+.art {
 
     display: flex;
-    color: aliceblue;
-    /* WTF i give up lmao */
+}
+
+.art h1 {
+
+    font-size: 33px;
+    letter-spacing: 2px;
+    font-weight: bolder;
+    text-decoration-thickness: 2px;
 
 }
