@@ -61,11 +61,8 @@ body {
   color: inherit;
 }
 .header span a:hover {
-  transition: none;
+  transition: color 256ms;
   color: whitesmoke;
-}
-.header span a:active {
-  transition: none;
 }
 
 /* GRID? TF ARE THOSE??? */
@@ -91,7 +88,16 @@ body {
 }
 
 .buttons a {
-  margin: 2px;  
+  margin: 2px;
+  padding: 2px;
+}
+
+.buttons a:hover {
+  filter: brightness(150%);
+}
+
+.buttons a:active {
+  filter: brightness(110%);
 }
 
 /* N A V B A R   B U S S I N E S S */
@@ -101,7 +107,7 @@ body {
   padding: 1.8em;
   padding-left: 0%;
   padding-top: 0%;
-  margin-top: 1.4em;
+  margin-top: 1em;
 }
 .navbar h2 {
   font-size: x-large;
@@ -120,10 +126,6 @@ body {
   padding: 4px;
 }
 
-.navbar h2:hover {
-  color: white;
-}
-
 .navbar a {
   text-decoration: none;
   color: inherit;
@@ -136,7 +138,8 @@ body {
   text-align: left;
 }
 .navbar li:hover {
-  color: white;
+  transition: color 256ms;
+  color: whitesmoke;
   border: #ff0f0f solid 1px;
   text-decoration: line-through;
   animation: glitch-h 180ms infinite;
@@ -266,6 +269,7 @@ body {
 }
 
 .page-updates li :hover {
+  transition: color 1024ms;
   color: white;
   animation: glitch-h 64ms infinite;
 }
