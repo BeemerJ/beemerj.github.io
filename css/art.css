@@ -38,6 +38,12 @@
     scrollbar-width: none;
 }
 
+.images :hover {
+
+    transition: filter 256ms;
+    filter: brightness(110%);
+}
+
 img {
 
     width: 12em;
