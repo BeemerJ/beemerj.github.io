@@ -112,8 +112,9 @@ body {
   animation: glitch-h 128ms infinite;
   text-align: left;
   font-style: italic;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "zenantique-regular";
   font-weight: bolder;
+  letter-spacing: 1px;
   border: #ff0f0f solid 2px;
   background-color: black;
   padding: 3px;
@@ -221,10 +222,10 @@ body {
   -ms-overflow-style: none;
 }
 .welcome h2 {
-  font-weight: lighter;
+  letter-spacing: 2px;
   font-family: "planetk-regular";
   text-decoration: underline;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
 }
 
 .main-content-img {
