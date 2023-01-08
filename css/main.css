@@ -18,8 +18,8 @@ html {
   --background-color: black;
   --background-image: url("../assets/videos/main_static.png");
   font-family: "zenantique-regular";
-  text-shadow:black;
-  color: #ff0f0f;
+  text-shadow: black;
+  color: red;
 }
 
 body {
@@ -53,7 +53,7 @@ body {
 }
 
 .header span {
-  color: red;
+  color: crimson;
   font-size: 56px;
 }
 .header span a {
@@ -64,7 +64,6 @@ body {
   transition: color 256ms;
   color: whitesmoke;
 }
-
 
 /* GRID? TF ARE THOSE??? */
 
@@ -101,56 +100,6 @@ body {
   filter: brightness(110%);
 }
 
-/* N A V B A R   B U S S I N E S S */
-
-.navbar {
-  grid-column: 1 / 1;
-  padding: 1.8em;
-  padding-left: 0%;
-  padding-top: 0%;
-  margin-top: 1em;
-}
-.navbar h2 {
-  font-size: x-large;
-  color: red;
-  text-shadow: 0.5em 0 0 rgba(150, 0, 0, 0.75),
-    -0.25em -0.05em 0 rgba(252, 248, 4, 0.75),
-    0.25em 0.05em 0 rgba(44, 247, 213, 0.75);
-  animation: glitch-h 128ms infinite;
-  text-align: left;
-  font-style: italic;
-  font-family: "zenantique-regular";
-  font-weight: bolder;
-  letter-spacing: 1px;
-  border: #ff0f0f solid 2px;
-  background-color: black;
-  padding: 4px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.navbar li {
-  list-style: square;
-  list-style-image:url("/assets/videos/a_cigs.png");
-  margin-left: 0.2em;
-  margin-top: 5px;
-  text-align: left;
-}
-.navbar li:hover {
-  transition: color 256ms;
-  color: whitesmoke;
-  border: #ff0f0f solid 1px;
-  text-decoration: line-through;
-  animation: glitch-h 180ms infinite;
-  /* add a random rotation effect when hovered inshallah */
-}
-.navbar p {
-  font-weight: bold;
-}
-
 .main-content {
   grid-column: 2 / 2;
   grid-row: 1 / 2;
@@ -164,48 +113,8 @@ body {
   /* animation: glitch-n 50ms infinite; */
 }
 
-/* FOOTY BUSSINESS */
-
-.footer {
-  grid-column: 1 / span 2;
-  grid-row: 2 / 2;
-  text-align: center;
-}
-
-.footer a:hover {
-  color: white;
-  animation: glitch-n 50ms infinite;
-}
-
-.silly-footer a{
-  font-size: larger;
-  font-weight: bold;
-  color:rgb(156, 23, 19);
-}
-
-.silly-footer a:link {
-  text-decoration: none;
-  color: #ff0f0f;
-}
-
-.inspired {
-  font-size: small;
-  color: rgb(116, 10, 7);;
-}
-
-.inspired a {
-  text-decoration: none;
-  color: rgb(177, 22, 17);
-}
-
-.inspired a:hover {
-  text-decoration: none;
-  color: green;
-}
-
 /* Gio was Here  */
 /* The poes */
-
 
 /*M A I N  C O N T E N T  G R I D*/
 
@@ -232,6 +141,10 @@ body {
   font-weight: bolder;
   text-decoration: underline;
   text-decoration-thickness: 2px;
+}
+
+.use-pc {
+  color: crimson;
 }
 
 .main-content-img {

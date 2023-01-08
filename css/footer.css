@@ -1,0 +1,44 @@
+/* FOOTY BUSSINESS */
+
+.footer {
+  grid-column: 1 / span 2;
+  grid-row: 2 / 2;
+  text-align: right;
+}
+
+.footer a:hover {
+  color: white;
+  animation: glitch-n 50ms infinite;
+}
+
+.silly-footer a {
+  border: red solid 1px;
+  padding: 2px;
+  font-size: small;
+  font-weight: bold;
+  color: red;
+}
+
+.silly-footer a:link {
+  text-decoration: none;
+  color: crimson;
+}
+
+.inspired {
+  font-size: small;
+  color: crimson;
+}
+
+.inspired a {
+  border: red solid 1px;
+  padding: 1px;
+  font-weight: bold;
+  text-decoration: none;
+  color: crimson;
+}
+
+.inspired a:hover {
+  font-weight: bold;
+  text-decoration: none;
+  color: green;
+}
