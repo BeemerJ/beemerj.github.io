@@ -1,0 +1,14 @@
+.main-stuff {
+
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.world {
+
+    display: flex;
+    color: aliceblue;
+    /* WTF i give up lmao */
+
+}

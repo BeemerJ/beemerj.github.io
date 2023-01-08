@@ -1,0 +1,30 @@
+/* H E A D E R   S H I T */
+
+.header {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.25em;
+    position: static;
+    font-family: "planetk-regular";
+    font-size: x-large;
+    padding: 5px;
+    background-size: auto;
+    text-shadow: 0.5em 0 0 rgba(150, 0, 0, 0.75),
+      -0.25em -0.05em 0 rgba(252, 248, 4, 0.75),
+      0.25em 0.05em 0 rgba(44, 247, 213, 0.75);
+    animation: glitch-h 128ms infinite;
+  }
+  
+  .header span {
+    color: crimson;
+    font-size: 56px;
+  }
+  .header span a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .header span a:hover {
+    transition: color 256ms;
+    color: whitesmoke;
+  }
+  

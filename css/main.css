@@ -1,6 +1,6 @@
 /*date of creation: 12th of October, 2022
        originally created by: Cabbage Sorter
-       Analized by Gio*/
+       Analized a lil by Gio*/
 
 html {
   margin: auto;
@@ -37,47 +37,7 @@ body {
   max-width: 100%;
 }
 
-/* H E A D E R   S H I T */
-
-.header {
-  margin-top: 0.25em;
-  position: static;
-  font-family: "planetk-regular";
-  font-size: x-large;
-  padding: 5px;
-  background-size: auto;
-  text-shadow: 0.5em 0 0 rgba(150, 0, 0, 0.75),
-    -0.25em -0.05em 0 rgba(252, 248, 4, 0.75),
-    0.25em 0.05em 0 rgba(44, 247, 213, 0.75);
-  animation: glitch-h 128ms infinite;
-}
-
-.header span {
-  color: crimson;
-  font-size: 56px;
-}
-.header span a {
-  text-decoration: none;
-  color: inherit;
-}
-.header span a:hover {
-  transition: color 256ms;
-  color: whitesmoke;
-}
-
-/* GRID? TF ARE THOSE??? */
-
-.grid-container {
-  display: grid;
-  grid-template-rows: 700px 50px;
-  grid-template-columns: 200px 800px;
-  grid-gap: 0px;
-}
-.grid-container-right {
-  top: 0;
-  right: 0;
-  margin-right: 25%;
-}
+/* BUTTONS! */
 
 .buttons ul {
   display: flex;
