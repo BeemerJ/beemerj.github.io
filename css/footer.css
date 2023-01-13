@@ -2,13 +2,17 @@
 
 .footer {
   font-family: "dotgothic16-regular";
-  grid-column: 1 / span 2;
-  grid-row: 2 / 2;
+  bottom: 2em;
+  right: 8em;
+  margin-bottom: 2em;
   text-align: right;
+  display: flex;
+  flex-direction: column;
 }
 
 .silly-footer a {
   border: red solid 1px;
+  background-color: black;
   padding: 2px;
   font-size: small;
   font-weight: bold;
@@ -32,6 +36,7 @@
 
 .inspired a {
   border: red solid 1px;
+  background-color: black;
   padding: 1px;
   font-weight: bold;
   text-decoration: none;

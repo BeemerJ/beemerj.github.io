@@ -4,7 +4,8 @@
 
     display: flex;
     flex-flow: row nowrap; 
-    width: fit-content;
+    width: 1000px;
+    ;
     
 }
 

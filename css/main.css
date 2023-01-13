@@ -50,12 +50,19 @@ body h1 {
   flex-direction: row;
   list-style: none;
   padding: 0;
-  margin-top: 6em;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
 }
 
 .buttons a {
   margin: 2px;
   padding: 2px;
+  padding-bottom: 0;
 }
 
 .buttons a:hover {
@@ -67,11 +74,10 @@ body h1 {
 }
 
 .main-content {
-  grid-column: 2 / 2;
-  grid-row: 1 / 2;
-  display: grid;
-  grid-template-columns: 200px 200px 200px 200px;
-  grid-template-rows: 40% 5% 25% 30%;
+  height: 42em;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
@@ -84,22 +90,32 @@ body h1 {
 
 /*M A I N  C O N T E N T  G R I D*/
 
-.page-about {
-  grid-column: 1 / span 4;
-  /* padding: 10px; */
+.flex-container {
+
   display: flex;
-  align-items: center;
+  margin: auto;
+  align-items: stretch;
+  width: fit-content;
+  flex-direction: row;
+
+}
+
+.page-about {
+
+  /* padding: 10px; */
+  /* display: flex; */
+  /* align-items: center; */
   /* margin: 10px; */
 }
 
 .welcome {
   display: flex;
   flex-flow: column nowrap; 
-  width: fit-content;
+  width: 1000px;
   left: 0;
-  font-size: 22px;
+  height: 26em;
+  font-size: 18px;
   margin: 2px;
-  margin-top: 180px;
   text-align: left;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -121,34 +137,20 @@ body h1 {
   animation: glitch-h 64ms infinite;
 }
 
-.main-content-img {
-  margin: 10px;
-  display: flex;
-  background-color: var(--background-color);
-  grid-column: 1 / span 2;
-  grid-row: 2 / 2;
-  border: 1px solid red;
-}
-.main-content-img img {
-  max-width: 100%;
-}
-
 .main-content a {
+  height: fit-content;
   text-decoration: none;
   color: darkred;
 }
 
 .page-updates {
+  width: 75%;
+  height: 400px;
   font-family: "dotgothic16-regular";
   scrollbar-width: none;
   background-color: black;
-  height: auto;
-  grid-column: 1 / span 4;
-  grid-row: 4 / 4;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-top: -2.3em;
-  margin-bottom: 1em;
   padding: 10px;
   border: 2px solid red;
 }
@@ -174,6 +176,7 @@ body h1 {
   border: red 1px solid;
   text-align: center;
   font-size: larger;
+  width: 24em;
 }
 
 sp {
