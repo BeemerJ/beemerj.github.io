@@ -4,8 +4,8 @@
 
     display: flex;
     flex-flow: row nowrap; 
-    width: 1000px;
-    ;
+    width: fit-content;
+    height: auto;
     
 }
 
@@ -37,6 +37,7 @@
 
     overflow-x: hidden;
     scrollbar-width: none;
+    height: 34em;
 }
 
 .images :hover {
@@ -49,7 +50,5 @@ img {
 
     width: 12em;
     height: 12em;
-    padding: 9px;
-    padding-left: 0;
 
 }

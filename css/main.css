@@ -95,7 +95,7 @@ body h1 {
   display: flex;
   margin: auto;
   align-items: stretch;
-  width: fit-content;
+  width: 1000px;
   flex-direction: row;
 
 }
@@ -145,6 +145,7 @@ body h1 {
 }
 
 .page-updates {
+  display: flexbox;
   width: 75%;
   height: 400px;
   font-family: "dotgothic16-regular";
