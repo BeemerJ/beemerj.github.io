@@ -1,7 +1,7 @@
 /* N A V B A R   B U S S I N E S S */
 
 .navbar {
-  width: 11em;
+  width: 12em;
   padding: 1.8em;
   padding-left: 0%;
   padding-top: 0%;
@@ -15,13 +15,14 @@
   animation: glitch-h 128ms infinite;
   text-align: left;
   font-style: italic;
-  font-family: "zenantique-regular";
+  font-family: "dotgothic16-regular";
   font-weight: bolder;
   letter-spacing: 1px;
   border: #ff0f0f solid 2px;
   background-color: black;
-  padding: 2px;
+  padding: 5px;
 }
+
 
 .navbar a {
   text-decoration: none;
@@ -33,10 +34,13 @@
   list-style-image: url("/assets/videos/a_cigs.png");
   margin-left: 0.2em;
   text-align: left;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-transform: uppercase;
 }
 .navbar li:hover {
   color: whitesmoke;
-  outline: #ff0f0f solid 1px;
+  /* outline: #ff0f0f solid 1px; */
   text-decoration: line-through;
   animation: glitch-h 180ms infinite;
   /* add a random rotation effect when hovered inshallah */

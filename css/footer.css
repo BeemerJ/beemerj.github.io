@@ -1,18 +1,20 @@
 /* FOOTY BUSSINESS */
 
 .footer {
-	position: fixed;
-	font-family: "dotgothic16-regular";
-	margin-top: 0;
-	bottom: 0;
-	right: 8em;
-	text-align: right;
+  height: 20px;
+  font-family: "dotgothic16-regular";
+  bottom: 2em;
+  right: 8em;
+  margin-bottom: 2em;
+  text-align: right;
+  display:block;
+  flex-direction: column;
 }
 
 .silly-footer a {
   border: red solid 1px;
   background-color: black;
-  padding-bottom: 2px;
+  padding: 2px;
   font-size: small;
   font-weight: bold;
   color: red;
