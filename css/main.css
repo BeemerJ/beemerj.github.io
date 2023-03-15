@@ -34,6 +34,8 @@ body {
 body h1 {
 
   font-family: "dotgothic16-regular";
+  color: orange;
+
   
 }
 
@@ -126,7 +128,6 @@ margin: 0px;
   -ms-overflow-style: none;
 }
 .welcome h1 {
-  font-size: 33px;
   letter-spacing: 2px;
   font-weight: bolder;
   text-decoration-thickness: 2px;
@@ -138,6 +139,7 @@ margin: 0px;
 }
 
 .FUCK {
+  color: orange;
   animation: glitch-h 64ms infinite;
 }
 
@@ -173,6 +175,13 @@ margin: 0px;
 }
 
 .page-updates p {
+  font-weight: bold;
+  padding: 5px;
+}
+
+.page-updates a:visited {
+  color: orange;
+  text-decoration: none;
   font-weight: bold;
   padding: 5px;
 }

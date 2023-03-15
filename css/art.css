@@ -12,7 +12,7 @@
 
     overflow-x: hidden;
     scrollbar-width: none;
-    height: 34em;
+    height: 2px;
 }
 
 .images :hover {
@@ -32,5 +32,28 @@ img {
 
     margin: 10px;
     margin-left: 2px;
+
+}
+
+.welcome-art {
+
+    flex-flow: column nowrap; 
+    width: 1000px;
+    left: 0;
+    height: 22em;
+    font-size: 18px;
+    margin: 2px;
+    text-align: left;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+}
+
+.welcome-art h1 {
+
+    letter-spacing: 2px;
+    font-weight: bolder;
+    text-decoration-thickness: 2px;
 
 }
