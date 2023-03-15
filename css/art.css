@@ -1,54 +1,5 @@
+image-box {
 
-
-.main-stuff {
-
-    display: flex;
-    flex-flow: row nowrap; 
-    width: fit-content;
-    height: auto;
-    
-}
-
-::-webkit-scrollbar {
-    display: none;
-  }
-
-.art {
-    
-    display: flex;
-    flex-flow: column;
-    flex-wrap: nowrap; 
-    align-items: baseline;
-    flex-grow: 1;
-    height: 45.5em;
-
-}
-
-.art h1 {
-
-    font-size: 33px;
-    letter-spacing: 2px;
-    font-weight: bolder;
-    text-decoration-thickness: 2px;
-
-}
-
-.images {
-
-    overflow-x: hidden;
-    scrollbar-width: none;
-    height: 34em;
-}
-
-.images :hover {
-
-    transition: filter 256ms;
-    filter: brightness(110%);
-}
-
-img {
-
-    width: 12em;
-    height: 12em;
+    flex: auto;
 
 }

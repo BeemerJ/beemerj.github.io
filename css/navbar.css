@@ -1,15 +1,10 @@
 /* N A V B A R   B U S S I N E S S */
 
 .navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 9.5em;
+  width: 11em;
   padding: 1.8em;
-  margin-right: 1em;
   padding-left: 0%;
   padding-top: 0%;
-  margin-top: 1em;
 }
 .navbar h2 {
   font-size: 18px;
@@ -28,12 +23,6 @@
   padding: 2px;
 }
 
-.navbar ul {
-
-  width: 7em;
-
-}
-
 .navbar a {
   text-decoration: none;
   color: inherit;
@@ -47,7 +36,7 @@
 }
 .navbar li:hover {
   color: whitesmoke;
-  border: #ff0f0f solid 1px;
+  outline: #ff0f0f solid 1px;
   text-decoration: line-through;
   animation: glitch-h 180ms infinite;
   /* add a random rotation effect when hovered inshallah */

@@ -1,194 +1,83 @@
-/*date of creation: 12th of October, 2022
-       originally created by: Cabbage Sorter
-       Analized a lil by Gio*/
-
-html {
-  margin: auto;
-  color-scheme: dark !important;
-  scrollbar-width: none;
-}
-
 ::-webkit-scrollbar {
-  display: none;
-}
-
-/* MAIN CONTENT AND STUFF */
-
-:root {
-  --background-color: black;
-  --background-image: url("../assets/videos/main_static.png");
-  font-family: "dotgothic16-regular";
-  text-shadow: black;
-  color: red;
+	display: none;
 }
 
 body {
-  margin: auto;
-  background-image: var(--background-image);
-  background-color: var(--background-color);
-
-  /* SET BACKROUND TO STRETCH */
-  /* background-size: cover; */
+	font-family: "dotgothic16-regular";
+	text-shadow: black;
+	color: red;
+	margin: 0;
+}
+.root-container {
+	position: fixed;
+	background-image: url("/assets/videos/main_static.png");
+	width: 100%;
+	height: 100%;
 }
 
-body h1 {
+html {
 
-  font-family: "dotgothic16-regular";
-  
+	scrollbar-width: none;
 }
 
-.main {
-  width: 1000px;
-  margin: 0 auto;
-  max-width: 100%;
+
+#root {
+	position: relative;
+	width: 1000px;
+	margin: 0 auto;
+	max-width: 100%;
+	height: 100%;
 }
 
-/* BUTTONS! */
-
-.buttons ul {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  padding: 0;
+.navbar-and-content {
+	position: absolute;
+	top: 90px;
+	bottom: 0;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  padding: 0;
+#page {
+	position: relative;
+	margin-top: 0;
+	padding-top: 0;
+	border: none;
+	width: 100%;
+	overflow-y: scroll;
 }
 
-.buttons a {
-  margin: 2px;
-  padding: 2px;
-  padding-bottom: 0;
-}
-
-.buttons a:hover {
-  filter: brightness(150%);
-}
-
-.buttons a:active {
-  filter: brightness(110%);
-}
-
-.main-content {
-  height: 42em;
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  /* animation: glitch-n 50ms infinite; */
-}
-
-/* Gio was Here  */
-/* The poes */
-
-/*M A I N  C O N T E N T  G R I D*/
 
 .flex-container {
-
   display: flex;
   margin: auto;
   align-items: stretch;
-  width: 1000px;
+  width: 2000px;
   flex-direction: row;
-
 }
 
-.page-about {
 
-  /* padding: 10px; */
-  /* display: flex; */
-  /* align-items: center; */
-  margin: 10px;
 
-}
-
-.welcome {
-  display: flex;
-  flex-flow: column nowrap; 
-  width: 1000px;
-  left: 0;
-  height: 26em;
-  font-size: 18px;
-  margin: 2px;
-  text-align: left;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.welcome h1 {
-  font-size: 33px;
-  letter-spacing: 2px;
-  font-weight: bolder;
-  text-decoration-thickness: 2px;
-}
-
-.use-pc {
-  font-size: 12px;
-  color: crimson;
-}
-
-.FUCK {
-  animation: glitch-h 64ms infinite;
-}
-
-.main-content a {
-  height: fit-content;
-  text-decoration: none;
-  color: darkred;
-}
-
-.page-updates {
-  display: flexbox;
-  width: 75%;
-  height: 400px;
-  font-family: "dotgothic16-regular";
-  scrollbar-width: none;
-  background-color: black;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 10px;
-  border: 2px solid red;
-}
-.page-updates li {
-  margin-right: 5em;
-  padding: 10px;
-  border-bottom: darkred 1px solid;
-}
-
-.page-updates li :hover {
-  transition: color 1024ms;
-  color: white;
-  animation: glitch-h 64ms infinite;
-}
-
-.page-updates p {
-  font-weight: bold;
-  padding: 5px;
-}
-
-.page-updates-heading {
-  color: orange;
-  border: red 1px solid;
-  text-align: center;
-  font-size: larger;
-  width: 24em;
-}
-
-sp {
-
-  padding-bottom: 24px;
+h1 { 
+	margin-top: 4px;
+	font-family: "dotgothic16-regular"; 
 
 }
+sp { 
+	
+	padding-bottom: 24px; 
 
-hr {
+}
+hr { 
+	
+	color: red; 
 
-  color: red;
+}
+a { 
+	
+	color: #48f; 
 
+}
+a:hover {
+
+	transition: color 1024ms;
+	color: white;
+	animation: glitch-h 64ms infinite;
 }
