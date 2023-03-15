@@ -1,37 +1,12 @@
-
-
-.main-stuff {
+.flex-container {
 
     display: flex;
-    flex-flow: row nowrap; 
-    width: fit-content;
-    height: auto;
-    
-}
-
-::-webkit-scrollbar {
-    display: none;
+    margin: auto;
+    align-items: stretch;
+    width: 1000px;
+    flex-direction: row;
+  
   }
-
-.art {
-    
-    display: flex;
-    flex-flow: column;
-    flex-wrap: nowrap; 
-    align-items: baseline;
-    flex-grow: 1;
-    height: 45.5em;
-
-}
-
-.art h1 {
-
-    font-size: 33px;
-    letter-spacing: 2px;
-    font-weight: bolder;
-    text-decoration-thickness: 2px;
-
-}
 
 .images {
 
@@ -50,5 +25,12 @@ img {
 
     width: 12em;
     height: 12em;
+
+}
+
+.title {
+
+    margin: 10px;
+    margin-left: 2px;
 
 }

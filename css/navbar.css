@@ -32,7 +32,7 @@
 .navbar li {
   list-style: square;
   list-style-image: url("/assets/videos/a_cigs.png");
-  margin-left: 0.2em;
+  margin-left: 5px;
   text-align: left;
   padding-top: 3px;
   padding-bottom: 3px;
