@@ -24,7 +24,7 @@
 
     transition-timing-function : ease-in-out;
     transition: filter 256ms, transform 256ms;
-    filter: brightness(150%);
+    filter: brightness(125%);
     transform: scale(1.025);
 }
 
