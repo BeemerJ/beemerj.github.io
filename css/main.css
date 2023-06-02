@@ -43,6 +43,7 @@ body h1 {
   width: 1000px;
   margin: 0 auto;
   max-width: 100%;
+  /* background-image: url("xxx"); */
 }
 
 .main h1{
@@ -119,7 +120,7 @@ margin: 0px;
   flex-flow: column nowrap; 
   width: 1000px;
   left: 0;
-  height: 22em;
+  height: fit-content;
   font-size: 18px;
   margin: 2px;
   text-align: left;
@@ -196,6 +197,12 @@ margin: 0px;
   margin-bottom: 2px;
 }
 
+.title {
+
+  position: fixed;
+
+}
+
 sp {
 
   padding-bottom: 24px;
@@ -205,5 +212,6 @@ sp {
 hr {
 
   color: red;
+  margin-left: 0;
 
 }

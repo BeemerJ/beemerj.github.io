@@ -10,15 +10,31 @@
 
 .images {
 
+    top: 13em;
+    height: 28.5em;
+    width: 42em;
+    position: absolute;
     overflow-x: hidden;
     scrollbar-width: none;
-    height: 2px;
+
+
 }
 
 .images :hover {
 
-    transition: filter 256ms;
-    filter: brightness(110%);
+    transition-timing-function : ease-in-out;
+    transition: filter 256ms, transform 256ms;
+    filter: brightness(150%);
+    transform: scale(1.025);
+}
+
+.images :not(:hover)  {
+
+    transition-timing-function : linear;
+    transition: filter 64ms, transform 64ms;
+    filter: brightness(100%);
+    transform: scale(1);
+
 }
 
 img {
@@ -32,6 +48,7 @@ img {
 
     margin: 10px;
     margin-left: 2px;
+    position: fixed;
 
 }
 
