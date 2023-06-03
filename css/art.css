@@ -12,7 +12,7 @@
 
     top: 13em;
     height: 28.5em;
-    width: 42em;
+    width: 47.5em;
     position: absolute;
     overflow-x: hidden;
     scrollbar-width: none;
@@ -39,8 +39,8 @@
 
 img {
 
-    width: 12em;
-    height: 12em;
+    width: 14.5em;
+    height: 14.5em;
 
 }
 
@@ -89,5 +89,11 @@ img {
 
     position: relative;
     right: 0;
+
+}
+
+hr {
+
+    width: 44.5em;
 
 }
