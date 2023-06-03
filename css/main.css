@@ -6,6 +6,8 @@ html {
   margin: auto;
   color-scheme: dark !important;
   scrollbar-width: none;
+  --background-color: black;
+  --background-image: url("../assets/videos/main_static.png");
   /* cursor: url("../assets/videos/a_cigs.png"), auto; */
 }
 
@@ -18,20 +20,17 @@ html {
 /* MAIN CONTENT AND STUFF */
 
 :root {
-  --background-color: black;
-  --background-image: url("../assets/videos/main_static.png");
   font-family: "dotgothic16-regular";
   text-shadow: black;
   color: red;
+  background-image: var(--background-image);
+  background-color: var(--background-color);
 }
 
 body {
-  margin: auto;
-  background-image: var(--background-image);
-  background-color: var(--background-color);
 
-  /* SET BACKROUND TO STRETCH */
-  /* background-size: cover; */
+  margin: auto;
+
 }
 
 body h1 {
@@ -43,7 +42,7 @@ body h1 {
 }
 
 .main {
-  width: 1000px;
+  width: 1000px;;
   margin: 0 auto;
   max-width: 100%;
   /* background-image: url("xxx"); */
@@ -51,6 +50,7 @@ body h1 {
 
 .main h1{
 
+padding-top: 0px;
 margin: 0px;
 
 }

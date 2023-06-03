@@ -1,0 +1,28 @@
+.mixcloud-flex {
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: stretch;
+    width: 1000px;
+
+}
+
+.iframe-box {
+
+    top: 8em;
+    height: 38.5em;
+    width: 1000px;
+    position: absolute;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    padding: 8px;
+
+}
+
+.footer {
+
+    position: relative;
+    right: 0;
+
+}

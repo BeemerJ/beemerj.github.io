@@ -1,13 +1,12 @@
 /* FOOTY BUSSINESS */
 
 .footer {
+  top: 22em;
+  right: 0;
   height: 20px;
   font-family: "dotgothic16-regular";
-  bottom: 2em;
-  right: 8em;
-  margin-bottom: 2em;
   text-align: right;
-  display:block;
+  display: block;
   flex-direction: column;
 }
 
