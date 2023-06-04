@@ -25,8 +25,17 @@
 }
 
 .silly-footer a:hover {
+  transition: animation 64ms;
+  animation: glitch-n 128ms;
   text-decoration: none;
-  color: white;
+  color: orange;
+}
+
+.silly-footer :not(a:hover) {
+
+  transition: color 512ms;
+  color: red;
+
 }
 
 .inspired {
@@ -44,7 +53,14 @@
 }
 
 .inspired a:hover {
+  transition: color 64ms, animation 64ms;
+  animation: glitch-n 64ms;
   font-weight: bold;
   text-decoration: none;
   color: green;
+}
+
+.inspired :not(:hover) {
+  transition: color 512ms;
+  color: crimson;
 }

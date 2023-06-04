@@ -7,8 +7,7 @@ html {
   color-scheme: dark !important;
   scrollbar-width: none;
   --background-color: black;
-  --background-image: url("../assets/videos/main_static.png");
-  /* cursor: url("../assets/videos/a_cigs.png"), auto; */
+  /* --background-image: url(""); */
 }
 
 ::-webkit-scrollbar {
@@ -23,8 +22,9 @@ html {
   font-family: "dotgothic16-regular";
   text-shadow: black;
   color: red;
-  background-image: var(--background-image);
+  /* background-image: var(--background-image); */
   background-color: var(--background-color);
+  
 }
 
 body {
@@ -78,11 +78,28 @@ margin: 0px;
 }
 
 .buttons a:hover {
+
   filter: brightness(150%);
+
 }
 
+.buttons :not(:hover) {
+
+  transition: filter 128ms;
+  filter: brightness(100%);
+
+}
+
+
 .buttons a:active {
-  filter: brightness(110%);
+
+  filter: brightness(115%);
+}
+
+.buttons :not(:active) {
+
+  filter: brightness(100%);
+
 }
 
 .main-content {
@@ -137,14 +154,22 @@ margin: 0px;
   text-decoration-thickness: 2px;
 }
 
+.skull {
+
+  animation: glitch-n 64ms infinite;
+
+}
+
 .use-pc {
   font-size: 14px;
   color: crimson;
 }
 
 .FUCK {
-  color: orange;
-  animation: glitch-h 64ms infinite;
+
+  letter-spacing: 10px;
+  font-size: medium;
+
 }
 
 .main-content a {
@@ -164,6 +189,7 @@ margin: 0px;
   padding: 10px;
   border: 2px solid red;
 }
+
 .page-updates li {
   margin-top: 2px;
   margin-right: 5em;
@@ -171,8 +197,15 @@ margin: 0px;
   border-bottom: darkred 1px solid;
 }
 
+.page-updates a {
+
+  color: orange;
+
+}
+
 .page-updates li :hover {
-  transition: color 1024ms;
+
+  transition: color 128ms;
   color: white;
   animation: glitch-h 64ms infinite;
 }

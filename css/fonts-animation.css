@@ -82,3 +82,9 @@ blink {
   animation: blink 1024ms step-start infinite;
   transition: none;
 }
+
+blink-short {
+
+  animation: blink 512ms step-start infinite;
+  transition: none;
+}

@@ -6,6 +6,37 @@
   padding-left: 0%;
   padding-top: 0%;
 }
+
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar li {
+  list-style: square;
+  list-style-image: url("/assets/videos/a_cigs.png");
+  margin-left: 5px;
+  text-align: left;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-transform: uppercase;
+}
+
+.navbar li:hover {
+
+  color: whitesmoke;
+  text-decoration: line-through;
+  animation: glitch-h 180ms infinite;
+
+}
+
+.navbar li:not(:hover) {
+  
+  transition: color 512ms;
+  color: red;
+
+}
+
 .navbar h2 {
   font-size: 18px;
   color: orange;
@@ -23,28 +54,6 @@
   padding: 5px;
 }
 
-
-.navbar a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.navbar li {
-  list-style: square;
-  list-style-image: url("/assets/videos/a_cigs.png");
-  margin-left: 5px;
-  text-align: left;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  text-transform: uppercase;
-}
-.navbar li:hover {
-  color: whitesmoke;
-  /* outline: #ff0f0f solid 1px; */
-  text-decoration: line-through;
-  animation: glitch-h 180ms infinite;
-  /* add a random rotation effect when hovered inshallah */
-}
 .navbar p {
   font-weight: bold;
 }

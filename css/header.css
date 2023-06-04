@@ -1,6 +1,7 @@
 /* H E A D E R   S H I T */
 
 .header {
+
     display: flex;
     flex-direction: row;
     margin-top: 0.25em;
@@ -15,18 +16,34 @@
     animation: glitch-h 128ms infinite;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: red;
+
   }
   
   .header span {
+
     color: orange;
     font-size: 56px;
+
   }
+
   .header span a {
+
     text-decoration: none;
     color: inherit;
+
   }
+
   .header span a:hover {
+
     transition: color 256ms;
     color: whitesmoke;
+
   }
   
+  .header span :not(a:hover) {
+
+    transition-timing-function: ease-out;
+    transition: color 512ms;
+    color: orange;
+    
+  }
