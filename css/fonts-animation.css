@@ -1,11 +1,4 @@
 @font-face {
-  font-family: "blackcasper-regular";
-  src: url("../assets/fonts/blackcasper-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "planetk-regular";
   src: url("../assets/fonts/planetk-webfont.woff") format("woff");
   font-weight: normal;
@@ -19,19 +12,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "estyle-regular";
-  src: url("../assets/fonts/estyle-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "zenantique-regular";
-  src: url("../assets/fonts/zenantique-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 
 @keyframes glitch-h {
   0% {
