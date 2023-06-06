@@ -88,3 +88,9 @@ blink-short {
   animation: blink 512ms step-start infinite;
   transition: none;
 }
+
+blink-fade {
+
+  animation: blink 768ms infinite;
+  transition: linear;
+}

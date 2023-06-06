@@ -161,8 +161,18 @@ margin: 0px;
 }
 
 .use-pc {
-  font-size: 14px;
-  color: crimson;
+  font-size: 15px;
+  color: red;
+}
+
+.warning-align {
+
+  text-align: right;
+  width: 800px;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
 }
 
 .FUCK {
