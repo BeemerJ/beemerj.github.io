@@ -21,8 +21,7 @@
 }
 
 .footer {
-
     position: relative;
-    right: 0;
-
-}
+    top: 26em;
+    text-align: right;
+  }                      

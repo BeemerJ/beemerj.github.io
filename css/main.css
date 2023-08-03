@@ -3,11 +3,12 @@
        Analized a lil by Gio*/
 
 html {
+  height: 100%;
   margin: auto;
   color-scheme: dark !important;
   scrollbar-width: none;
   --background-color: black;
-  /* --background-image: url(""); */
+  --background-image: url("https://ia601903.us.archive.org/4/items/rotatingfood2/1596596005441.gif");
 }
 
 ::-webkit-scrollbar {
@@ -22,14 +23,19 @@ html {
   font-family: "dotgothic16-regular";
   text-shadow: black;
   color: red;
-  /* background-image: var(--background-image); */
   background-color: var(--background-color);
+  background-image: var(--background-image);
+  background-size: 1em;
+  width: fit-content;
   
 }
 
 body {
 
   margin: auto;
+  height: 100%;
+  width: 1280px;
+  background-color: var(--background-color);
 
 }
 
@@ -45,7 +51,6 @@ body h1 {
   width: 1000px;;
   margin: 0 auto;
   max-width: 100%;
-  /* background-image: url("xxx"); */
 }
 
 .main h1{
