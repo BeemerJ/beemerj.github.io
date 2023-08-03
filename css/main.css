@@ -265,3 +265,16 @@ hr {
   margin-left: 0;
 
 }
+
+.wide-font {
+
+  letter-spacing: 6px;
+  
+}
+
+.wide-font-bold {
+
+  letter-spacing: 8px;
+  font-weight: bolder;
+  
+}
