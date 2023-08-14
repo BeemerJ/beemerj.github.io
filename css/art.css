@@ -10,13 +10,12 @@
 
 .images {
 
-    top: 13em;
-    height: 28.5em;
-    width: 47.5em;
+    margin-top: 6.5em;
+    height: 30.5em;
+    width: 50em;
     position: absolute;
     overflow-x: hidden;
-    scrollbar-width: none;
-
+    scrollbar-width: thin;
 
 }
 
@@ -39,6 +38,7 @@
 
 img {
 
+    padding: 0.2em;
     width: 14.5em;
     height: 14.5em;
 
@@ -47,23 +47,21 @@ img {
 .title {
 
     margin: 10px;
-    margin-left: 2px;
+    margin-left: 3px;
     position: fixed;
 
 }
 
 .welcome-art {
 
-    flex-flow: column nowrap; 
     width: 1000px;
-    left: 0;
-    height: 22em;
     font-size: 18px;
     margin: 2px;
     text-align: left;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    height: 3em;
 
 }
 

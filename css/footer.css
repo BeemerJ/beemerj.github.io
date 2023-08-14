@@ -45,7 +45,7 @@
   padding: 1px;
   font-weight: bold;
   text-decoration: none;
-  color: crimson;
+  color: green;
 }
 
 .inspired a:hover {
@@ -53,10 +53,10 @@
   animation: glitch-n 64ms;
   font-weight: bold;
   text-decoration: none;
-  color: green;
+  color: orange;
 }
 
 .inspired :not(:hover) {
   transition: color 512ms;
-  color: crimson;
+  color: green;
 }
