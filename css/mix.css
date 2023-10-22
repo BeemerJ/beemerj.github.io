@@ -1,27 +1,23 @@
-.mixcloud-flex {
-
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    align-items: stretch;
-    width: 1000px;
-
-}
-
-.iframe-box {
-
-    top: 8em;
-    height: 38.5em;
-    width: 1000px;
-    position: absolute;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    padding: 8px;
-
-}
-
 .footer {
     position: relative;
-    top: 26em;
+    top: 42em;
     text-align: right;
+    height: fit-content;
   }                      
+
+  .mixes-list {
+    
+    margin-top: 1em;
+    left: 42em;
+    height: 40em;
+    padding-top: 2px;
+    width: 50em;
+    position: absolute;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+
+  }
+
+  .navbar {
+    width: 10em;
+  }

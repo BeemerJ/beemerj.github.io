@@ -2,7 +2,7 @@ class AudioPlayer {
 	constructor(element) {
 		this.element = element;
 		this.audio = element.querySelector('audio');
-		this.title = element.querySelector('.title');
+		this.title = element.querySelector('.mix-title');
 		this.seekBar = element.querySelector('.progress-bar');
 		this.playPauseButton = element.querySelector('.play-pause-button');
 		this.currentTimeDisplay = element.querySelector('.current-time');
@@ -29,8 +29,8 @@ class AudioPlayer {
 
 	setStatusIcon(image) {
 		if(image == undefined)
-			image = this.audio.paused ? '..assets/icons/play.png' : '..assets/icons/pause.png';
-		this.playPauseButton.children[0].setAttribute('src', image);
+			image = this.audio.paused ? 'play.png' : 'pause.png';
+		this.playPauseButton.children[0].setAttribute('src', '/assets/icons/' + image);
 	}
 
 	static create(name, url) {
@@ -40,7 +40,7 @@ class AudioPlayer {
 		audio.appendChild(source);
 
 		const title = document.createElement('div');
-		title.classList.add('title');
+		title.classList.add('mix-title');
 		title.innerText = name;
 
 		const seekBar = document.createElement('div');
@@ -59,13 +59,13 @@ class AudioPlayer {
 		seekBar.appendChild(durationDisplay);
 
 		const playIcon = document.createElement('img');
-		playIcon.setAttribute('src', '..assets/icons/play.png');
+		playIcon.setAttribute('src', '/assets/icons/play.png');
 		const playPauseButton = document.createElement('button');
 		playPauseButton.classList.add('play-pause-button');
 		playPauseButton.appendChild(playIcon);
 		
 		const downloadIcon = document.createElement('img');
-		downloadIcon.setAttribute('src', '..assets/icons/download.png');
+		downloadIcon.setAttribute('src', '/assets/icons/download.png');
 		const downloadButton = document.createElement('a');
 		downloadButton.classList.add('button', 'download-button');
 		downloadButton.setAttribute('href', url);
