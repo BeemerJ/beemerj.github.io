@@ -1,23 +1,7 @@
-.footer {
-    position: relative;
-    top: 42em;
-    text-align: right;
-    height: fit-content;
-  }                      
 
-  .mixes-list {
-    
-    margin-top: 1em;
-    left: 42em;
-    height: 40em;
-    padding-top: 2px;
-    width: 50em;
-    position: absolute;
-    overflow-x: hidden;
-    scrollbar-width: thin;
 
-  }
+body {
 
-  .navbar {
-    width: 10em;
-  }
+  background-image: url(../assets/images/mix-background.png);
+
+}
