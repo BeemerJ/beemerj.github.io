@@ -4,6 +4,7 @@
     margin: auto;
     align-items: stretch;
     width: 1000px;
+    height: 720px;
     flex-direction: row;
   
   }

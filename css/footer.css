@@ -1,9 +1,8 @@
 /* FOOTY BUSSINESS */
 
 .footer {
-  position: absolute;
-  bottom: 1em;
-  right: 28.7em;
+  position: relative;
+  bottom: -25px;
   text-align: right;
 }
 
