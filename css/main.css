@@ -107,7 +107,7 @@ margin: 0px;
 }
 
 .main-content {
-  height: 42em;
+  height: 720px;
   display: flex;
   flex-direction: column;
   width: 1000px;
@@ -140,14 +140,26 @@ margin: 0px;
 
 }
 
-#construction {
-  display: inline;
-  position: fixed;
-  right: 25vw;
-  top: 0;
+.body-text {
+  display: flex;
+  width: 1000px;
+}
+
+#body-p {
+  width: 550px;
+
+}
+
+#body-img {
+  display: flex;
+  position: relative;
+  right: -50px;
+  top: 25px;
   z-index: 5;
   width: 200px;
   height: 200px;
+  filter: hue-rotate(90deg);
+  animation: glitch-h 128ms infinite;
 }
 
 .welcome {
@@ -173,7 +185,7 @@ margin: 0px;
 }
 
 .use-pc {
-  font-size: 15px;
+  font-size: 1rem;
   color: red;
 }
 
@@ -204,7 +216,6 @@ margin: 0px;
   display: flexbox;
   height: 600px;
   font-family: "dotgothic16-regular";
-  scrollbar-width: none;
   background-color: black;
   overflow-y: auto;
   overflow-x: hidden;
@@ -214,9 +225,14 @@ margin: 0px;
 
 .page-updates li {
   margin-top: 2px;
-  margin-right: 5em;
   padding: 10px;
-  border-bottom: darkred 1px solid;
+  border-bottom:1px solid darkred ;
+}
+
+.page-updates ul {
+  margin: 0px;
+  margin-left: 1em;
+  padding: 10px;
 }
 
 .page-updates a {
