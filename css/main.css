@@ -5,6 +5,7 @@
 html {
   height: 100%;
   margin: auto;
+  overflow: hidden;
   color-scheme: dark !important;
   scrollbar-width: none;
   --background-color: black;
@@ -33,9 +34,8 @@ html {
 body {
   margin: auto;
   height: 100%;
-  width: 1280px;
+  width: 1180px;
   background-color: var(--background-color);
-
 }
 
 body h1 {
@@ -140,15 +140,23 @@ margin: 0px;
 
 }
 
+#construction {
+  display: inline;
+  position: fixed;
+  right: 25vw;
+  top: 0;
+  z-index: 5;
+  width: 200px;
+  height: 200px;
+}
+
 .welcome {
-  flex-flow: column nowrap; 
-  width: 1000px;
+  width: 550px;
   left: 0;
   height: fit-content;
   font-size: 18px;
   margin: 2px;
   text-align: left;
-  overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -260,6 +268,7 @@ sp {
 
 hr {
 
+  border: 1px solid red;
   color: red;
   margin-left: 0;
 
