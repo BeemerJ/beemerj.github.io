@@ -6,7 +6,7 @@
     width: 1000px;
     height: 720px;
     flex-direction: row;
-  
+
   }
 
 .images {
@@ -39,9 +39,10 @@
 
 img {
 
-    padding: 0.2em;
+    margin: 0.2em;
     width: 14.5em;
     height: 14.5em;
+    border: 1px solid red;
 
 }
 

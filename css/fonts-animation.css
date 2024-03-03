@@ -77,6 +77,15 @@ gs {
   }
 }
 
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
 blink {
 
   animation: blink 1024ms step-start infinite;

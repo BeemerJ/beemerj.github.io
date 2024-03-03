@@ -34,7 +34,6 @@ body {
   width: 1180px;
   background-color: var(--background-color);
   overflow-y: scroll;
-  padding-bottom: 24px;
 }
 
 body h1 {
@@ -49,6 +48,7 @@ body h1 {
   width: 1000px;;
   margin: 0 auto;
   max-width: 100%;
+  padding-bottom: 24px;
 }
 
 .main h1{
