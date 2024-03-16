@@ -40,8 +40,11 @@ games.sort((a, b) => {
     return 0;
 });
 
+// Log the total number of games and the metadata in an array...
+console.log("Total Games: " + games.length);
 console.log(games);
 
+// Main function to display games...
 function generateGames() {
     const contentDiv = document.getElementById("content");
     games.forEach(game => {
@@ -67,6 +70,7 @@ function generateGames() {
     });
 }
 
+// Function for hiding games with the buttons...
 function hideGames() {
     const oButton = document.getElementById("ongoingBtn");
     const cButton = document.getElementById("completedBtn");
