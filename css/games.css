@@ -1,36 +1,70 @@
+body {
+    width: 80vw;
+}
+
 #heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     padding: 1em;
-    width: 40%;
     margin: auto;
-    margin-bottom: 2em;
-    cursor: default;
+    cursor: pointer;
+    width: fit-content;
 }
 
 
 #heading a {
     text-transform: uppercase;
     text-decoration: none;
-    color: red;
+    color: orange;
     font-weight: bold;
 }
 
-#heading a:hover {
+#title {
+    top: 1.2em;
+    padding: 8px;
+    padding-bottom: 4px;
+    padding-right: 0.8em;
+    padding-left: 0.8em;
+    text-transform: uppercase;
+    font-family: "planetk-regular";
+    font-size: 3.5em;
+    letter-spacing: 12px;
+    color: orange;
+    border: 2px solid red;
+    border-radius: 16px;
+}
+
+#title a:hover {
     color: white;
 }
 
-#title {
-    text-transform: uppercase;
-    font-family: "planetk-regular";
-    font-size: 3em;
+hr {
+    display: none; /* I dont like the way it looks */
+    margin: auto;
+    border-color: darkred;
+    width: 60%;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#buttons button {
+    width: 6.8em;
+    padding: 0.8em;
+    margin: 0.4em;
+    color: white;
+    background-color: black;
+    border: 2px solid red;
+    border-radius: 16px;
+}
+#buttons button:hover {
     color: orange;
 }
 
-#title-comment{
-    position: relative;
-    top: 1em;
-    padding: 0.6em;
-}
 
 #content {
     display: flex;
@@ -39,8 +73,10 @@
     justify-content: center;
     width: fit-content;
     margin: auto;
-    padding: 0.4em;
-    border: 1px solid red;
+    margin-top: 1em;
+    margin-left: 2.4em;
+    margin-right: 2.4em;
+    /* animation: fadeIn 2056ms; */
 }
 
 #content img {
@@ -48,6 +84,7 @@
     max-width: 160px;
     height: auto;
     border: 2px solid orange;
+    border-radius: 16px;
     transition: scale 128ms ease-out;
 }
 
@@ -60,6 +97,14 @@
     display: inline-block;
 }
 
-.doneEffect {
-    filter: grayscale();
+.ongoingEffect {
+    border-color: greenyellow !important;
+}
+
+.completedEffect {
+    border-color: white !important;
+}
+
+.pendingEffect {
+    border-color: orange !important;
 }
