@@ -4,25 +4,25 @@ const p = []; // pending...
 
 // Add games here...
 const games = [
-    { status: p, name: "Postal", image: "https://cdn2.steamgriddb.com/thumb/05b5f43841bf592510e90dffa4bf2177.jpg" },
-    { status: p, name: "Postal 2", image: "https://cdn2.steamgriddb.com/thumb/e568b8f6bbb04a676a4f9f7dd79dc79f.jpg" },
-    { status: o, name: "System Shock", image: "https://cdn2.steamgriddb.com/thumb/69a51eb82d1e05b00d1fcc0c56fdd7de.jpg" },
-    { status: o, name: "System Shock 2", image: "https://cdn2.steamgriddb.com/thumb/7a9114855a255f1dcf1abaae60abb86e.jpg" },
-    { status: p, name: "Thief Gold", image: "https://cdn2.steamgriddb.com/thumb/b6a1d13a42311ce87d15f5f7924f6ae8.jpg" },
-    { status: p, name: "Thief: The Black Parade", image: "https://cdn2.steamgriddb.com/thumb/1c4aacf677578cfe11cfb1960f5f1af2.jpg" },
-    { status: p, name: "Silent Hill 2", image: "https://cdn2.steamgriddb.com/thumb/7a61d7f8bdd6d6b83fc4010eaae95a30.jpg" },
-    { status: p, name: "Resident Evil", image: "https://cdn2.steamgriddb.com/thumb/8e1dada1c500c6111f57857095517a28.jpg" },
-    { status: p, name: "Resident Evil 2", image: "https://cdn2.steamgriddb.com/thumb/0dcc410f031086c33eb571e62007951b.jpg" },
-    { status: p, name: "Eviternity II", image: "https://cdn2.steamgriddb.com/thumb/5656595700378abbe8ef6b57aead16de.jpg" },
-    { status: p, name: "Quake: Arcane Dimensions", image: "https://cdn2.steamgriddb.com/thumb/508efbb5ec58a84b0b668bd3111cc60c.jpg" },
-    { status: p, name: "SimCity 3000", image: "https://cdn2.steamgriddb.com/thumb/eb44ca5ed97e5c4d9daf0acc372be261.jpg" },
-    { status: p, name: "Midnight Club 3", image: "https://cdn2.steamgriddb.com/thumb/53fc08a6421fcd803b6f7c6798241bf5.jpg" },
-    { status: p, name: "Halo: Combat Evolved", image: "https://cdn2.steamgriddb.com/thumb/477aaa93492109be31a9c22df598c952.jpg" },
-    { status: p, name: "Super Mario Bros.", image: "https://cdn2.steamgriddb.com/thumb/75f29e87a3923053bde594667a5e33d3.jpg" },
-    { status: p, name: "Super Mario Bros. 3", image: "https://cdn2.steamgriddb.com/thumb/4884a0550425e7b5d8428cb8996f2c11.jpg" },
-    { status: p, name: "Super Mario World", image: "https://cdn2.steamgriddb.com/thumb/2bf887cd37fa5ba4ce0ba9713013a4f7.jpg" },
-    { status: p, name: "The Legend of Zelda: A Link to the Past", image: "https://cdn2.steamgriddb.com/thumb/7edaadde50012f0860952123564eb1ba.jpg" },
-    { status: p, name: "The Legend of Zelda: The Minish Cap", image: "https://cdn2.steamgriddb.com/thumb/a687f78b9842c87225e74921765feb1b.jpg" },
+    { status: p, name: "Postal", info: "https://www.igdb.com/games/postal", image: "https://cdn2.steamgriddb.com/thumb/05b5f43841bf592510e90dffa4bf2177.jpg" },
+    { status: p, name: "Postal 2", info: "https://www.igdb.com/games/postal-2", image: "https://cdn2.steamgriddb.com/thumb/e568b8f6bbb04a676a4f9f7dd79dc79f.jpg" },
+    { status: p, name: "System Shock", info: "https://www.igdb.com/games/system-shock", image: "https://cdn2.steamgriddb.com/thumb/69a51eb82d1e05b00d1fcc0c56fdd7de.jpg" },
+    { status: p, name: "System Shock 2", info: "https://www.igdb.com/games/system-shock-2", image: "https://cdn2.steamgriddb.com/thumb/7a9114855a255f1dcf1abaae60abb86e.jpg" },
+    { status: p, name: "Thief Gold", info: "https://www.igdb.com/games/thief-gold", image: "https://cdn2.steamgriddb.com/thumb/b6a1d13a42311ce87d15f5f7924f6ae8.jpg" },
+    { status: p, name: "Thief: The Black Parade", info: "https://www.igdb.com/games/thief-the-black-parade", image: "https://cdn2.steamgriddb.com/thumb/1c4aacf677578cfe11cfb1960f5f1af2.jpg" },
+    { status: p, name: "Silent Hill 2", info: "https://www.igdb.com/games/silent-hill-2", image: "https://cdn2.steamgriddb.com/thumb/7a61d7f8bdd6d6b83fc4010eaae95a30.jpg" },
+    { status: p, name: "Resident Evil", info: "https://www.igdb.com/games/resident-evil", image: "https://cdn2.steamgriddb.com/thumb/8e1dada1c500c6111f57857095517a28.jpg" },
+    { status: p, name: "Resident Evil 2", info: "https://www.igdb.com/games/resident-evil-2", image: "https://cdn2.steamgriddb.com/thumb/0dcc410f031086c33eb571e62007951b.jpg" },
+    { status: p, name: "Eviternity II", info: "https://www.igdb.com/games/eviternity-ii", image: "https://cdn2.steamgriddb.com/thumb/5656595700378abbe8ef6b57aead16de.jpg" },
+    { status: p, name: "Quake: Arcane Dimensions", info: "https://www.igdb.com/games/arcane-dimensions", image: "https://cdn2.steamgriddb.com/thumb/508efbb5ec58a84b0b668bd3111cc60c.jpg" },
+    { status: p, name: "SimCity 3000", info: "https://www.igdb.com/games/simcity-3000", image: "https://cdn2.steamgriddb.com/thumb/eb44ca5ed97e5c4d9daf0acc372be261.jpg" },
+    { status: p, name: "Midnight Club 3", info: "https://www.igdb.com/games/midnight-club-3-dub-edition", image: "https://cdn2.steamgriddb.com/thumb/53fc08a6421fcd803b6f7c6798241bf5.jpg" },
+    { status: p, name: "Halo: Combat Evolved", info: "https://www.igdb.com/games/halo-combat-evolved", image: "https://cdn2.steamgriddb.com/thumb/477aaa93492109be31a9c22df598c952.jpg" },
+    { status: p, name: "Super Mario Bros.", info: "https://www.igdb.com/games/super-mario-bros", image: "https://cdn2.steamgriddb.com/thumb/75f29e87a3923053bde594667a5e33d3.jpg" },
+    { status: p, name: "Super Mario Bros. 3", info: "https://www.igdb.com/games/super-mario-bros-3", image: "https://cdn2.steamgriddb.com/thumb/4884a0550425e7b5d8428cb8996f2c11.jpg" },
+    { status: p, name: "Super Mario World", info: "https://www.igdb.com/games/super-mario-world", image: "https://cdn2.steamgriddb.com/thumb/2bf887cd37fa5ba4ce0ba9713013a4f7.jpg" },
+    { status: p, name: "The Legend of Zelda: A Link to the Past", info: "https://www.igdb.com/games/the-legend-of-zelda-a-link-to-the-past", image: "https://cdn2.steamgriddb.com/thumb/7edaadde50012f0860952123564eb1ba.jpg" },
+    { status: p, name: "The Legend of Zelda: The Minish Cap", info: "https://www.igdb.com/games/the-legend-of-zelda-the-minish-cap", image: "https://cdn2.steamgriddb.com/thumb/a687f78b9842c87225e74921765feb1b.jpg" },
 
 ];
 
@@ -47,13 +47,17 @@ console.log(games);
 // Main function to display games...
 function generateGames() {
     const contentDiv = document.getElementById("content");
-    games.forEach(game => {
+    games.forEach((game, index) => {
         const gameDiv = document.createElement("div");
         gameDiv.classList.add("game");
+        gameDiv.id = "game_" + index; // Unique identifier for each game
+
+        const gameInfo = document.createElement("a");
+        gameInfo.href = game.info;
 
         const gameImage = document.createElement("img");
-        gameImage.src = game.image; // Set the image to the games.image
-        gameImage.alt = game.name; // Set alt text to game name
+        gameImage.src = game.image;
+        gameImage.alt = game.name;
 
         if (game.status === o) {
             gameImage.classList.add("ongoingEffect");
@@ -65,7 +69,8 @@ function generateGames() {
             gameImage.classList.add("pendingEffect");
         }
 
-        gameDiv.appendChild(gameImage);
+        gameInfo.appendChild(gameImage);
+        gameDiv.appendChild(gameInfo);
         contentDiv.appendChild(gameDiv);
     });
 }

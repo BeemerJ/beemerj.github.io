@@ -63,6 +63,7 @@ hr {
 }
 #buttons button:hover {
     color: orange;
+    cursor: pointer;
 }
 
 
@@ -77,6 +78,10 @@ hr {
     /* animation: fadeIn 2056ms; */
 }
 
+#content a {
+    cursor: default;
+}
+
 #content img {
     padding: 0.4em;
     margin: 1em;
@@ -84,11 +89,14 @@ hr {
     height: auto;
     border: 2px solid orange;
     border-radius: 16px;
-    transition: scale 128ms ease-out;
+    cursor: pointer;
+    filter: brightness(90%);
+    transition: scale 128ms ease-out, filter 128ms ease-out;
 }
 
 #content img:hover {
     scale: 108%;
+    filter: brightness(110%);
 }
 
 .game {
