@@ -90,13 +90,13 @@ hr {
     border: 2px solid orange;
     border-radius: 16px;
     cursor: pointer;
-    filter: brightness(90%);
+    filter: saturate(90%);
     transition: scale 128ms ease-out, filter 128ms ease-out;
 }
 
 #content img:hover {
     scale: 108%;
-    filter: brightness(110%);
+    filter: saturate(125%);
 }
 
 .game {
