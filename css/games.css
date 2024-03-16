@@ -30,11 +30,13 @@ body {
     width: auto;
     border-radius: 50%;
     cursor: pointer;
-    transition: scale 64ms linear;
+    filter: grayscale();
+    transition: scale 64ms linear, filter 64ms linear;
 }
 
 #logo img:hover {
     scale: 105%;
+    filter: grayscale(0%);
 }
 
 hr {
