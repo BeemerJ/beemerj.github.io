@@ -128,7 +128,7 @@ function hideGames() {
     aButton.click(); // Set "All" as the default
 }
 
-// Calls the funtions on window load...
+// Calls all funtions on window load...
 window.onload = function () {
     generateGames();
     hideGames();
