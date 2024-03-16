@@ -11,33 +11,30 @@ body {
     margin: auto;
     cursor: pointer;
     width: fit-content;
+    cursor: default;
 }
 
 
-#heading a {
-    text-transform: uppercase;
-    text-decoration: none;
-    color: orange;
-    font-weight: bold;
-}
-
-#title {
+#logo {
+    height: 4.5em;
+    width: 4.5em;
     top: 1.2em;
     padding: 8px;
-    padding-bottom: 4px;
-    padding-right: 0.8em;
-    padding-left: 0.8em;
-    text-transform: uppercase;
-    font-family: "planetk-regular";
-    font-size: 3.5em;
-    letter-spacing: 12px;
-    color: orange;
-    border: 2px solid red;
-    border-radius: 16px;
+    border: 2px solid orange;
+    border-radius: 50%;
+    cursor: default;
 }
 
-#title a:hover {
-    color: white;
+#logo img {
+    height: 4em;
+    width: auto;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: scale 64ms linear;
+}
+
+#logo img:hover {
+    scale: 105%;
 }
 
 hr {
@@ -61,6 +58,7 @@ hr {
     border: 2px solid red;
     border-radius: 16px;
 }
+
 #buttons button:hover {
     color: orange;
     cursor: pointer;
