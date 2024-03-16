@@ -80,6 +80,7 @@ hr {
 }
 
 #content img {
+    padding: 0.4em;
     margin: 1em;
     max-width: 160px;
     height: auto;
