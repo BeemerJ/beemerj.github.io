@@ -32,6 +32,9 @@ const games = [
     { status: p, name: "Amnesia: The Dark Descent", info: "https://www.igdb.com/games/amnesia-the-dark-descent", image: "https://cdn2.steamgriddb.com/thumb/56ac6061c5646a646d983c9314dad956.jpg" },
     { status: p, name: "Penumbra: Overture", info: "https://www.igdb.com/games/penumbra-overture", image: "https://cdn2.steamgriddb.com/thumb/abefb9fa9a298bd8919be8ac056871b6.jpg" },
     { status: p, name: "Burnout Revenge", info: "https://www.igdb.com/games/burnout-revenge", image: "https://cdn2.steamgriddb.com/thumb/0066a9752d9cb8aaa8e517c703c5ad1f.png" },
+    { status: p, name: "Blood: Death Wish", info: "https://www.igdb.com/games/blood", image: "https://cdn2.steamgriddb.com/thumb/9b76e7ef3ee6dc4e92daf8c5c0a618c3.jpg" },
+    { status: p, name: "Ion Fury", info: "https://www.igdb.com/games/ion-fury", image: "https://cdn2.steamgriddb.com/thumb/175e0b2d218c15ff16379ace7ca2341a.jpg" },
+    { status: p, name: "Cataclysm: Dark Days Ahead", info: "https://www.igdb.com/games/cataclysm-dark-days-ahead", image: "https://cdn2.steamgriddb.com/thumb/1c5d43a0f69492a369dba76354a3fe52.jpg" },
 
 ];
 

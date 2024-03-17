@@ -1,6 +1,6 @@
 
 body {
-    width: 100vw;
+    width: 92vw;
 }
 
 #main {
@@ -85,7 +85,6 @@ hr {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 98vw;
     margin: auto;
     margin-top: 1em;
     /* animation: fadeIn 2056ms; */
