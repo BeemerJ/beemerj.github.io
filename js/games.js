@@ -23,6 +23,15 @@ const games = [
     { status: p, name: "Super Mario World", info: "https://www.igdb.com/games/super-mario-world", image: "https://cdn2.steamgriddb.com/thumb/2bf887cd37fa5ba4ce0ba9713013a4f7.jpg" },
     { status: p, name: "The Legend of Zelda: A Link to the Past", info: "https://www.igdb.com/games/the-legend-of-zelda-a-link-to-the-past", image: "https://cdn2.steamgriddb.com/thumb/7edaadde50012f0860952123564eb1ba.jpg" },
     { status: p, name: "The Legend of Zelda: The Minish Cap", info: "https://www.igdb.com/games/the-legend-of-zelda-the-minish-cap", image: "https://cdn2.steamgriddb.com/thumb/a687f78b9842c87225e74921765feb1b.jpg" },
+    { status: p, name: "Arx Fatalis", info: "https://www.igdb.com/games/arx-fatalis", image: "https://cdn2.steamgriddb.com/thumb/52158d6f6f2a8228033b2dd5924de7f7.jpg" },
+    { status: p, name: "Option Tuning Car Battle Spec-R", info: "https://www.igdb.com/games/option-tuning-car-battle-spec-r", image: "https://i.pinimg.com/736x/7b/5c/77/7b5c77a2ceef6add4cce73bee3afe879.jpg" }, // Had to make my own cover here...
+    { status: p, name: "Metroid Fusion", info: "https://www.igdb.com/games/metroid-fusion", image: "https://cdn2.steamgriddb.com/thumb/1883a19a4983372e803beab695ee77f1.jpg" },
+    { status: p, name: "Super Metroid", info: "https://www.igdb.com/games/super-metroid", image: "https://cdn2.steamgriddb.com/thumb/167248f62dbaf61aff4b7d1be9439282.jpg" },
+    { status: p, name: "Castlevania: Symphony of the Night", info: "https://www.igdb.com/games/castlevania-symphony-of-the-night", image: "https://cdn2.steamgriddb.com/thumb/07f1de397293d02ea1ee1a1be4434dd5.jpg" },
+    { status: p, name: "Pathologic", info: "https://www.igdb.com/games/pathologic", image: "https://cdn2.steamgriddb.com/thumb/d0746052c56b31772fa81af9b31a9c19.jpg" },
+    { status: p, name: "Amnesia: The Dark Descent", info: "https://www.igdb.com/games/amnesia-the-dark-descent", image: "https://cdn2.steamgriddb.com/thumb/56ac6061c5646a646d983c9314dad956.jpg" },
+    { status: p, name: "Penumbra: Overture", info: "https://www.igdb.com/games/penumbra-overture", image: "https://cdn2.steamgriddb.com/thumb/abefb9fa9a298bd8919be8ac056871b6.jpg" },
+    { status: p, name: "Burnout Revenge", info: "https://www.igdb.com/games/burnout-revenge", image: "https://cdn2.steamgriddb.com/thumb/0066a9752d9cb8aaa8e517c703c5ad1f.png" },
 
 ];
 

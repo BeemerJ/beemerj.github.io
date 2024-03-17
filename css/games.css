@@ -16,8 +16,8 @@ body {
 
 
 #logo {
-    height: 4.5em;
-    width: 4.5em;
+    height: 5.2em;
+    width: 5.2em;
     top: 1.2em;
     padding: 8px;
     border: 2px solid orange;
@@ -26,17 +26,15 @@ body {
 }
 
 #logo img {
-    height: 4em;
+    height: 5em;
     width: auto;
     border-radius: 50%;
     cursor: pointer;
-    filter: grayscale();
-    transition: scale 64ms linear, filter 64ms linear;
+    transition: scale 64ms ease-out;
 }
 
 #logo img:hover {
     scale: 105%;
-    filter: grayscale(0%);
 }
 
 hr {
