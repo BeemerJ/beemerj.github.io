@@ -71,6 +71,11 @@ function generateGames() {
         gameImage.src = game.image;
         gameImage.alt = game.name;
 
+        // Show image after it's been loaded
+        gameImage.addEventListener("load", function() {
+            gameImage.style.opacity   = "1";
+        });
+
         if (game.status === o) {
             gameImage.classList.add("ongoingEffect");
         }
