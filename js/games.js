@@ -35,7 +35,7 @@ const games = [
     { status: p, name: "Blood: Death Wish", info: "https://www.igdb.com/games/blood", image: "https://cdn2.steamgriddb.com/thumb/9b76e7ef3ee6dc4e92daf8c5c0a618c3.jpg" },
     { status: p, name: "Ion Fury", info: "https://www.igdb.com/games/ion-fury", image: "https://cdn2.steamgriddb.com/thumb/175e0b2d218c15ff16379ace7ca2341a.jpg" },
     { status: p, name: "Cataclysm: Dark Days Ahead", info: "https://www.igdb.com/games/cataclysm-dark-days-ahead", image: "https://cdn2.steamgriddb.com/thumb/1c5d43a0f69492a369dba76354a3fe52.jpg" },
-    { status: p, name: "The Elder Scrolls II: Daggerfall", info: "https://www.igdb.com/games/the-elder-scrolls-ii-daggerfall", image: "https://cdn2.steamgriddb.com/thumb/2fe2186da00dfaa4bb4829cd7655ea0d.jpg" },
+    { status: p, name: "The Elder Scrolls II: Daggerfall", info: "https://www.igdb.com/games/the-elder-scrolls-ii-daggerfall", image: "https://cdn2.steamgriddb.com/thumb/ee479472fe293167d12bb7d76774303b.jpg" },
 
 ];
 
