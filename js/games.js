@@ -6,7 +6,7 @@ const p = []; // pending...
 const games = [
     { status: p, name: "Postal", info: "https://www.igdb.com/games/postal", image: "https://cdn2.steamgriddb.com/thumb/05b5f43841bf592510e90dffa4bf2177.jpg" },
     { status: p, name: "Postal 2", info: "https://www.igdb.com/games/postal-2", image: "https://cdn2.steamgriddb.com/thumb/e568b8f6bbb04a676a4f9f7dd79dc79f.jpg" },
-    { status: p, name: "System Shock", info: "https://www.igdb.com/games/system-shock", image: "https://cdn2.steamgriddb.com/thumb/69a51eb82d1e05b00d1fcc0c56fdd7de.jpg" },
+    { status: o, name: "System Shock", info: "https://www.igdb.com/games/system-shock", image: "https://cdn2.steamgriddb.com/thumb/69a51eb82d1e05b00d1fcc0c56fdd7de.jpg" },
     { status: p, name: "System Shock 2", info: "https://www.igdb.com/games/system-shock-2", image: "https://cdn2.steamgriddb.com/thumb/7a9114855a255f1dcf1abaae60abb86e.jpg" },
     { status: p, name: "Thief Gold", info: "https://www.igdb.com/games/thief-gold", image: "https://cdn2.steamgriddb.com/thumb/b6a1d13a42311ce87d15f5f7924f6ae8.jpg" },
     { status: p, name: "Thief: The Black Parade", info: "https://www.igdb.com/games/thief-the-black-parade", image: "https://cdn2.steamgriddb.com/thumb/1c4aacf677578cfe11cfb1960f5f1af2.jpg" },
