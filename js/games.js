@@ -39,7 +39,7 @@ const games = [
     { status: p, name: "Gran Turismo 4", info: "https://www.igdb.com/games/gran-turismo-4", image: "https://cdn2.steamgriddb.com/thumb/a27804f1148c12b96c96d0b5b2e98ebe.jpg" },
     { status: p, name: "Night Runners", info: "https://www.igdb.com/games/night-runners--1", image: "https://cdn2.steamgriddb.com/thumb/fc8c6a258ce68f287300b51344475452.jpg" },
     { status: p, name: "The Legend of Zelda: Ocarina of Time", info: "https://www.igdb.com/games/the-legend-of-zelda-ocarina-of-time", image: "https://cdn2.steamgriddb.com/thumb/f711cc70dbdab88f32389ec84e56a242.jpg" },
-    { status: p, name: "Racedriver: Grid", info: "https://www.igdb.com/games/race-driver-grid", image: "https://cdn2.steamgriddb.com/thumb/7b4f4e1f410a49cddb0d906ff0565796.jpg" },
+    { status: p, name: "Return to Castle Wolfenstein", info: "https://www.igdb.com/games/return-to-castle-wolfenstein", image: "https://cdn2.steamgriddb.com/thumb/049dc512d32599765255ba3f4ea1026c.jpg" },
 
 ];
 
