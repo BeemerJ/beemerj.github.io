@@ -36,6 +36,10 @@ const games = [
     { status: p, name: "Ion Fury", info: "https://www.igdb.com/games/ion-fury", image: "https://cdn2.steamgriddb.com/thumb/175e0b2d218c15ff16379ace7ca2341a.jpg" },
     { status: p, name: "Dwarf Fortress", info: "https://www.igdb.com/games/dwarf-fortress", image: "https://cdn2.steamgriddb.com/thumb/049d64bd087ad59d9e5320df965a4820.jpg" },
     { status: p, name: "The Elder Scrolls II: Daggerfall", info: "https://www.igdb.com/games/the-elder-scrolls-ii-daggerfall", image: "https://cdn2.steamgriddb.com/thumb/ee479472fe293167d12bb7d76774303b.jpg" },
+    { status: p, name: "Gran Turismo 4", info: "https://www.igdb.com/games/gran-turismo-4", image: "https://cdn2.steamgriddb.com/thumb/a27804f1148c12b96c96d0b5b2e98ebe.jpg" },
+    { status: p, name: "Night Runners", info: "https://www.igdb.com/games/night-runners--1", image: "https://cdn2.steamgriddb.com/thumb/fc8c6a258ce68f287300b51344475452.jpg" },
+    { status: p, name: "The Legend of Zelda: Ocarina of Time", info: "https://www.igdb.com/games/the-legend-of-zelda-ocarina-of-time", image: "https://cdn2.steamgriddb.com/thumb/f711cc70dbdab88f32389ec84e56a242.jpg" },
+    { status: p, name: "Racedriver: Grid", info: "https://www.igdb.com/games/race-driver-grid", image: "https://cdn2.steamgriddb.com/thumb/7b4f4e1f410a49cddb0d906ff0565796.jpg" },
 
 ];
 
@@ -73,8 +77,8 @@ function generateGames() {
         gameImage.alt = game.name;
 
         // Show image after it's been loaded
-        gameImage.addEventListener("load", function() {
-            gameImage.style.opacity   = "1";
+        gameImage.addEventListener("load", function () {
+            gameImage.style.opacity = "1";
         });
 
         if (game.status === o) {
