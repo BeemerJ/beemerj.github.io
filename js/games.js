@@ -41,6 +41,7 @@ const games = [
     { status: p, name: "The Legend of Zelda: Ocarina of Time", info: "https://www.igdb.com/games/the-legend-of-zelda-ocarina-of-time", image: "https://cdn2.steamgriddb.com/thumb/f711cc70dbdab88f32389ec84e56a242.jpg" },
     { status: p, name: "Return to Castle Wolfenstein", info: "https://www.igdb.com/games/return-to-castle-wolfenstein", image: "https://cdn2.steamgriddb.com/thumb/049dc512d32599765255ba3f4ea1026c.jpg" },
     { status: p, name: "Red Faction", info: "https://www.igdb.com/games/red-faction", image: "https://cdn2.steamgriddb.com/thumb/8af0a1fdf1fb6005665d2bc4d5fa7c77.jpg" },
+    { status: p, name: "NFS: Carbon", info: "https://www.igdb.com/games/need-for-speed-carbon", image: "https://cdn2.steamgriddb.com/thumb/8eb8c14637ad7f04b17390e3c4b16ec9.png" },
 
 ];
 
