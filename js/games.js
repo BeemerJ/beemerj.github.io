@@ -52,7 +52,7 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/8e1dada1c500c6111f57857095517a28.jpg"
     },
     {
-        status: p,
+        status: o,
         name: "Resident Evil 2",
         info: "https://www.igdb.com/games/resident-evil-2",
         image: "https://cdn2.steamgriddb.com/thumb/0dcc410f031086c33eb571e62007951b.jpg"
