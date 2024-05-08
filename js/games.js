@@ -166,7 +166,7 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/abefb9fa9a298bd8919be8ac056871b6.jpg"
     },
     {
-        status: p,
+        status: o,
         name: "Burnout Revenge",
         info: "https://www.igdb.com/games/burnout-revenge",
         image: "https://cdn2.steamgriddb.com/thumb/0066a9752d9cb8aaa8e517c703c5ad1f.png"
@@ -196,13 +196,13 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/ee479472fe293167d12bb7d76774303b.jpg"
     },
     {
-        status: p,
+        status: o,
         name: "Gran Turismo 4",
         info: "https://www.igdb.com/games/gran-turismo-4",
         image: "https://cdn2.steamgriddb.com/thumb/a27804f1148c12b96c96d0b5b2e98ebe.jpg"
     },
     {
-        status: p,
+        status: o,
         name: "Night Runners",
         info: "https://www.igdb.com/games/night-runners--1",
         image: "https://cdn2.steamgriddb.com/thumb/fc8c6a258ce68f287300b51344475452.jpg"
