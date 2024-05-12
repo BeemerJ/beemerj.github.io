@@ -64,7 +64,7 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/5656595700378abbe8ef6b57aead16de.jpg"
     },
     {
-        status: p,
+        status: o,
         name: "Quake: Arcane Dimensions",
         info: "https://www.igdb.com/games/arcane-dimensions",
         image: "https://cdn2.steamgriddb.com/thumb/508efbb5ec58a84b0b668bd3111cc60c.jpg"
@@ -220,7 +220,7 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/049dc512d32599765255ba3f4ea1026c.jpg"
     },
     {
-        status: p,
+        status: c,
         name: "Red Faction",
         info: "https://www.igdb.com/games/red-faction",
         image: "https://cdn2.steamgriddb.com/thumb/8af0a1fdf1fb6005665d2bc4d5fa7c77.jpg"
