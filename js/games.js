@@ -10,7 +10,7 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/05b5f43841bf592510e90dffa4bf2177.jpg"
     },
     {
-        status: p,
+        status: o,
         name: "Postal 2",
         info: "https://www.igdb.com/games/postal-2",
         image: "https://cdn2.steamgriddb.com/thumb/e568b8f6bbb04a676a4f9f7dd79dc79f.jpg"
@@ -202,7 +202,7 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/a27804f1148c12b96c96d0b5b2e98ebe.jpg"
     },
     {
-        status: o,
+        status: c,
         name: "Night Runners",
         info: "https://www.igdb.com/games/night-runners--1",
         image: "https://cdn2.steamgriddb.com/thumb/fc8c6a258ce68f287300b51344475452.jpg"
