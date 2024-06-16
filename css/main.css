@@ -90,64 +90,6 @@ margin: 0px;
   color: darkred;
 }
 
-.page-updates {
-  display: flexbox;
-  height: 640px;
-  font-family: "dotgothic16-regular";
-  background-color: black;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 10px;
-  border: 2px solid red;
-}
-
-.page-updates li {
-  margin-top: 2px;
-  padding: 10px;
-  border-bottom:1px solid darkred ;
-}
-
-.page-updates ul {
-  margin: 0px;
-  margin-left: 1em;
-  padding: 10px;
-}
-
-.page-updates a {
-
-  color: orange;
-
-}
-
-.page-updates li :hover {
-
-  transition: color 128ms;
-  color: white;
-  animation: glitch-h 64ms infinite;
-}
-
-.page-updates p {
-  font-weight: bold;
-  padding: 5px;
-}
-
-.page-updates a:visited {
-  color: orange;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 5px;
-}
-
-.page-updates-heading {
-  color: orange;
-  border: red 1px solid;
-  text-align: center;
-  font-size: larger;
-  width: 98%;
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-
 .title {
 
   position: fixed;
@@ -166,19 +108,6 @@ hr {
   color: red;
   margin-left: 0;
 
-}
-
-.wide-font {
-
-  letter-spacing: 6px;
-  
-}
-
-.wide-font-bold {
-
-  letter-spacing: 8px;
-  font-weight: bolder;
-  
 }
 
 iframe {
