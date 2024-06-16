@@ -226,7 +226,7 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/8af0a1fdf1fb6005665d2bc4d5fa7c77.jpg"
     },
     {
-        status: p,
+        status: c,
         name: "NFS: Carbon",
         info: "https://www.igdb.com/games/need-for-speed-carbon",
         image: "https://cdn2.steamgriddb.com/thumb/8eb8c14637ad7f04b17390e3c4b16ec9.png"

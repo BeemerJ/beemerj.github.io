@@ -1,0 +1,294 @@
+/*date of creation: 12th of October, 2022
+       originally created by: Cabbage Sorter
+       Analized a lil by Gio*/
+
+html {
+    height: 100%;
+    margin: auto;
+    color-scheme: dark !important;
+    scrollbar-width: none;
+    --background-color: black;
+    font-family: "dotgothic16-regular";
+    text-shadow: black;
+    color: red;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* MAIN CONTENT AND STUFF */
+
+:root {
+    background-color: var(--background-color);
+    background-image: var(--background-image);
+}
+
+body {
+    margin: auto;
+    width: 100%;
+    background-color: var(--background-color);
+    overflow-y: scroll;
+}
+
+body h1 {
+
+    font-family: "dotgothic16-regular";
+    color: orange;
+
+
+}
+
+.main {
+    width: 1000px;
+    ;
+    margin: 0 auto;
+    max-width: 100%;
+    padding-bottom: 24px;
+}
+
+.main h1 {
+
+    padding-top: 0px;
+    margin: 0px;
+
+}
+
+/* BUTTONS! */
+
+.buttons ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+}
+
+.buttons a {
+    margin: 2px;
+    padding: 2px;
+    padding-bottom: 0;
+}
+
+.buttons a:hover {
+
+    filter: brightness(150%);
+
+}
+
+.buttons :not(:hover) {
+
+    transition: filter 128ms;
+    filter: brightness(100%);
+
+}
+
+
+.buttons a:active {
+
+    filter: brightness(115%);
+}
+
+.buttons :not(:active) {
+
+    filter: brightness(100%);
+
+}
+
+.main-content {
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* animation: glitch-n 50ms infinite; */
+}
+
+/* Gio was Here  */
+/* The poes */
+
+/*M A I N  C O N T E N T  G R I D*/
+
+.flex-container {
+
+    display: flex;
+    margin: auto;
+    align-items: stretch;
+    width: 1000px;
+    flex-direction: row;
+
+}
+
+.page-about {
+
+    margin: 10px;
+    margin-left: 2px;
+
+}
+
+.body-text {
+    display: flex;
+    width: 1000px;
+}
+
+#body-p {
+    width: 550px;
+
+}
+
+#body-img {
+    display: flex;
+    position: relative;
+    right: -50px;
+    z-index: 5;
+    width: 200px;
+    height: 200px;
+    filter: hue-rotate(90deg);
+    animation: glitch-h 128ms infinite;
+}
+
+.welcome {
+    width: 550px;
+    left: 0;
+    height: fit-content;
+    font-size: 18px;
+    margin: 2px;
+    text-align: left;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.welcome h1 {
+    letter-spacing: 2px;
+    font-weight: bolder;
+    text-decoration-thickness: 2px;
+}
+
+.skull {
+
+    animation: glitch-n 64ms infinite;
+
+}
+
+.use-pc {
+    font-size: 1rem;
+    color: red;
+}
+
+.warning-align {
+    text-align: right;
+    width: 800px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.FUCK {
+    letter-spacing: 10px;
+    font-size: medium;
+}
+
+.main-content a {
+    height: fit-content;
+    text-decoration: none;
+    color: darkred;
+}
+
+.page-updates {
+    display: flexbox;
+    font-family: "dotgothic16-regular";
+    background-color: black;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    border: 2px solid red;
+}
+
+.page-updates li {
+    margin-top: 2px;
+    padding: 10px;
+    border-bottom: 1px solid darkred;
+}
+
+.page-updates ul {
+    margin: 0px;
+    margin-left: 1em;
+    padding: 10px;
+}
+
+.page-updates a {
+
+    color: orange;
+
+}
+
+.page-updates li :hover {
+
+    transition: color 128ms;
+    color: white;
+    animation: glitch-h 64ms infinite;
+}
+
+.page-updates p {
+    font-weight: bold;
+    padding: 5px;
+}
+
+.page-updates a:visited {
+    color: orange;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.page-updates-heading {
+    color: orange;
+    border: red 1px solid;
+    text-align: center;
+    font-size: larger;
+    width: 98%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.title {
+
+    position: fixed;
+
+}
+
+sp {
+
+    padding-bottom: 24px;
+
+}
+
+hr {
+
+    border: 1px solid red;
+    color: red;
+    margin-left: 0;
+
+}
+
+.wide-font {
+
+    letter-spacing: 6px;
+
+}
+
+.wide-font-bold {
+
+    letter-spacing: 8px;
+    font-weight: bolder;
+
+}

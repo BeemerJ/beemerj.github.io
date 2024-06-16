@@ -58,53 +58,6 @@ margin: 0px;
 
 }
 
-/* BUTTONS! */
-
-.buttons ul {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  padding: 0;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  padding: 0;
-}
-
-.buttons a {
-  margin: 2px;
-  padding: 2px;
-  padding-bottom: 0;
-}
-
-.buttons a:hover {
-
-  filter: brightness(150%);
-
-}
-
-.buttons :not(:hover) {
-
-  transition: filter 128ms;
-  filter: brightness(100%);
-
-}
-
-
-.buttons a:active {
-
-  filter: brightness(115%);
-}
-
-.buttons :not(:active) {
-
-  filter: brightness(100%);
-
-}
-
 .main-content {
   height: 720px;
   display: flex;
@@ -114,7 +67,6 @@ margin: 0px;
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  /* animation: glitch-n 50ms infinite; */
 }
 
 /* Gio was Here  */
