@@ -84,78 +84,6 @@ margin: 0px;
 
 }
 
-.page-about {
-
-  margin: 10px;
-  margin-left: 2px;
-
-}
-
-.body-text {
-  display: flex;
-  width: 1000px;
-}
-
-#body-p {
-  width: 550px;
-
-}
-
-#body-img {
-  display: flex;
-  position: relative;
-  right: -50px;
-  z-index: 5;
-  width: 200px;
-  height: 200px;
-  filter: hue-rotate(90deg);
-  animation: glitch-h 128ms infinite;
-}
-
-.welcome {
-  width: 550px;
-  left: 0;
-  height: fit-content;
-  font-size: 18px;
-  margin: 2px;
-  text-align: left;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.welcome h1 {
-  letter-spacing: 2px;
-  font-weight: bolder;
-  text-decoration-thickness: 2px;
-}
-
-.skull {
-
-  animation: glitch-n 64ms infinite;
-
-}
-
-.use-pc {
-  font-size: 1rem;
-  color: red;
-}
-
-.warning-align {
-
-  text-align: right;
-  width: 800px;
-  margin-right: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-
-}
-
-.FUCK {
-
-  letter-spacing: 10px;
-  font-size: medium;
-
-}
-
 .main-content a {
   height: fit-content;
   text-decoration: none;
@@ -251,4 +179,8 @@ hr {
   letter-spacing: 8px;
   font-weight: bolder;
   
+}
+
+iframe {
+  border-bottom: 2px solid red;
 }

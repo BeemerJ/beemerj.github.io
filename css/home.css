@@ -32,11 +32,8 @@ body {
 }
 
 body h1 {
-
     font-family: "dotgothic16-regular";
     color: orange;
-
-
 }
 
 .main {
@@ -48,10 +45,8 @@ body h1 {
 }
 
 .main h1 {
-
     padding-top: 0px;
     margin: 0px;
-
 }
 
 /* BUTTONS! */
@@ -137,7 +132,6 @@ body h1 {
 
 .body-text {
     display: flex;
-    width: 1000px;
 }
 
 #body-p {
@@ -157,7 +151,7 @@ body h1 {
 }
 
 .welcome {
-    width: 550px;
+    width: 100%;
     left: 0;
     height: fit-content;
     font-size: 18px;
@@ -216,12 +210,13 @@ body h1 {
 .page-updates li {
     margin-top: 2px;
     padding: 10px;
-    border-bottom: 1px solid darkred;
+    border-bottom: 1px dashed darkred;
 }
 
 .page-updates ul {
+    list-style-type: none;
     margin: 0px;
-    margin-left: 1em;
+    margin-left: 0;
     padding: 10px;
 }
 
