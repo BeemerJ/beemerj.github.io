@@ -84,6 +84,9 @@ body h1 {
 
 }
 
+.buttons img {
+    border: 2px solid red;
+}
 
 .buttons a:active {
 
