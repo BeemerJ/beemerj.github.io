@@ -1,98 +1,101 @@
 .flex-container {
-
     display: flex;
     margin: auto;
     align-items: stretch;
     width: 1000px;
     height: 720px;
     flex-direction: row;
+}
 
-  }
+body {
+    height: 100%;
+    width: auto;
+    position: relative;
+    left: 1px;
+}
+
+#body-img {
+    display: flex;
+    position: absolute;
+    right: 164px;
+    top: 4px;
+    z-index: 5;
+    width: 2px;
+    height: 200px;
+    filter: drop-shadow(1px 1px 0 darkred) drop-shadow(-1px -1px 0 red);
+}
+
+#body-img img {
+    filter: hue-rotate(90deg) grayscale(50%);
+}
 
 .images {
-
+    padding: 0.1em;
     margin-top: 6.5em;
-    height: 30.5em;
-    width: 46.8em;
+    height: 32.4em;
+    width: 99%;
     position: absolute;
     overflow-x: hidden;
-    scrollbar-width: thin;
-
+    scrollbar-width: none;
 }
 
 .images :hover {
-
-    transition-timing-function : ease-in-out;
+    transition-timing-function: ease-in-out;
     transition: filter 256ms, transform 256ms;
     filter: brightness(125%);
     transform: scale(1.025);
 }
 
-.images :not(:hover)  {
-
-    transition-timing-function : linear;
+.images :not(:hover) {
+    transition-timing-function: linear;
     transition: filter 64ms, transform 64ms;
     filter: brightness(100%);
     transform: scale(1);
-
 }
 
 img {
+    margin: 0.1em;
+    width: 14em;
+    height: 14em;
+    border: 1px dashed red;
+}
 
-    margin: 0.2em;
-    width: 14.5em;
-    height: 14.5em;
-    border: 1px solid red;
-
+.main h1 {
+    padding-top: 8px;
+    color: orange;
 }
 
 .title {
-
-    margin: 10px;
+    margin-top: 2px;
+    margin-bottom: 0.2em;
     margin-left: 3px;
-    position: absolute;
-
+    font-weight: bolder;
 }
 
 .welcome-art {
-
-    width: 1000px;
+    letter-spacing: 2px;
+    text-decoration-thickness: 2px;
     font-size: 18px;
-    margin: 2px;
-    text-align: left;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    height: 3em;
-
 }
 
 .welcome-art h1 {
-
     letter-spacing: 2px;
     font-weight: bolder;
     text-decoration-thickness: 2px;
-
 }
 
 .footer-sticky {
-
     display: flex;
     flex-direction: column;
     margin: auto;
     align-items: stretch;
     width: 1000px
-
 }
 
 hr {
-
     width: 44.5em;
-
 }
 
 gs {
-
     letter-spacing: 6px;
-
 }
