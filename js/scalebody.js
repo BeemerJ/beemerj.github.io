@@ -1,3 +1,5 @@
+// Kinda unused rn, might be useful later...
+
 window.addEventListener('resize', function() {
     resizeBodyHeight();
 });
