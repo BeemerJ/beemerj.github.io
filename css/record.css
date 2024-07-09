@@ -17,7 +17,7 @@
     height: 30.5em;
     position: absolute;
     scrollbar-width: thin;
-    color: red;
+    color: var(--primary-color);
 }
 
 .album-art :hover {

@@ -46,7 +46,7 @@ hr {
     display: none;
     /* I dont like the way it looks */
     margin: auto;
-    border-color: darkred;
+    border-color: var(--primary-color-dark);
     width: 60%;
 }
 
@@ -60,7 +60,7 @@ hr {
     margin: auto;
     font-size: 2em;
     background-color: black;
-    border: 2px solid darkred;
+    border: 2px solid var(--primary-color-dark);
     border-radius: 16px;
     z-index: 1;
 }
@@ -73,7 +73,7 @@ hr {
     text-overflow: ellipsis;
     color: white;
     background-color: black;
-    border: 2px solid red;
+    border: 2px solid var(--primary-color);
     border-radius: 12px;
 }
 

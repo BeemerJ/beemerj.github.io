@@ -14,7 +14,7 @@
       0.25em 0.05em 0 rgba(44, 247, 213, 0.75);
     animation: glitch-h 128ms infinite;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: red;
+    -webkit-text-stroke-color: var(--primary-color);
     padding-top: 0.5em;
 
   }

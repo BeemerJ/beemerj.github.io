@@ -22,7 +22,7 @@ body {
     z-index: 5;
     width: 2px;
     height: 200px;
-    filter: drop-shadow(1px 1px 0 darkred) drop-shadow(-1px -1px 0 red);
+    filter: drop-shadow(1px 1px 0 var(--primary-color-dark)) drop-shadow(-1px -1px 0 var(--primary-color));
 }
 
 #body-img img {
@@ -57,7 +57,7 @@ img {
     margin: 0.1em;
     width: 14em;
     height: 14em;
-    border: 1px dashed red;
+    border: 1px dashed var(--primary-color);
 }
 
 .main h1 {

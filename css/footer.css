@@ -7,12 +7,12 @@
 }
 
 .silly-footer a {
-  border: red solid 1px;
+  border: var(--primary-color) solid 1px;
   background-color: black;
   padding: 2px;
   font-size: small;
   font-weight: bold;
-  color: red;
+  color: var(--primary-color);
 }
 
 .silly-footer a:link {
@@ -30,7 +30,7 @@
 .silly-footer :not(a:hover) {
 
   transition: color 512ms;
-  color: red;
+  color: var(--primary-color);
 
 }
 
@@ -40,7 +40,7 @@
 }
 
 .inspired a {
-  border: red solid 1px;
+  border: var(--primary-color) solid 1px;
   background-color: black;
   padding: 1px;
   font-weight: bold;

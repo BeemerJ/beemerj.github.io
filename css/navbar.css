@@ -32,7 +32,7 @@
 .navbar li:not(:hover) {
   
   transition: color 512ms;
-  color: red;
+  color: var(--primary-color);
 
 }
 

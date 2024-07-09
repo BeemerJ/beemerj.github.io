@@ -30,7 +30,7 @@ p {
 }
 
 #mix-container img {
-  border: 2px solid red;
+  border: 2px solid var(--primary-color);
   margin: 0.8em;
   max-width: 192px;
   padding: 0.2em;

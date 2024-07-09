@@ -31,7 +31,7 @@ function showSpeechBubble() {
     speechBubble.style.width = "200px";
     speechBubble.style.fontSize = 'small';
     speechBubble.style.textAlign = "right";
-    speechBubble.style.color = "darkred";
+    speechBubble.style.color = "var(--primary-color-dark)";
 
     // Position the speech bubble relative to the image
     const imageRect = speakerImage.getBoundingClientRect();

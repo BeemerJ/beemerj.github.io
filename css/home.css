@@ -1,16 +1,16 @@
-/*date of creation: 12th of October, 2022
-       originally created by: Cabbage Sorter
-       Analized a lil by Gio*/
+:root {
+    --background-color: black;
+}
 
 html {
     height: 100%;
     margin: auto;
     color-scheme: dark !important;
     scrollbar-width: none;
-    --background-color: black;
+    background: var(--background-color);
     font-family: "dotgothic16-regular";
     text-shadow: black;
-    color: red;
+    color: var(--primary-color);
 }
 
 ::-webkit-scrollbar {
@@ -18,11 +18,6 @@ html {
 }
 
 /* MAIN CONTENT AND STUFF */
-
-:root {
-    background-color: var(--background-color);
-    background-image: var(--background-image);
-}
 
 body {
     margin: auto;
@@ -85,7 +80,7 @@ body h1 {
 }
 
 .buttons img {
-    border: 2px solid red;
+    border: 2px solid var(--primary-color);
 }
 
 .buttons a:active {
@@ -140,7 +135,7 @@ body h1 {
 #body-p {
     width: 100%;
     padding: 0.6em;
-    border: 1px dashed red;
+    border: 1px dashed var(--primary-color);
 }
 
 #body-img {
@@ -151,7 +146,13 @@ body h1 {
     z-index: 9001;
     width: 2px;
     height: 200px;
-    filter: drop-shadow(1px 1px 0 darkred) drop-shadow(-1px -1px 0 red);
+    filter: drop-shadow(1px 1px 0 var(--primary-color-dark)) drop-shadow(-1px -1px 0 var(--primary-color));
+    scale: 100%;
+    transition: scale 128ms;
+}
+
+#body-img :hover{
+    scale: 105%;
 }
 
 #body-img img {
@@ -187,7 +188,18 @@ body h1 {
 
 .use-pc {
     font-size: 1rem;
-    color: red;
+    color: var(--primary-color);
+}
+
+.use-pc a{
+    text-decoration: none;
+    color: orange;
+    transition: var(--trans-glitch);
+}
+
+.use-pc a:hover{
+    color: white;
+    animation: glitch-h 64ms infinite;
 }
 
 .warning-align {
@@ -206,7 +218,7 @@ body h1 {
 .main-content a {
     height: fit-content;
     text-decoration: none;
-    color: darkred;
+    color: var(--primary-color-dark);
 }
 
 .page-updates {
@@ -216,13 +228,13 @@ body h1 {
     overflow-y: auto;
     overflow-x: hidden;
     padding: 10px;
-    border: 2px solid red;
+    border: 2px solid var(--primary-color);
 }
 
 .page-updates li {
     margin-top: 2px;
     padding: 10px;
-    border-bottom: 1px dashed darkred;
+    border-bottom: 1px dashed var(--primary-color-dark);
 }
 
 .page-updates ul {
@@ -245,7 +257,7 @@ body h1 {
 }
 
 .page-updates li a:hover {
-    transition: color 128ms;
+    transition: var(--trans-glitch);
     color: white;
     animation: glitch-h 64ms infinite;
 }
@@ -257,7 +269,7 @@ body h1 {
 
 .page-updates-heading {
     color: orange;
-    border: red 1px solid;
+    border: var(--primary-color) 1px solid;
     text-align: center;
     font-size: larger;
     width: 98%;
@@ -268,8 +280,8 @@ body h1 {
 .updates-date {
     padding-left: 3px;
     font-size: small;
-    color: darkred;
-    border: 1px solid darkred;
+    color: var(--primary-color-dark);
+    border: 1px solid var(--primary-color-dark);
     letter-spacing: 8px;
     cursor: default;
 }
@@ -287,8 +299,8 @@ sp {
 }
 
 hr {
-    border: 1px solid red;
-    color: red;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
     margin-left: 0;
 }
 

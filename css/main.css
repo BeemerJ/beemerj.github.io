@@ -1,27 +1,42 @@
-html {
-  height: 100%;
-  margin: auto;
-  color-scheme: dark !important;
-  scrollbar-width: none;
+:root {
+  /* Variables */
+  /* -------------------- */
+
+  --primary-color: red;
+  --primary-color-dark: darkred;
+
   --background-color: black;
   --background-image: url("https://ia601903.us.archive.org/4/items/rotatingfood2/1596596005441.gif");
-}
 
-::-webkit-scrollbar {
-  display: none;
+  --hover: brightness(115%);
+  --hover-scale: 105%;
+  --radius: 8px;
+  
+  --trans-glitch: color 64ms linear;
+
+  /* -------------------- */
+
 }
 
 /* MAIN CONTENT AND STUFF */
 
-:root {
+html {
+  height: 100%;
+  width: fit-content;
+  margin: auto;
+
+  color: var(--primary-color);
   font-family: "dotgothic16-regular";
   text-shadow: black;
-  color: red;
+
   background-color: var(--background-color);
   background-image: var(--background-image);
   background-size: 1em;
-  width: fit-content;
-  
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -72,7 +87,7 @@ margin: 0px;
 .main-content a {
   height: fit-content;
   text-decoration: none;
-  color: darkred;
+  color: var(--primary-color-dark);
 }
 
 .title {
@@ -89,12 +104,12 @@ sp {
 
 hr {
 
-  border: 1px solid red;
-  color: red;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
   margin-left: 0;
 
 }
 
 iframe {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid var(--primary-color);
 }
