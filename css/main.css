@@ -11,12 +11,20 @@
   --hover: brightness(115%);
   --hover-scale: 105%;
   --radius: 8px;
-  
+
   --trans-glitch: color 64ms linear;
 
   /* -------------------- */
-
 }
+
+/* CURSOR (unused)*/
+/* * {
+  cursor: url("https://kiunlo.neocities.org/cursors/misc/raven1_cursor.png"), auto !important;
+}
+
+* a:hover{
+  cursor: url("https://kiunlo.neocities.org/cursors/misc/raven2_cursor.png"), auto !important;
+} */
 
 /* MAIN CONTENT AND STUFF */
 
@@ -27,7 +35,7 @@ html {
 
   color: var(--primary-color);
   font-family: "dotgothic16-regular";
-  text-shadow: black;
+  text-shadow: var(--background-color);
 
   background-color: var(--background-color);
   background-image: var(--background-image);
@@ -48,16 +56,17 @@ body {
 }
 
 .main {
-  width: 1000px;;
+  width: 1000px;
+  ;
   margin: 0 auto;
   max-width: 100%;
   padding-bottom: 24px;
 }
 
-.main h1{
+.main h1 {
 
-padding-top: 0px;
-margin: 0px;
+  padding-top: 0px;
+  margin: 0px;
 
 }
 

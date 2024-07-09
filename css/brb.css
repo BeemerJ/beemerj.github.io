@@ -1,5 +1,5 @@
 html {
 
     background-image: url(/assets/videos/a_cigs.png);
-    background-color: black;
+    background-color: var(--background-color);
 }

@@ -55,7 +55,7 @@
   font-weight: bolder;
   letter-spacing: 1px;
   border: #ff0f0f solid 2px;
-  background-color: black;
+  background-color: var(--background-color);
   padding: 5px;
 }
 

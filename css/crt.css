@@ -142,7 +142,7 @@ $screen-background:#121010;
   top:20px;
   left:20px;
   font-size:60px;
-  //text-shadow:2px 2px black,-2px -2px black, -2px 2px black, 2px -2px black;
+  //text-shadow:2px 2px var(--background-color),-2px -2px var(--background-color), -2px 2px var(--background-color), 2px -2px var(--background-color);
   visibility:hidden;
   pointer-events:none;
 }

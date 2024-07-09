@@ -21,7 +21,7 @@ body {
 
 
 #logo {
-    background: black;
+    background: var(--background-color);
     height: 5.2em;
     width: 5.2em;
     padding: 8px;
@@ -59,7 +59,7 @@ hr {
     justify-content: center;
     margin: auto;
     font-size: 2em;
-    background-color: black;
+    background-color: var(--background-color);
     border: 2px solid var(--primary-color-dark);
     border-radius: 16px;
     z-index: 1;
@@ -72,7 +72,7 @@ hr {
     overflow: hidden;
     text-overflow: ellipsis;
     color: white;
-    background-color: black;
+    background-color: var(--background-color);
     border: 2px solid var(--primary-color);
     border-radius: 12px;
 }
@@ -98,7 +98,7 @@ hr {
 }
 
 #content img {
-    background: black;
+    background: var(--background-color);
     padding: 0.4em;
     margin: 1em;
     max-height: 100%; 

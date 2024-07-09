@@ -1,7 +1,3 @@
-:root {
-    --background-color: black;
-}
-
 html {
     height: 100%;
     margin: auto;
@@ -9,7 +5,7 @@ html {
     scrollbar-width: none;
     background: var(--background-color);
     font-family: "dotgothic16-regular";
-    text-shadow: black;
+    text-shadow: var(--background-color);
     color: var(--primary-color);
 }
 
@@ -58,6 +54,8 @@ body h1 {
     flex-direction: row;
     list-style: none;
     padding: 0;
+    position: absolute;
+    image-rendering: pixelated;
 }
 
 .buttons a {
@@ -66,21 +64,13 @@ body h1 {
     padding-bottom: 0;
 }
 
-.buttons a:hover {
-
-    filter: brightness(150%);
-
-}
-
-.buttons :not(:hover) {
-
-    transition: filter 128ms;
-    filter: brightness(100%);
-
-}
-
 .buttons img {
     border: 2px solid var(--primary-color);
+    transition: scale 128ms ease-out;
+}
+
+.buttons img:hover {
+    scale: calc((var(--hover-scale) + 5%));
 }
 
 .buttons a:active {
@@ -151,7 +141,7 @@ body h1 {
     transition: scale 128ms;
 }
 
-#body-img :hover{
+#body-img :hover {
     scale: 105%;
 }
 
@@ -191,13 +181,13 @@ body h1 {
     color: var(--primary-color);
 }
 
-.use-pc a{
+.use-pc a {
     text-decoration: none;
     color: orange;
     transition: var(--trans-glitch);
 }
 
-.use-pc a:hover{
+.use-pc a:hover {
     color: white;
     animation: glitch-h 64ms infinite;
 }
@@ -206,7 +196,7 @@ body h1 {
     text-align: right;
     width: 800px;
     margin-right: 0;
-    margin-top: 0;
+    margin-top: 4em;
     margin-bottom: 0;
 }
 
@@ -224,7 +214,7 @@ body h1 {
 .page-updates {
     display: flexbox;
     font-family: "dotgothic16-regular";
-    background-color: black;
+    background-color: var(--background-color);
     overflow-y: auto;
     overflow-x: hidden;
     padding: 10px;
