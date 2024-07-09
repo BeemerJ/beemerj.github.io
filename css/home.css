@@ -148,7 +148,7 @@ body h1 {
     position: absolute;
     right: 164px;
     top: 4px;
-    z-index: 5;
+    z-index: 9001;
     width: 2px;
     height: 200px;
     filter: drop-shadow(1px 1px 0 darkred) drop-shadow(-1px -1px 0 red);
@@ -157,6 +157,8 @@ body h1 {
 #body-img img {
     filter: hue-rotate(90deg) grayscale(50%);
 }
+
+/* splash styling is in @splash.js */
 
 .welcome {
     width: 100%;
@@ -231,26 +233,24 @@ body h1 {
 }
 
 .page-updates a {
-
     color: orange;
-
+    text-decoration: none !important;
 }
 
-.page-updates li :hover {
+.page-updates a:visited {
+    color: orange;
+    text-decoration: none !important;
+    font-weight: bold;
+    padding: 5px;
+}
 
+.page-updates li a:hover {
     transition: color 128ms;
     color: white;
     animation: glitch-h 64ms infinite;
 }
 
 .page-updates p {
-    font-weight: bold;
-    padding: 5px;
-}
-
-.page-updates a:visited {
-    color: orange;
-    text-decoration: none;
     font-weight: bold;
     padding: 5px;
 }
@@ -265,35 +265,38 @@ body h1 {
     margin-bottom: 2px;
 }
 
+.updates-date {
+    padding-left: 3px;
+    font-size: small;
+    color: darkred;
+    border: 1px solid darkred;
+    letter-spacing: 8px;
+    cursor: default;
+}
+
+.br-update {
+    margin-bottom: 0.6em;
+}
+
 .title {
-
     position: fixed;
-
 }
 
 sp {
-
     padding-bottom: 24px;
-
 }
 
 hr {
-
     border: 1px solid red;
     color: red;
     margin-left: 0;
-
 }
 
 .wide-font {
-
     letter-spacing: 6px;
-
 }
 
 .wide-font-bold {
-
     letter-spacing: 8px;
     font-weight: bolder;
-
 }
