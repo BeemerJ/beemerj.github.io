@@ -39,7 +39,7 @@ hr {
   filter: grayscale(0.5);
   transform: rotate(5);
   opacity: 0.25;
-  z-index: 0;
+  z-index: 2;
 }
 
 #mix-container {
@@ -49,8 +49,13 @@ hr {
   justify-content: left;
   position: relative;
   margin: auto;
+  padding-top: 5px;
   top: 5.2em;
   max-width: 100%;
+
+  background-image: url(https://sadhost.neocities.org/images/tiles/num.gif);
+  background-attachment: fixed;
+
   border-left: 1px solid red;
   border-right: 1px solid red;
   z-index: 1;
