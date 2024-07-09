@@ -41,8 +41,8 @@ body {
 
 .images :hover {
     transition-timing-function: ease-in-out;
-    transition: filter 256ms, transform 256ms;
-    filter: brightness(125%);
+    transition: filter 128ms, transform 128ms;
+    filter: var(--hover);
     transform: scale(1.025);
 }
 

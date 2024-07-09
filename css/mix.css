@@ -1,47 +1,33 @@
 body {
-
-  height: auto
-
+  height: 100%;
+  width: 100vw;
 }
 
 h1 {
-  
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  padding-top: 8px;
-
-}
-
-p {
-
-  text-align: center;
-  font-weight: bold;
-
+  color: orange;
 }
 
 #mix-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   margin: auto;
   max-width: 100%;
 }
 
 #mix-container img {
-  border: 2px solid var(--primary-color);
+  image-rendering: pixelated;
+  border: 1px solid var(--primary-color);
   margin: 0.8em;
-  max-width: 192px;
+  max-width: 92px;
   padding: 0.2em;
   height: auto;
-  scale: 100%;
   filter: brightness(100%);
-  transition: scale 128ms ease-out, filter 256ms ease-out;
+  transition: border 128ms ease-out, filter 128ms ease-out;
 }
 
 #mix-container img:hover {
-  border: 2px solid orange;
-  scale: 105%;
-  filter: brightness(120%);
+  border: 1px solid orange;
+  filter: var(--hover);
 }

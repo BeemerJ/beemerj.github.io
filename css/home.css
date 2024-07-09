@@ -270,6 +270,7 @@ body h1 {
 .updates-date {
     padding-left: 3px;
     font-size: small;
+    font-weight: bold;
     color: var(--primary-color-dark);
     border: 1px solid var(--primary-color-dark);
     letter-spacing: 8px;
