@@ -1,23 +1,64 @@
+html {
+  background-image: none;
+}
+
 body {
   height: 100%;
   width: 100vw;
 }
 
+#mix-header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--background-color);
+  z-index: 2;
+}
+
 h1 {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 4px;
+  margin-top: 0;
+  font-size: 36px; /* FML */
   color: orange;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+hr {
+  margin-bottom: 0;
+}
+
+#background-gif{
+  position: fixed;
+  image-rendering: pixelated;
+  top: 25%;
+  left: 35%;
+  width: 40em;
+  height: 40em;
+  filter: grayscale(0.5);
+  transform: rotate(5);
+  opacity: 0.25;
+  z-index: 0;
 }
 
 #mix-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: left;
+  position: relative;
   margin: auto;
+  top: 5.2em;
   max-width: 100%;
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+  z-index: 1;
 }
 
 #mix-container img {
   image-rendering: pixelated;
+  background-color: var(--background-color);
   border: 1px solid var(--primary-color);
   margin: 0.8em;
   max-width: 92px;
