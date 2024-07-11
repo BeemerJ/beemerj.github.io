@@ -5,7 +5,34 @@
     gap: 1em;
 }
 
+.images :hover {
+    transform: none;
+}
+
 img {
     width: 6.74em;
     height: 6.74em;
+}
+
+.record-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.record-item img {
+    margin-right: 10px;
+}
+
+.record-item h3 {
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.record-item span {
+    margin-left: 2px;
+    font-size: 14px;
+    color: orange;
+    flex: 0 0 auto;
 }
