@@ -66,8 +66,7 @@
   }
 }
 
-gs {
-
+.gs {
   animation: glitch-n 64ms infinite;
 }
 
@@ -86,19 +85,17 @@ gs {
   }
 }
 
-blink {
-
+.blink {
   animation: blink 1024ms step-start infinite;
   transition: none;
 }
 
-blink-short {
-
+.blink-short {
   animation: blink 512ms step-start infinite;
   transition: none;
 }
 
-blink-fade {
+.blink-fade {
 
   animation: blink 768ms infinite;
   transition: linear;

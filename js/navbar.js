@@ -4,26 +4,22 @@ const navData = [
     {
         title: 'クリエイティビティ (創造)', // Creative
         items: [
-            { text: 'art_repo', link: '/pages/art.html', title: 'my lil artworks' },
-            //{ text: '20-500', link: '', title: 'ideas for my dream game' },
-            { text: 'mix_labs', link: '../pages/mix.html', title: 'some of my sound-works', target: '_blank' }
+            { text: 'Home Page', link: '/pages/home.html', title: 'back to lobby' },
+            { text: 'Art Repo', link: '/pages/art.html', title: 'my lil artworks' },
+            { text: 'My Mixes', link: '../pages/mix.html', title: 'some of my sound-works', target: '_blank' }
         ]
     },
     {
         title: 'ジェネラビティ（世代）', // Personal
         items: [
-            //{ text: 'picking-bones', link: '', title: 'fuck these things fr' },
-            //{ text: 'record/week', link: '../pages/record.html', title: 'my favourite record for the week' },
-            { text: 'new-thoughts', link: '', title: 'just some random ideas that i get' }
+            { text: 'Record Highlight', link: '../pages/record.html', title: 'my favourite record for the week' },
+            { text: 'New Thoughts', link: '', title: 'just some random ideas that i get' }
         ]
     },
     {
         title: 'マテリアライゼネ (質的な)', // Material
         items: [
-            //{ text: 'the_setup', link: '', title: 'the best pc you done ever seen' },
-            //{ text: 'miku_gen', link: '', title: 'miku will dance to your music' },
-            { text: 'me', link: '', title: 'about' },
-            //{ text: 'communicate', link: '', title: 'chatbox' }
+            { text: 'About Me', link: '', title: 'about' },
         ]
     }
 ];
