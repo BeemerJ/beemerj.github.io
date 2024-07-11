@@ -1,56 +1,12 @@
-.title {
-
-    margin: 10px;
-    margin-left: 3px;
-    position: fixed;
-
-}
-
-.record-list {
-
+.images {
+    padding-top: 6px;
     display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    width: 50em;
-    margin-top: 6.5em;
-    overflow-x: hidden;
-    height: 30.5em;
-    position: absolute;
-    scrollbar-width: thin;
-    color: var(--primary-color);
-}
-
-.album-art :hover {
-
-    transition-timing-function : ease-in-out;
-    transition: filter 256ms, transform 256ms;
-    filter: brightness(125%);
-    transform: scale(1.025);
-}
-
-.album-art :not(:hover)  {
-
-    transition-timing-function : linear;
-    transition: filter 64ms, transform 64ms;
-    filter: brightness(100%);
-    transform: scale(1);
-
+    flex-direction: column;
+    gap: 1em;
 }
 
 img {
-
-    padding: 0.2em;
-    width: 14.5em;
-    height: 14s.5em;
-
-}
-
-.footer-sticky {
-
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    align-items: stretch;
-    width: 1000px
-
+    border: none;
+    width: 6.74em;
+    height: 6.74em;
 }
