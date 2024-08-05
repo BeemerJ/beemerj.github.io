@@ -10,7 +10,7 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/05b5f43841bf592510e90dffa4bf2177.jpg"
     },
     {
-        status: o,
+        status: p,
         name: "Postal 2",
         info: "https://www.igdb.com/games/postal-2",
         image: "https://cdn2.steamgriddb.com/thumb/e568b8f6bbb04a676a4f9f7dd79dc79f.jpg"
@@ -52,7 +52,7 @@ const games = [
         image: "https://cdn2.steamgriddb.com/thumb/8e1dada1c500c6111f57857095517a28.jpg"
     },
     {
-        status: o,
+        status: p,
         name: "Resident Evil 2",
         info: "https://www.igdb.com/games/resident-evil-2",
         image: "https://cdn2.steamgriddb.com/thumb/0dcc410f031086c33eb571e62007951b.jpg"
@@ -236,6 +236,30 @@ const games = [
         name: "SOMA",
         info: "https://www.igdb.com/games/soma",
         image: "https://cdn2.steamgriddb.com/thumb/785ce5ef6aa76bb0f10709a7ebac4d7f.jpg"
+    },
+    {
+        status: o,
+        name: "Final Fantasy X-2",
+        info: "https://www.igdb.com/games/final-fantasy-x-2",
+        image: "https://cdn2.steamgriddb.com/thumb/be74b7589d33efcb1ad9b3459fa8e2f3.jpg"
+    },
+    {
+        status: o,
+        name: "Need for Speed: ProStreet",
+        info: "https://www.igdb.com/games/need-for-speed-prostreet",
+        image: "https://cdn2.steamgriddb.com/thumb/b018c185922d15892813095e6205283a.jpg"
+    },
+    {
+        status: c,
+        name: "Super Mario 64",
+        info: "https://www.igdb.com/games/super-mario-64",
+        image: "https://cdn2.steamgriddb.com/thumb/f293653ffa5c0e53453463a82401dbec.jpg"
+    },
+    {
+        status: c,
+        name: "Auto Modellista",
+        info: "https://www.igdb.com/games/auto-modellista",
+        image: "https://cdn2.steamgriddb.com/thumb/f15dcdc0ac4804b2d077d48cd556d3f0.jpg"
     },
     {
         status: p,
