@@ -9,22 +9,17 @@
   --background-image: url("https://ia601903.us.archive.org/4/items/rotatingfood2/1596596005441.gif");
 
   --hover: brightness(115%);
+  --hover-b: brightness(150%);
   --hover-scale: 105%;
   --radius: 8px;
 
+  --trans-fade: filter 64ms linear;
   --trans-glitch: color 64ms linear;
+
+  --glitch-a: animation: glitch-n 64ms infinite;
 
   /* -------------------- */
 }
-
-/* CURSOR (unused)*/
-/* * {
-  cursor: url("https://kiunlo.neocities.org/cursors/misc/raven1_cursor.png"), auto !important;
-}
-
-* a:hover{
-  cursor: url("https://kiunlo.neocities.org/cursors/misc/raven2_cursor.png"), auto !important;
-} */
 
 /* MAIN CONTENT AND STUFF */
 

@@ -1,38 +1,95 @@
-.images {
-    padding-top: 6px;
+.flex-container {
     display: flex;
-    flex-direction: column;
-    gap: 1em;
+    margin: auto;
+    align-items: stretch;
+    width: 1000px;
+    height: 720px;
+    flex-direction: row;
 }
 
-.images :hover {
-    transform: none;
+body {
+    height: 100%;
+    width: auto;
+    position: relative;
 }
 
-img {
-    width: 6.74em;
-    height: 6.74em;
+.main {
+    width: 813px;
+}
+
+.main h1 {
+    padding-top: 8px;
+    color: orange;
+}
+
+.title {
+    margin-top: 2px;
+    margin-bottom: 0.2em;
+    margin-left: 3px;
+    font-weight: bolder;
+    border-bottom: 1px solid red;
+}
+
+.welcome-art {
+    letter-spacing: 2px;
+    text-decoration-thickness: 2px;
+    font-size: 18px;
+}
+
+.welcome-art h1 {
+    letter-spacing: 2px;
+    font-weight: bolder;
+    text-decoration-thickness: 2px;
+}
+
+hr {
+    width: 44.5em;
+}
+
+gs {
+    letter-spacing: 6px;
+}
+
+/* Main shit I dunno */
+
+.images {
+    padding: 0.1em;
+    margin-top: 6.5em;
+    height: 32.4em;
+    position: absolute;
+    overflow-x: hidden;
+    scrollbar-width: none;
 }
 
 .record-item {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
+    gap: 1em;
 }
 
 .record-item img {
-    margin-right: 10px;
+    margin: 0.2em;
+    width: 8em;
+    height: 8em;
 }
 
-.record-item h3 {
-    margin: 0;
-    flex: 0 0 auto;
+.record-item img:hover {
+    transition: var(--trans-fade);
+    filter: var(--hover-b);
 }
 
-.record-item span {
-    margin-left: 2px;
+.title-container {
     font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 4px;
+}
+
+.title-container h3{
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
     color: orange;
-    flex: 0 0 auto;
+}
+
+.title-container span{
+    color: var(--primary-color);
+    letter-spacing: large;
 }
