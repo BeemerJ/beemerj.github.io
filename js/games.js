@@ -263,6 +263,12 @@ const games = [
     },
     {
         status: p,
+        name: "Command & Conquer: Renegade",
+        info: "https://www.igdb.com/games/command-conquer-renegade",
+        image: "https://cdn2.steamgriddb.com/thumb/393b46f6bc245d24b2b4fbcf7d4da36c.jpg"
+    },
+    {
+        status: p,
         name: "Black",
         info: "https://www.igdb.com/games/black",
         image: "https://cdn2.steamgriddb.com/thumb/e83bab0eff11d84c5e7d4199d9fa45a4.jpg"
