@@ -461,10 +461,6 @@ function renderGames() {
         return 0;
     });
 
-    // Log the total number of games and the metadata in an array...
-    console.log("Total Games: " + games.length);
-    console.log(games);
-
     // Main function to display games...
     function generateGames() {
         const contentDiv = document.getElementById("content");
@@ -586,10 +582,45 @@ function renderGames() {
         aButton.click(); // Set "All" as the default
     }
 
-    // Calls all funtions on window load...
+    // Log some stats...
+    function logStats() {
+        const groups = {};
+        games.forEach(game => {
+            const year = parseInt(game.year);
+            const rangeStart = Math.floor(year / 5) * 5;
+            const rangeEnd = rangeStart + 4;
+            const range = `${rangeStart}-${rangeEnd}`;
+            if (!groups[range]) {
+                groups[range] = 0;
+            }
+            groups[range]++;
+        });
+
+        let groupLog = "";
+
+        Object.entries(groups)
+            .sort(([a], [b]) => parseInt(a) - parseInt(b))
+            .forEach(([range, count]) => {
+                groupLog += `${range}: ${count} games\n`;
+            });
+
+        console.log(
+            `Total Games: ${games.length}\n` +
+            '====================\n' +
+            groupLog +
+            '====================\n'
+        );
+
+        //console.log("Game details:", games);
+
+        return groups;
+    }
+
+    // Calls all functions on window load...
     window.onload = function () {
         generateGames();
         hideGames();
+        logStats();
     };
 };
 

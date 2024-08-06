@@ -23,4 +23,4 @@ function toggleView() {
     }
 }
 
-window.addEventListener("load", initializeToggleView);
+//window.addEventListener("load", initializeToggleView);
