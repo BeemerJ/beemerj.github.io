@@ -23,9 +23,4 @@ function toggleView() {
     }
 }
 
-function initializeToggleView() {
-    const toggleBtn = document.getElementById("toggleViewBtn");
-    //toggleBtn.addEventListener("click", toggleView);
-}
-
 window.addEventListener("load", initializeToggleView);
