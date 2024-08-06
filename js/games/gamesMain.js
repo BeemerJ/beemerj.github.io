@@ -437,6 +437,15 @@ const games = [
     },
     {
         status: p,
+        name: "Command & Conquer: Tiberian Sun",
+        info: "https://www.igdb.com/games/command-conquer-tiberian-sun",
+        image: "https://cdn2.steamgriddb.com/thumb/b6512ba2ef13d7241ba28dbf20bff5a7.jpg",
+        year: "1999",
+        genre: ["Strategy"],
+        excerpt: "Tiberian Sun takes place in a bleak future where the tiberium infestation has spread across the world."
+    },
+    {
+        status: p,
         name: "Black",
         info: "https://www.igdb.com/games/black",
         image: "https://cdn2.steamgriddb.com/thumb/e83bab0eff11d84c5e7d4199d9fa45a4.jpg",
