@@ -135,3 +135,43 @@ hr {
     border-color: grey !important;
     filter: grayscale(100%) !important;
 }
+
+/* View shenanigans... */
+
+.list-view .game {
+    display: flex !important;
+    width: 100%;
+    margin-bottom: 1em;
+    align-items: center;
+}
+
+.list-view .game > a {
+    flex-shrink: 0;
+}
+
+.list-view img {
+    max-width: 100px !important;
+    margin-right: 1em;
+}
+
+.list-view .game-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 1em;
+}
+
+.list-view .game-details h3 {
+    margin: 0;
+}
+
+.list-view .game-details a {
+    color: orange;
+    text-decoration: none;
+    cursor: pointer !important;
+    width: fit-content;
+}
+
+.list-view .game-details a:hover {
+    text-decoration: underline;
+}

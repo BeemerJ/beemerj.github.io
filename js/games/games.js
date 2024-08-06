@@ -324,7 +324,7 @@ function renderGames() {
         games.forEach((game, index) => {
             const gameDiv = document.createElement("div");
             gameDiv.classList.add("game");
-            gameDiv.id = "game_" + index; // Unique identifier for each game
+            gameDiv.id = "game_" + index;
 
             const gameInfo = document.createElement("a");
             gameInfo.href = game.info;
@@ -333,23 +333,33 @@ function renderGames() {
             gameImage.src = game.image;
             gameImage.alt = game.name;
 
-            // Show image after it's been loaded
             gameImage.addEventListener("load", function () {
                 gameImage.style.opacity = "1";
             });
 
             if (game.status === o) {
                 gameImage.classList.add("ongoingEffect");
-            }
-            if (game.status === c) {
+            } else if (game.status === c) {
                 gameImage.classList.add("completedEffect");
-            }
-            if (game.status === p) {
+            } else if (game.status === p) {
                 gameImage.classList.add("pendingEffect");
             }
 
             gameInfo.appendChild(gameImage);
             gameDiv.appendChild(gameInfo);
+
+            // Create game details but don't append yet
+            const gameDetails = document.createElement("div");
+            gameDetails.classList.add("game-details");
+            gameDetails.innerHTML = `
+                <h3>${game.name}</h3>
+                <p>Status: ${game.status === o ? "Ongoing" : game.status === c ? "Completed" : "Pending"}</p>
+                <a href="${game.info}" target="_blank">${game.info}</a>
+            `;
+
+            // Store the gameDetails in a data attribute
+            gameDiv.dataset.details = gameDetails.outerHTML;
+
             contentDiv.appendChild(gameDiv);
         });
     }
@@ -360,51 +370,60 @@ function renderGames() {
         const cButton = document.getElementById("completedBtn");
         const pButton = document.getElementById("pendingBtn");
         const aButton = document.getElementById("allBtn");
+        const listViewButton = document.getElementById("listViewBtn");
 
         function setActiveButton(button) {
-            // Reset button style by default
-            [oButton, cButton, pButton, aButton].forEach(btn => {
+            [oButton, cButton, pButton, aButton, listViewButton].forEach(btn => {
                 btn.style.backgroundColor = "";
                 btn.style.color = "";
             });
-            // Styling for the current selected button
             button.style.backgroundColor = "#ffa500";
             button.style.color = "#000";
         }
 
-        oButton.addEventListener("click", function () {
-            setActiveButton(oButton);
+        function toggleListView(show) {
+            const contentDiv = document.getElementById("content");
+            if (show && !contentDiv.classList.contains("list-view")) {
+                contentDiv.classList.add("list-view");
+                games.forEach(game => {
+                    const gameDiv = document.querySelector(`img[alt="${game.name}"]`).parentNode.parentNode;
+                    if (!gameDiv.querySelector(".game-details")) {
+                        gameDiv.innerHTML += gameDiv.dataset.details;
+                    }
+                });
+            } else if (!show) {
+                contentDiv.classList.remove("list-view");
+                games.forEach(game => {
+                    const gameDiv = document.querySelector(`img[alt="${game.name}"]`).parentNode.parentNode;
+                    const details = gameDiv.querySelector(".game-details");
+                    if (details) details.remove();
+                });
+            }
+        }
 
-            // Show only ongoing games...
-            games.forEach(function (game) {
-                const gameDiv = document.querySelector(`img[alt="${game.name}"]`).parentNode;
-                gameDiv.style.display = game.status === o ? "block" : "none";
+        [oButton, cButton, pButton, aButton].forEach(button => {
+            button.addEventListener("click", function () {
+                setActiveButton(this);
+                toggleListView(false);
+                games.forEach(function (game) {
+                    const gameDiv = document.querySelector(`img[alt="${game.name}"]`).parentNode.parentNode;
+                    if (this === aButton ||
+                        (this === oButton && game.status === o) ||
+                        (this === cButton && game.status === c) ||
+                        (this === pButton && game.status === p)) {
+                        gameDiv.style.display = "block";
+                    } else {
+                        gameDiv.style.display = "none";
+                    }
+                }, this);
             });
         });
 
-        cButton.addEventListener("click", function () {
-            setActiveButton(cButton);
-            // Show only completed games...
+        listViewButton.addEventListener("click", function () {
+            setActiveButton(this);
+            toggleListView(true);
             games.forEach(function (game) {
-                const gameDiv = document.querySelector(`img[alt="${game.name}"]`).parentNode;
-                gameDiv.style.display = game.status === c ? "block" : "none";
-            });
-        });
-
-        pButton.addEventListener("click", function () {
-            setActiveButton(pButton);
-            // Show only pending games...
-            games.forEach(function (game) {
-                const gameDiv = document.querySelector(`img[alt="${game.name}"]`).parentNode;
-                gameDiv.style.display = game.status === p ? "block" : "none";
-            });
-        });
-
-        aButton.addEventListener("click", function () {
-            setActiveButton(aButton);
-            // Show all games...
-            games.forEach(function (game) {
-                const gameDiv = document.querySelector(`img[alt="${game.name}"]`).parentNode;
+                const gameDiv = document.querySelector(`img[alt="${game.name}"]`).parentNode.parentNode;
                 gameDiv.style.display = "block";
             });
         });
