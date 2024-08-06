@@ -269,6 +269,30 @@ const games = [
     },
     {
         status: p,
+        name: "Metal Gear Solid",
+        info: "https://www.igdb.com/games/metal-gear-solid--1",
+        image: "https://cdn2.steamgriddb.com/thumb/3ac4511ba0302570efea191ea1a2d0b4.jpg"
+    },
+    {
+        status: p,
+        name: "Portal 2",
+        info: "https://www.igdb.com/games/portal-2",
+        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/620/library_600x900_2x.jpg?t=1683129590"
+    },
+    {
+        status: p,
+        name: "Half Life 2",
+        info: "https://www.igdb.com/games/half-life-2",
+        image: "https://cdn.cloudflare.steamstatic.com/steam/apps/220/library_600x900_2x.jpg?t=1682697176"
+    },
+    {
+        status: p,
+        name: "Tony Hawk's Underground 2",
+        info: "https://www.igdb.com/games/tony-hawk-s-underground-2",
+        image: "https://cdn2.steamgriddb.com/thumb/d1fbbeb938c779bf061b6a112788db9f.jpg"
+    },
+    {
+        status: p,
         name: "Black",
         info: "https://www.igdb.com/games/black",
         image: "https://cdn2.steamgriddb.com/thumb/e83bab0eff11d84c5e7d4199d9fa45a4.jpg"
