@@ -142,6 +142,7 @@ hr {
     display: flex !important;
     width: 100%;
     margin-bottom: 1em;
+    margin-left: 1em;
     align-items: center;
 }
 
@@ -158,6 +159,7 @@ hr {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    margin-top: -2.6em;
     margin-left: 1em;
 }
 
@@ -166,12 +168,12 @@ hr {
 }
 
 .list-view .game-details a {
-    color: orange;
+    color: var(--primary-color-dark);
     text-decoration: none;
     cursor: pointer !important;
     width: fit-content;
 }
 
 .list-view .game-details a:hover {
-    text-decoration: underline;
+    color: orange;
 }

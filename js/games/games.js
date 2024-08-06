@@ -352,10 +352,15 @@ function renderGames() {
             const gameDetails = document.createElement("div");
             gameDetails.classList.add("game-details");
             gameDetails.innerHTML = `
-                <h3>${game.name}</h3>
-                <p>Status: ${game.status === o ? "Ongoing" : game.status === c ? "Completed" : "Pending"}</p>
-                <a href="${game.info}" target="_blank">${game.info}</a>
-            `;
+            <h3>${game.name}</h3>
+            <p>Status: <span class="status">${game.status === o ? "Ongoing" : game.status === c ? "Completed" : "Pending"}</span></p>
+            <a href="${game.info}" target="_blank">${game.info}</a>
+        `;
+
+            if (game.status === c) {
+                const statusSpan = gameDetails.querySelector('.status');
+                statusSpan.style.color = 'orange';
+            }
 
             // Store the gameDetails in a data attribute
             gameDiv.dataset.details = gameDetails.outerHTML;
