@@ -299,6 +299,14 @@ const games = [
     }
 ];
 
+async function fetchGameDetails(gameName) {
+    const response = await fetch('/.netlify/functions/getGameDetails', {
+        method: 'POST',
+        body: JSON.stringify({ gameName })
+    });
+    return response.json();
+}
+
 function renderGames() {
     // Sort games alphabetically...
     games.sort((a, b) => {
@@ -310,18 +318,15 @@ function renderGames() {
         if (nameA > nameB) {
             return 1;
         }
-        // names must be equal
         return 0;
     });
 
-    // Log the total number of games and the metadata in an array...
     console.log("Total Games: " + games.length);
     console.log(games);
 
-    // Main function to display games...
-    function generateGames() {
+    async function generateGames() {
         const contentDiv = document.getElementById("content");
-        games.forEach((game, index) => {
+        for (const [index, game] of games.entries()) {
             const gameDiv = document.createElement("div");
             gameDiv.classList.add("game");
             gameDiv.id = "game_" + index;
@@ -348,25 +353,29 @@ function renderGames() {
             gameInfo.appendChild(gameImage);
             gameDiv.appendChild(gameInfo);
 
-            // Create game details but don't append yet
             const gameDetails = document.createElement("div");
             gameDetails.classList.add("game-details");
+
+            const additionalInfo = await fetchGameDetails(game.name);
+
             gameDetails.innerHTML = `
-            <h3>${game.name}</h3>
-            <p>Status: <span class="status">${game.status === o ? "Ongoing" : game.status === c ? "Completed" : "Pending"}</span></p>
-            <a href="${game.info}" target="_blank">${game.info}</a>
-        `;
+                <h3>${game.name}</h3>
+                <p>Status: <span class="status">${game.status === o ? "Ongoing" : game.status === c ? "Completed" : "Pending"}</span></p>
+                <a href="${game.info}" target="_blank">${game.info}</a>
+                <p>Platforms: ${additionalInfo.platforms}</p>
+                <p>Genres: ${additionalInfo.genres}</p>
+                <p>Release Date: ${additionalInfo.releaseDate}</p>
+            `;
 
             if (game.status === c) {
                 const statusSpan = gameDetails.querySelector('.status');
                 statusSpan.style.color = 'orange';
             }
 
-            // Store the gameDetails in a data attribute
             gameDiv.dataset.details = gameDetails.outerHTML;
 
             contentDiv.appendChild(gameDiv);
-        });
+        };
     }
 
     // Function for hiding games with the buttons...
