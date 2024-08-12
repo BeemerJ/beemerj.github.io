@@ -37,13 +37,15 @@ def convert_audio(file_path, output_path, channels):
         if channels == 'stereo':
             adjusted_audio = adjusted_audio.set_channels(2)
             samples = np.array(adjusted_audio.get_array_of_samples())
-            stereo_samples = np.column_stack((samples, samples))
+            left_channel = samples[::2]
+            right_channel = samples[1::2]
+            stereo_samples = np.column_stack((left_channel, right_channel))
             wavfile.write(output_path, 11025, stereo_samples)
         else:
             adjusted_audio = adjusted_audio.set_channels(1)
             samples = np.array(adjusted_audio.get_array_of_samples())
             wavfile.write(output_path, 11025, samples)
-            
+
     except Exception as e:
         app.logger.error(f"Error in convert_audio: {str(e)}")
         raise
