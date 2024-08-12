@@ -1,6 +1,6 @@
 Dropzone.options.fileDropzone = {
     paramName: "file",
-    maxFilesize: 8, // MB
+    maxFilesize: 64, // MB
     autoProcessQueue: false,
     acceptedFiles: ".mp3,.wav,.flac,.ogg",
     init: function () {
