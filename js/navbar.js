@@ -6,20 +6,20 @@ const navData = [
         items: [
             { text: 'Home Page', link: '/pages/home.html', title: 'back to lobby' },
             { text: 'Art Repo', link: '/pages/art.html', title: 'my lil artworks' },
-            { text: 'My Mixes', link: '../pages/mix.html', title: 'some of my sound-works', target: '_blank' }
+            { text: 'My Mixes', link: '/pages/mix.html', title: 'some of my sound-works', target: '_blank' }
         ]
     },
     {
         title: 'ジェネラビティ（世代）', // Personal
         items: [
-            { text: 'Record Highlight', link: '../pages/record.html', title: 'my favourite record for the week' },
+            { text: 'Record Highlight', link: '/pages/record.html', title: 'my favourite record for the week' },
             { text: 'New Thoughts', link: '', title: 'just some random ideas that i get' }
         ]
     },
     {
         title: 'マテリアライゼネ (質的な)', // Material
         items: [
-            { text: 'About Me', link: '', title: 'about' },
+            { text: '8-bitizer', link: '/pages/converter.html', title: 'make crunchy audio files', target: '_blank' },
         ]
     }
 ];

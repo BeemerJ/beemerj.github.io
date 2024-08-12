@@ -4,10 +4,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     navbarLinks.forEach(link => {
         link.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent the default link behavior
             const targetURL = link.getAttribute('href');
-            if (targetURL) {
-                iframe.setAttribute('src', targetURL);
+            const target = link.getAttribute('target');
+            
+            if (target === '_blank') {
+                // Open in a new tab/window
+                window.open(targetURL, '_blank');
+            } else {
+                // Load in iframe
+                event.preventDefault();
+                if (targetURL) {
+                    iframe.setAttribute('src', targetURL);
+                }
             }
         });
     });

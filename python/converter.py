@@ -10,25 +10,33 @@ app = Flask(__name__, static_folder='..', static_url_path='')
 
 @app.route('/')
 def index():
-    return app.send_static_file('pages/converter.html')
+    return app.send_static_file('index.html')
 
 UPLOAD_FOLDER = 'uploads'
 PROCESSED_FOLDER = 'processed'
 
-# Ensure the upload and processed folders exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(PROCESSED_FOLDER, exist_ok=True)
 
 def convert_audio(file_path, output_path, channels):
-    audio = AudioSegment.from_file(file_path)
-    audio = audio.set_frame_rate(11025)
-    audio = audio.set_sample_width(1)
-    if channels == 'mono':
-        audio = audio.set_channels(1)
-    elif channels == 'stereo':
-        audio = audio.set_channels(2)
+    original_audio = AudioSegment.from_file(file_path)
+    original_peak = original_audio.max_dBFS
     
-    samples = np.array(audio.get_array_of_samples())
+    target_peak = -0.1 # slightly below 0 dBFS to avoid clipping...
+    
+    gain_adjustment = target_peak - original_peak
+    
+    adjusted_audio = original_audio.apply_gain(gain_adjustment)
+
+    adjusted_audio = adjusted_audio.set_frame_rate(11025)
+    adjusted_audio = adjusted_audio.set_sample_width(1)
+    
+    if channels == 'mono':
+        adjusted_audio = adjusted_audio.set_channels(1)
+    elif channels == 'stereo':
+        adjusted_audio = adjusted_audio.set_channels(2)
+    
+    samples = np.array(adjusted_audio.get_array_of_samples())
     wavfile.write(output_path, 11025, samples)
 
 @app.route('/upload', methods=['POST'])
