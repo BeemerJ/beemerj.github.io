@@ -26,6 +26,8 @@ def convert_audio(file_path, output_path, channels):
         app.logger.info(f"Processing audio with channels: {channels}")
         original_audio = AudioSegment.from_file(file_path)
         
+        # Set to 8-bit
+        original_audio = original_audio.set_sample_width(1)
         original_audio = original_audio.set_frame_rate(11025)
         
         if channels == 'stereo':
@@ -33,7 +35,8 @@ def convert_audio(file_path, output_path, channels):
         else:
             original_audio = original_audio.set_channels(1)
         
-        original_audio.export(output_path, format='wav')
+        # Export as 8-bit WAV
+        original_audio.export(output_path, format='wav', parameters=["-acodec", "pcm_u8"])
 
     except Exception as e:
         app.logger.error(f"Error in convert_audio: {str(e)}")
