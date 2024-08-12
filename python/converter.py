@@ -52,12 +52,15 @@ def convert_files():
     channels = request.json.get('channels', 'mono')
     zip_buffer = io.BytesIO()
 
+    allowed_extensions = ('.mp3', '.wav', '.flac', '.ogg')
+
     with zipfile.ZipFile(zip_buffer, 'w') as zip_file:
         for file_name in os.listdir(UPLOAD_FOLDER):
-            input_path = os.path.join(UPLOAD_FOLDER, file_name)
-            output_path = os.path.join(PROCESSED_FOLDER, file_name.replace('.', '_converted.'))
-            convert_audio(input_path, output_path, channels)
-            zip_file.write(output_path, os.path.basename(output_path))
+            if file_name.lower().endswith(allowed_extensions):
+                input_path = os.path.join(UPLOAD_FOLDER, file_name)
+                output_path = os.path.join(PROCESSED_FOLDER, file_name.rsplit('.', 1)[0] + '_converted.wav')
+                convert_audio(input_path, output_path, channels)
+                zip_file.write(output_path, os.path.basename(output_path))
 
     zip_buffer.seek(0)
     return send_file(zip_buffer, mimetype='application/zip', as_attachment=True, download_name='converted_audio.zip')
