@@ -1,3 +1,5 @@
+var filesInProgress = 0;
+
 Dropzone.options.fileDropzone = {
     paramName: "file",
     maxFilesize: 64, // MB
@@ -5,30 +7,44 @@ Dropzone.options.fileDropzone = {
     acceptedFiles: ".mp3,.wav,.flac,.ogg",
     init: function () {
         var myDropzone = this;
-        document.getElementById("convert-button").addEventListener("click", function () {
+        var downloadButton = document.getElementById("convert-button");
+        downloadButton.disabled = true;
+
+        downloadButton.addEventListener("click", function () {
             myDropzone.processQueue();
         });
 
+        this.on("addedfile", function(file) {
+            filesInProgress++;
+        });
+
+        this.on("success", function(file) {
+            filesInProgress--;
+            checkDownloadButtonState();
+        });
+
         this.on("queuecomplete", function () {
-            const channel = document.querySelector('input[name="channels"]:checked').value;
-            fetch('/convert', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ channels: channel })
-            })
-                .then(response => response.blob())
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.style.display = 'none';
-                    a.href = url;
-                    a.download = `${channel}_output.zip`;
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                });
+            if (filesInProgress === 0) {
+                const channel = document.querySelector('input[name="channels"]:checked').value;
+                fetch('/convert', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ channels: channel })
+                })
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.style.display = 'none';
+                        a.href = url;
+                        a.download = `${channel}_output.zip`;
+                        document.body.appendChild(a);
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+                    });
+            }
         });
 
         this.on("uploadprogress", function (file, progress) {
@@ -39,3 +55,17 @@ Dropzone.options.fileDropzone = {
         });
     }
 };
+
+function checkDownloadButtonState() {
+    var downloadButton = document.getElementById("convert-button");
+    if (filesInProgress === 0) {
+        downloadButton.disabled = false;
+    } else {
+        downloadButton.disabled = true;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var downloadButton = document.getElementById("convert-button");
+    downloadButton.disabled = true;
+});
