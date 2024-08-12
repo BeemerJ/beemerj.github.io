@@ -25,26 +25,15 @@ def convert_audio(file_path, output_path, channels):
     try:
         app.logger.info(f"Processing audio with channels: {channels}")
         original_audio = AudioSegment.from_file(file_path)
-        original_peak = original_audio.max_dBFS
         
-        target_peak = -0.1
-        gain_adjustment = target_peak - original_peak
-        
-        adjusted_audio = original_audio.apply_gain(gain_adjustment)
-        adjusted_audio = adjusted_audio.set_frame_rate(11025)
-        adjusted_audio = adjusted_audio.set_sample_width(1)
+        original_audio = original_audio.set_frame_rate(11025)
         
         if channels == 'stereo':
-            adjusted_audio = adjusted_audio.set_channels(2)
-            samples = np.array(adjusted_audio.get_array_of_samples())
-            left_channel = samples[::2]
-            right_channel = samples[1::2]
-            stereo_samples = np.column_stack((left_channel, right_channel))
-            wavfile.write(output_path, 11025, stereo_samples)
+            original_audio = original_audio.set_channels(2)
         else:
-            adjusted_audio = adjusted_audio.set_channels(1)
-            samples = np.array(adjusted_audio.get_array_of_samples())
-            wavfile.write(output_path, 11025, samples)
+            original_audio = original_audio.set_channels(1)
+        
+        original_audio.export(output_path, format='wav')
 
     except Exception as e:
         app.logger.error(f"Error in convert_audio: {str(e)}")
