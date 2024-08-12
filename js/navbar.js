@@ -6,7 +6,7 @@ const navData = [
         items: [
             { text: 'Home Page', link: '/pages/home.html', title: 'back to lobby' },
             { text: 'Art Repo', link: '/pages/art.html', title: 'my lil artworks' },
-            { text: 'My Mixes', link: '/pages/mix.html', title: 'some of my sound-works', target: '_blank' }
+            { text: 'My Mixes', link: '/pages/mix.html', title: 'some of my sound-works' }
         ]
     },
     {

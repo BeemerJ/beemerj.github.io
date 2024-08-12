@@ -8,14 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const target = link.getAttribute('target');
             
             if (target === '_blank') {
-                // Open in a new tab/window
-                window.open(targetURL, '_blank');
-            } else {
-                // Load in iframe
-                event.preventDefault();
-                if (targetURL) {
-                    iframe.setAttribute('src', targetURL);
-                }
+                return;
+            }
+            
+            // For non-blank targets, prevent default and load in iframe...
+            event.preventDefault();
+            if (targetURL) {
+                iframe.setAttribute('src', targetURL);
             }
         });
     });
