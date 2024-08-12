@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('Converter script loaded');
+
     Dropzone.options.fileDropzone = {
         paramName: "file",
-        maxFilesize: 8, // MB
+        maxFilesize: 8,
         autoProcessQueue: false,
         acceptedFiles: ".mp3,.wav,.flac,.ogg",
-        previewTemplate: '<div class="dz-preview"><span class="dz-filename" data-dz-name></span></div>', // This is so fucked...
-        previewsContainer: "#file-list",
-
         init: function () {
             var myDropzone = this;
-            document.addEventListener('click', function (event) {
-                if (event.target && event.target.id === 'convert-button') {
-                    myDropzone.processQueue();
-                }
+            document.getElementById('convert-button').addEventListener('click', function (e) {
+                e.preventDefault();
+                console.log('Convert button clicked');
+                myDropzone.processQueue();
             });
 
             this.on("queuecomplete", function () {
-                const channel = document.getElementById("channels").value;
+                console.log('Queue complete, starting conversion');
+                const channel = document.querySelector('input[name="channels"]:checked').value;
                 fetch('/convert', {
                     method: 'POST',
                     headers: {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        return response.json().then(err => { throw err; });
                     }
                     return response.blob();
                 })
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .catch(error => {
                     console.error('Error during conversion:', error);
-                    alert('An error occurred during conversion. Please check the console for more details.');
+                    alert('An error occurred during conversion: ' + error.message);
                 });
             });
 

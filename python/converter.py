@@ -9,15 +9,14 @@ import logging
 
 app = Flask(__name__, static_folder='..', static_url_path='')
 
-# Set up logging
 logging.basicConfig(level=logging.DEBUG)
 
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
 
-UPLOAD_FOLDER = 'uploads'
-PROCESSED_FOLDER = 'processed'
+UPLOAD_FOLDER = os.path.join(app.root_path, 'uploads')
+PROCESSED_FOLDER = os.path.join(app.root_path, 'processed')
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(PROCESSED_FOLDER, exist_ok=True)
@@ -27,12 +26,10 @@ def convert_audio(file_path, output_path, channels):
         original_audio = AudioSegment.from_file(file_path)
         original_peak = original_audio.max_dBFS
         
-        target_peak = -0.1 # slightly below 0 dBFS to avoid clipping...
-        
+        target_peak = -0.1
         gain_adjustment = target_peak - original_peak
         
         adjusted_audio = original_audio.apply_gain(gain_adjustment)
-
         adjusted_audio = adjusted_audio.set_frame_rate(11025)
         adjusted_audio = adjusted_audio.set_sample_width(1)
         
@@ -54,7 +51,7 @@ def upload_file():
         for file in files:
             file_path = os.path.join(UPLOAD_FOLDER, file.filename)
             file.save(file_path)
-        return '', 204
+        return jsonify({"message": "Files uploaded successfully"}), 200
     except Exception as e:
         app.logger.error(f"Error in upload_file: {str(e)}")
         return jsonify({"error": str(e)}), 500
