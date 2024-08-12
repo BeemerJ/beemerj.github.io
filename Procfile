@@ -1,1 +1,1 @@
-gunicorn python.converter:app
+web: gunicorn python.converter:app

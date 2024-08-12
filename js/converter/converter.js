@@ -11,7 +11,7 @@ Dropzone.options.fileDropzone = {
 
         this.on("queuecomplete", function () {
             const channel = document.getElementById("channels").value;
-            fetch('https://beemerj-github-io.onrender.com/convert', {
+            fetch('/convert', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
