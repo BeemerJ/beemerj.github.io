@@ -19,7 +19,7 @@ const navData = [
     {
         title: 'マテリアライゼネ (質的な)', // Material
         items: [
-            { text: '8-bitizer', link: '/pages/converter.html', title: 'make crunchy audio files', target: '_blank' },
+            { text: '8-bitizer', link: 'https://beemerj-github-io.onrender.com/pages/converter.html', title: 'make crunchy audio files', target: '_blank' },
         ]
     }
 ];
