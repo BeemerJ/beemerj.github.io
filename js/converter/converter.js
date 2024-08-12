@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         maxFilesize: 8,
         autoProcessQueue: false,
         acceptedFiles: ".mp3,.wav,.flac,.ogg",
+        
         init: function () {
             var myDropzone = this;
             document.getElementById('convert-button').addEventListener('click', function (e) {
