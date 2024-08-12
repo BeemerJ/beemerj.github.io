@@ -23,6 +23,7 @@ os.makedirs(PROCESSED_FOLDER, exist_ok=True)
 
 def convert_audio(file_path, output_path, channels):
     try:
+        app.logger.info(f"Processing audio with channels: {channels}")
         original_audio = AudioSegment.from_file(file_path)
         original_peak = original_audio.max_dBFS
         
@@ -33,13 +34,16 @@ def convert_audio(file_path, output_path, channels):
         adjusted_audio = adjusted_audio.set_frame_rate(11025)
         adjusted_audio = adjusted_audio.set_sample_width(1)
         
-        if channels == 'mono':
-            adjusted_audio = adjusted_audio.set_channels(1)
-        elif channels == 'stereo':
+        if channels == 'stereo':
             adjusted_audio = adjusted_audio.set_channels(2)
-        
-        samples = np.array(adjusted_audio.get_array_of_samples())
-        wavfile.write(output_path, 11025, samples)
+            samples = np.array(adjusted_audio.get_array_of_samples())
+            stereo_samples = np.column_stack((samples, samples))
+            wavfile.write(output_path, 11025, stereo_samples)
+        else:
+            adjusted_audio = adjusted_audio.set_channels(1)
+            samples = np.array(adjusted_audio.get_array_of_samples())
+            wavfile.write(output_path, 11025, samples)
+            
     except Exception as e:
         app.logger.error(f"Error in convert_audio: {str(e)}")
         raise
@@ -68,7 +72,7 @@ def convert_files():
             for file_name in os.listdir(UPLOAD_FOLDER):
                 if file_name.lower().endswith(allowed_extensions):
                     input_path = os.path.join(UPLOAD_FOLDER, file_name)
-                    output_path = os.path.join(PROCESSED_FOLDER, file_name.rsplit('.', 1)[0] + '_converted.wav')
+                    output_path = os.path.join(PROCESSED_FOLDER, file_name.rsplit('.', 1)[0] + '.wav')
                     try:
                         convert_audio(input_path, output_path, channels)
                         zip_file.write(output_path, os.path.basename(output_path))
