@@ -3,6 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const uploadButton = document.getElementById('uploadButton');
     const progressContainer = document.getElementById('progressContainer');
     const resultContainer = document.getElementById('resultContainer');
+    const fileListContainer = document.createElement('div');
+    document.body.insertBefore(fileListContainer, progressContainer);
+
+    fileInput.addEventListener('change', updateFileList);
+
+    function updateFileList() {
+        const files = fileInput.files;
+        fileListContainer.innerHTML = '<h3>Selected Files:</h3>';
+        const list = document.createElement('ul');
+        for (let file of files) {
+            const item = document.createElement('li');
+            item.textContent = file.name;
+            list.appendChild(item);
+        }
+        fileListContainer.appendChild(list);
+    }
 
     uploadButton.addEventListener('click', () => {
         const files = fileInput.files;
@@ -22,20 +38,20 @@ document.addEventListener('DOMContentLoaded', () => {
             method: 'POST',
             body: formData
         })
-        .then(response => response.blob())
-        .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'converted_audio.zip';
-            progressContainer.innerHTML = 'Conversion complete!';
-            resultContainer.innerHTML = '<p>Click to download:</p>';
-            resultContainer.appendChild(a);
-            a.click();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            progressContainer.innerHTML = 'An error occurred during conversion.';
-        });
+            .then(response => response.blob())
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'converted_audio.zip';
+                progressContainer.innerHTML = 'Conversion complete!';
+                resultContainer.innerHTML = '<p>Click to download:</p>';
+                resultContainer.appendChild(a);
+                a.click();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                progressContainer.innerHTML = 'An error occurred during conversion.';
+            });
     });
 });
