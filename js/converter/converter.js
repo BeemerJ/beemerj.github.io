@@ -34,16 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
         progressContainer.innerHTML = 'Converting...';
 
-        fetch('/convert', {
+        const channelOption = document.querySelector('input[name="channels"]:checked').value;
+
+        fetch('/upload', {
             method: 'POST',
             body: formData
         })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === "Files uploaded successfully") {
+                    return fetch('/convert', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ channels: channelOption })
+                    });
+                }
+            })
             .then(response => response.blob())
             .then(blob => {
+                const channelOption = document.querySelector('input[name="channels"]:checked').value;
                 const url = window.URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'converted_audio.zip';
+                a.download = `converted_audio_${channelOption}.zip`;
                 progressContainer.innerHTML = 'Conversion complete!';
                 resultContainer.innerHTML = '<p>Click to download:</p>';
                 resultContainer.appendChild(a);
