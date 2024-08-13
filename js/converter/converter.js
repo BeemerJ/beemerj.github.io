@@ -8,19 +8,25 @@ Dropzone.options.fileDropzone = {
     init: function () {
         var myDropzone = this;
         var downloadButton = document.getElementById("convert-button");
-        downloadButton.disabled = true;
 
         downloadButton.addEventListener("click", function () {
             myDropzone.processQueue();
         });
 
-        this.on("addedfile", function(file) {
+        this.on("addedfile", function (file) {
             filesInProgress++;
+            downloadButton.disabled = false;
         });
 
-        this.on("success", function(file) {
+        this.on("processing", function () {
+            downloadButton.disabled = true;
+        });
+
+        this.on("success", function (file) {
             filesInProgress--;
-            checkDownloadButtonState();
+            if (filesInProgress === 0) {
+                downloadButton.disabled = false;
+            }
         });
 
         this.on("queuecomplete", function () {
@@ -65,7 +71,7 @@ function checkDownloadButtonState() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var downloadButton = document.getElementById("convert-button");
     downloadButton.disabled = true;
 });

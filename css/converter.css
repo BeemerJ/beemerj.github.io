@@ -43,21 +43,39 @@ h1 {
 
 #convert-button {
     color: orange;
-    padding: 0 !important;
-    margin: 1.4em 0 0 !important;
+    padding: 0.2em !important;
+    padding-right: 0.3em !important;
+    margin: 1.8em 0 0 !important;
     font-weight: bold;
     background: none !important;
-    border: none !important;
+    border: 1px solid orange !important;
     border-radius: 0 !important;
     transition: none !important;
 }
 
 #convert-button:hover {
     color: white;
+    border: 1px solid white !important;
+    animation: glitch-h 64ms infinite;
 }
 
 .progress.mt-3 {
     border-radius: 0 !important;
+    border: 1px solid orange !important;
+    background: none;
+}
+
+.warning-beta {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    gap: 0.8em;
+    color: orange;
+    cursor: default;
+}
+
+.warning-red {
+    color: red;
 }
 
 /* Dropzone stuff... */
