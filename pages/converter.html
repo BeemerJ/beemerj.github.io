@@ -1,50 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8-BITIZER | BEEMER.ZONE ☠</title>
-    <link rel="icon" type="image/gif" href="https://media.tenor.com/t9BKTaoUCe8AAAAi/half-life-hl.gif">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/min/dropzone.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/min/dropzone.min.css">
-
-    <script src="/js/converter/converter.js"></script>
-
-    <link rel="stylesheet" href="../css/fonts-animation.css" />
-    <link rel="stylesheet" href="../css/converter.css" />
+    <title>Audio Converter</title>
 </head>
-
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center"><span class="gs">8-BITIZER<span class="blink">...</span></span></h1>
-        <form action="/upload" class="dropzone" id="fileDropzone"></form>
-        <div id="file-list"></div>
-        <div class="form-group mt-3">
-            <label>Choose Output:</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="channels" id="mono" value="mono" checked>
-                <label class="form-check-label" for="mono">
-                    Mono
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="channels" id="stereo" value="stereo">
-                <label class="form-check-label" for="stereo">
-                    Stereo
-                </label>
-            </div>
-        </div>
-        <button id="convert-button" class="btn btn-primary mt-3">Download</button>
-        <div class="progress mt-3">
-            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;"></div>
-        </div>
-        <br>
-        <span class="gs"><sup><span class="warning-beta"><span class="warning-red">WARNING:</span> This shit is mad scuffed at the moment, if you can't work it, jerk it ...</span></sup></gs>
-    </div>
-</body>
+    <h1>Audio Converter</h1>
+    <input type="file" id="fileInput" multiple accept="audio/*">
+    <button id="uploadButton">Convert Files</button>
+    <div id="progressContainer"></div>
+    <div id="resultContainer"></div>
 
+    <script src="/js/converter.js"></script>
+</body>
 </html>
