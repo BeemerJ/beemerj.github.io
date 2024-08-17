@@ -12,29 +12,29 @@ document.addEventListener('DOMContentLoaded', () => {
     addFilesButton.addEventListener('click', () => fileInput.click());
     fileInput.addEventListener('change', updateFileList);
 
+    let allFiles = [];
+
+    fileInput.addEventListener('change', () => {
+        const newFiles = Array.from(fileInput.files);
+        allFiles = [...allFiles, ...newFiles];
+        updateFileList();
+        fileInput.value = ''; // Reset file input
+    });
+
     function updateFileList() {
-        const files = fileInput.files;
         fileListContainer.innerHTML = '<h3>Selected Files:</h3>';
         const list = document.createElement('ul');
-        for (let file of files) {
+        allFiles.forEach((file, index) => {
             const item = document.createElement('li');
-            const removeIcon = document.createElement('span');
-            removeIcon.textContent = '❌';
-            removeIcon.className = 'remove-icon';
-            removeIcon.onclick = () => removeFile(file);
-            item.appendChild(removeIcon);
-            item.appendChild(document.createTextNode(`${file.name} (${formatFileSize(file.size)})`));
+            item.textContent = `${file.name} (${formatFileSize(file.size)})`;
+            item.onclick = () => removeFile(index);
             list.appendChild(item);
-        }
+        });
         fileListContainer.appendChild(list);
     }
 
-    function removeFile(fileToRemove) {
-        const dt = new DataTransfer();
-        for (let file of fileInput.files) {
-            if (file !== fileToRemove) dt.items.add(file);
-        }
-        fileInput.files = dt.files;
+    function removeFile(index) {
+        allFiles.splice(index, 1);
         updateFileList();
     }
 
@@ -104,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 a.download = `converted_audio_${channelOption}.zip`;
                 progressContainer.innerHTML = `Conversion complete! Saved file size: ${formatFileSize(blob.size)}`;
                 updateLog('Conversion completed successfully.');
-                resultContainer.innerHTML = '<p>Click to download:</p>';
                 a.textContent = 'Download Converted Audio';
                 resultContainer.appendChild(a);
             })

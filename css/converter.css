@@ -30,3 +30,13 @@
     margin-top: 10px;
     font-weight: bold;
 }
+
+#fileListContainer li {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    list-style: none;
+}
+
+#fileListContainer li:hover {
+    color: red;
+}
