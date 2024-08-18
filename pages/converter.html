@@ -12,14 +12,17 @@
     <h1>Audio Converter</h1>
     <input type="file" id="fileInput" multiple accept="audio/*" style="display: none;">
     <button id="addFilesButton">Add Files</button>
-    <div id="fileListContainer"></div>
-    <div>
+    <button id="uploadButton">Convert Files</button>
+    
+    <div id="conversionList"></div>
+    <div id="conversionList">
         <input type="radio" id="mono" name="channels" value="mono" checked>
         <label for="mono">Mono</label>
+        <br>
         <input type="radio" id="stereo" name="channels" value="stereo">
         <label for="stereo">Stereo</label>
     </div>
-    <button id="uploadButton">Convert Files</button>
+    <div id="fileListContainer"></div>
     <div id="progressContainer"></div>
     <div id="logContainer"></div>
     <div id="resultContainer"></div>

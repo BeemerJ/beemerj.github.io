@@ -59,8 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     uploadButton.addEventListener('click', () => {
-        const files = fileInput.files;
-        if (files.length === 0) {
+        if (allFiles.length === 0) {
             alert('Please select at least one audio file.');
             return;
         }
@@ -69,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const elapsedTimeInterval = setInterval(updateElapsedTime, 1000);
 
         const formData = new FormData();
-        for (let file of files) {
+        for (let file of allFiles) {
             formData.append('file', file);
         }
 
