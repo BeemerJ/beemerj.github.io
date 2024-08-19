@@ -2,14 +2,20 @@
 const records = [
   {
     title: "Exorcise The Demons [1999]",
-    date: "2024-01-01",
     imageSource: "/assets/images/records/2024/SD01.webp",
-    link: "",
+    link: "/pages/record/2024/34.html",
+    week: 34,
+    year: 2024,
   },
 ];
 
 // Sort the record data array by date in descending order
-const sortedRecords = records.sort((a, b) => new Date(b.date) - new Date(a.date));
+const sortedRecords = records.sort((a, b) => {
+  if (a.year !== b.year) {
+    return b.year - a.year; // Sort by year descending
+  }
+  return b.week - a.week; // If same year, sort by week descending
+});
 
 // Get the container element where you want to append the record items
 const recordContainer = document.querySelector('.record-container');
@@ -20,7 +26,7 @@ sortedRecords.forEach(record => {
   recordItem.classList.add('record-item');
 
   const link = document.createElement('a');
-  link.href = 'link-to-open'; // temp testing shit, things will need individual links in the array above
+  link.href = record.link;
   link.target = '_blank';
 
   const image = document.createElement('img');
@@ -37,7 +43,7 @@ sortedRecords.forEach(record => {
   title.textContent = record.title;
 
   const date = document.createElement('span');
-  date.textContent = record.date;
+  date.textContent = `${record.year} | WEEK ${record.week}`;
 
   titleAndDateContainer.appendChild(title);
   titleAndDateContainer.appendChild(date);
