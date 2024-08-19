@@ -1,0 +1,80 @@
+.review-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+.album-info {
+    display: flex;
+    margin-top: 1.4em;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.album-cover {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid var(--primary-color);
+}
+
+.album-details {
+    flex-grow: 1;
+    padding: 1.2em;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 20px;
+    align-content: center;
+    font-size: larger;
+}
+
+.album-details p {
+    margin-bottom: 1.2em;
+    margin-left: 2.4em;
+}
+
+.review-text {
+    margin-top: 2.4em;
+}
+
+section {
+    margin-bottom: 2.4em;
+}
+
+h2 {
+    color: orange;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+.standout-tracks details {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.standout-tracks summary {
+    width: fit-content;
+    font-weight: bold;
+    color: var(--primary-color-dark);
+}
+
+.standout-tracks ul {
+    width: fit-content;
+    margin-top: 0.8em;
+    margin-left: -1.6em;
+    list-style: none;
+}
+
+.standout-tracks ul li {
+    width: fit-content;
+    margin-bottom: 0.8em;
+}
+
+/* iframe stuff... */
+
+iframe {
+    margin-top: 1.2em;
+    border-bottom: 0;
+}
