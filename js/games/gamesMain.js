@@ -4,6 +4,14 @@ const p = []; // pending...
 
 const games = [ // Put your games here...
     {
+        status: p,
+        name: "Star Wars: Republic Commando",
+        info: "https://www.igdb.com/games/star-wars-republic-commando",
+        image: "https://cdn2.steamgriddb.com/thumb/87f7f8f823a0bc9edecdf4c22aa2007a.jpg",
+        year: "2005",
+        genre: ["Shooter", "Strategy"],
+    },
+    {
         status: o,
         name: "Need for Speed",
         info: "https://www.igdb.com/games/need-for-speed",
@@ -472,7 +480,7 @@ function renderGames() {
             gameDetails.innerHTML = `
             <h3>${game.name} [${game.year}]</h3>
             <p>Genre: ${game.genre}</p>
-            <p>${game.excerpt}</p>
+            <p id="excerpt">${game.excerpt}</p>
             <p>Status: <span class="status">${game.status === o ? "Ongoing" : game.status === c ? "Completed" : "Pending"}</span></p>
             <br>
             <a href="${game.info}" target="_blank">${game.info}</a>

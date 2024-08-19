@@ -3,7 +3,7 @@ const records = [
   {
     title: "Exorcise The Demons [1999]",
     date: "2024-01-01",
-    imageSource: "https://i.discogs.com/qiefLPNhsvNv37fb309Z5cgfiG8WS6MrgY3Sxvw2oqs/rs:fit/g:sm/q:90/h:587/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyMTMw/LTEzMTg2MjEyMjgu/anBlZw.jpeg",
+    imageSource: "/assets/images/records/2024/SD01.webp",
     link: "",
   },
 ];
@@ -25,7 +25,7 @@ sortedRecords.forEach(record => {
 
   const image = document.createElement('img');
   image.src = record.imageSource;
-  image.alt = record.title;
+  //image.alt = record.title; // Hidden because I don't like the weird text shown before load...
 
   link.appendChild(image);
   recordItem.appendChild(link);
