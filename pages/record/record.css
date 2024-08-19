@@ -31,8 +31,15 @@
 }
 
 .album-details p {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
     margin-bottom: 1.2em;
     margin-left: 2.4em;
+}
+
+.detail-item {
+    color: orange;
 }
 
 .review-text {
@@ -70,6 +77,11 @@ h2 {
 .standout-tracks ul li {
     width: fit-content;
     margin-bottom: 0.8em;
+}
+
+.standout-tracks ul li a {
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
 }
 
 /* iframe stuff... */
