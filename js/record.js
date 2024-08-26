@@ -7,6 +7,13 @@ const records = [
     week: 34,
     year: 2024,
   },
+  {
+    title: "Realm of Chaos [1989]",
+    imageSource: "/assets/images/records/2024/BT01.webp",
+    link: "/pages/record/2024/35.html",
+    week: 35,
+    year: 2024,
+  },
 ];
 
 // Sort the record data array by date in descending order
