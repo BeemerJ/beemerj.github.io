@@ -73,8 +73,7 @@ gs {
 }
 
 .record-item img:hover {
-    transition: var(--trans-fade);
-    filter: var(--hover-b);
+    filter: var(--hover);
 }
 
 .title-container {

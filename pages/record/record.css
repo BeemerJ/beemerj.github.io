@@ -18,6 +18,7 @@
     height: 300px;
     object-fit: cover;
     border: 1px solid var(--primary-color);
+    cursor: pointer;
 }
 
 .album-details {
@@ -82,6 +83,59 @@ h2 {
 .standout-tracks ul li a {
     color: var(--primary-color) !important;
     text-decoration: none !important;
+}
+
+/* expander.js stuff */
+
+.expanded-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: default;
+}
+
+.expanded-image img {
+    max-width: 95%;
+    max-height: 95%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    animation: popupAnimation 128ms ease-out;
+    /* border: 2px solid var(--primary-color); */
+}
+
+@keyframes popupAnimation {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+body.darkened::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 128ms ease-out;
+}
+
+body.darkened::before {
+    opacity: 1;
 }
 
 /* iframe stuff... */
