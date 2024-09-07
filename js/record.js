@@ -2,16 +2,30 @@
 const records = [
   {
     title: "Exorcise The Demons [1999]",
-    imageSource: "/assets/images/records/2024/SD01.webp",
+    imageSource: "/assets/images/records/2024/SD99.webp",
     link: "/pages/record/2024/34.html",
     week: 34,
     year: 2024,
   },
   {
     title: "Realm of Chaos [1989]",
-    imageSource: "/assets/images/records/2024/BT01.webp",
+    imageSource: "/assets/images/records/2024/BT89.webp",
     link: "/pages/record/2024/35.html",
     week: 35,
+    year: 2024,
+  },
+  {
+    title: "Paradise [1998]",
+    imageSource: "/assets/images/records/2024/BS98.webp",
+    link: "/pages/record/2024/36.html",
+    week: 36,
+    year: 2024,
+  },
+  {
+    title: "Welcome to Sky Valley [1989]",
+    imageSource: "/assets/images/records/2024/KY94.webp",
+    link: "/pages/record/2024/37.html",
+    week: 37,
     year: 2024,
   },
 ];
