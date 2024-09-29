@@ -28,6 +28,20 @@ const records = [
     week: 37,
     year: 2024,
   },
+  {
+    title: "100% Ghetto 4 [2010]",
+    imageSource: "/assets/images/records/2024/DC10.webp",
+    link: "/pages/record/2024/38.html",
+    week: 38,
+    year: 2024,
+  },
+  {
+    title: "Godflesh [1988]",
+    imageSource: "/assets/images/records/2024/GF88.webp",
+    link: "/pages/record/2024/39.html",
+    week: 39,
+    year: 2024,
+  },
 ];
 
 // Sort the record data array by date in descending order
