@@ -6,87 +6,131 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
     const resultsContainer = document.getElementById('results');
-    const setSelect = document.getElementById('set-select');
+    const setSelectBtn = document.getElementById('set-select-btn');
+    const setModal = document.getElementById('set-modal');
+    const setList = document.getElementById('set-list');
+    const setSearch = document.getElementById('set-search');
+    const setModalClose = document.getElementById('set-modal-close');
 
-    // --- Autocomplete dropdown ---
-    const autocompleteList = document.createElement('ul');
-    autocompleteList.className = 'autocomplete-list';
-    autocompleteList.style.position = 'absolute';
-    autocompleteList.style.zIndex = 1000;
-    autocompleteList.style.background = '#fff';
-    autocompleteList.style.listStyle = 'none';
-    autocompleteList.style.padding = '0';
-    autocompleteList.style.margin = '0';
-    autocompleteList.style.marginTop = '12px';
-    autocompleteList.style.border = '1px solid #ccc';
-    autocompleteList.style.width = searchInput.offsetWidth + 'px';
-    autocompleteList.style.display = 'none';
-    searchInput.parentNode.appendChild(autocompleteList);
+    let allSets = [];
+    let selectedSets = []; // Now an array
 
-    searchInput.addEventListener('input', async () => {
-        const query = searchInput.value.trim();
-        if (query.length < 2) {
-            autocompleteList.style.display = 'none';
-            return;
-        }
-        const res = await fetch(`${autocompleteUrl}?q=${encodeURIComponent(query)}`);
-        const data = await res.json();
-        autocompleteList.innerHTML = '';
-        if (data.data && data.data.length > 0) {
-            data.data.forEach(suggestion => {
-                const li = document.createElement('li');
-                li.textContent = suggestion;
-                li.style.padding = '4px 8px';
-                li.style.cursor = 'pointer';
-                li.addEventListener('mousedown', () => {
-                    searchInput.value = suggestion;
-                    autocompleteList.style.display = 'none';
-                });
-                autocompleteList.appendChild(li);
-            });
-            autocompleteList.style.display = 'block';
+    function updateSetChips() {
+        setSelectBtn.innerHTML = '';
+        if (selectedSets.length === 0) {
+            // Render "All Sets" as a non-clickable chip
+            const allSetsChip = document.createElement('span');
+            allSetsChip.className = 'set-chip all-sets';
+            allSetsChip.textContent = 'All Sets';
+            setSelectBtn.appendChild(allSetsChip);
         } else {
-            autocompleteList.style.display = 'none';
+            selectedSets.forEach(code => {
+                const set = allSets.find(s => s.code === code);
+                const chip = document.createElement('span');
+                chip.className = 'set-chip selected-chip';
+                chip.textContent = set ? `${set.name} (${set.code.toUpperCase()})` : code.toUpperCase();
+                chip.onclick = (e) => {
+                    e.stopPropagation();
+                    selectedSets = selectedSets.filter(c => c !== code);
+                    updateSetChips();
+                };
+                setSelectBtn.appendChild(chip);
+            });
         }
-    });
+        // Always add the "+" button
+        const addBtn = document.createElement('button');
+        addBtn.className = 'add-set-btn';
+        addBtn.title = 'Add another set';
+        addBtn.innerHTML = '+';
+        addBtn.onclick = (e) => {
+            e.stopPropagation();
+            setModal.style.display = 'flex';
+            setSearch.value = '';
+            renderSetList('');
+            setSearch.focus();
+        };
+        setSelectBtn.appendChild(addBtn);
+    }
 
-    document.addEventListener('click', (e) => {
-        if (!autocompleteList.contains(e.target) && e.target !== searchInput) {
-            autocompleteList.style.display = 'none';
-        }
-    });
-
-    // --- Populate sets dropdown ---
     async function populateSets() {
         const res = await fetch(setsUrl);
         const data = await res.json();
-        setSelect.innerHTML = '<option value="">All Sets</option>';
-        data.data.forEach(set => {
-            if (set.set_type !== 'promo' && set.set_type !== 'token' && set.set_type !== 'memorabilia') {
-                const option = document.createElement('option');
-                option.value = set.code;
-                option.textContent = `${set.name} (${set.code.toUpperCase()})`;
-                setSelect.appendChild(option);
-            }
-        });
+        allSets = data.data.filter(set =>
+            set.set_type !== 'promo' && set.set_type !== 'token' && set.set_type !== 'memorabilia'
+        );
+        renderSetList('');
+        updateSetChips();
     }
     populateSets();
 
+    function renderSetList(filter) {
+        setList.innerHTML = '';
+        const filtered = allSets.filter(set =>
+            set.name.toLowerCase().includes(filter.toLowerCase()) ||
+            set.code.toLowerCase().includes(filter.toLowerCase())
+        );
+        filtered.forEach(set => {
+            const li = document.createElement('li');
+            li.textContent = `${set.name} (${set.code.toUpperCase()})`;
+            li.onclick = () => {
+                if (!selectedSets.includes(set.code)) {
+                    selectedSets.push(set.code);
+                }
+                setModal.style.display = 'none';
+                updateSetChips();
+            };
+            // Highlight if already selected
+            if (selectedSets.includes(set.code)) {
+                li.classList.add('selected');
+                li.setAttribute('aria-selected', 'true');
+            }
+            setList.appendChild(li);
+        });
+        // Add "All Sets" option
+        if (filter === '' || 'all sets'.includes(filter.toLowerCase())) {
+            const li = document.createElement('li');
+            li.textContent = 'All Sets';
+            li.onclick = () => {
+                selectedSets = [];
+                setModal.style.display = 'none';
+                updateSetChips();
+            };
+            if (selectedSets.length === 0) {
+                li.style.background = '#444';
+                li.style.fontWeight = 'bold';
+            }
+            setList.insertBefore(li, setList.firstChild);
+        }
+    }
+
+    setSelectBtn.onclick = () => {
+        setModal.style.display = 'flex';
+        setSearch.value = '';
+        renderSetList('');
+        setSearch.focus();
+    };
+    setModalClose.onclick = () => setModal.style.display = 'none';
+    setSearch.oninput = () => renderSetList(setSearch.value);
+    setModal.onclick = (e) => { if (e.target === setModal) setModal.style.display = 'none'; };
+
+    // Update search logic to use selectedSets
     searchButton.addEventListener('click', () => {
         const query = searchInput.value.trim();
-        const set = setSelect.value;
-        if (query) fetchCards(query, set);
+        if (query) fetchCards(query, selectedSets);
     });
-
     searchInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') searchButton.click();
     });
 
-    async function fetchCards(query, set) {
+    async function fetchCards(query, sets) {
         showLoading();
         try {
             let fullQuery = query;
-            if (set) fullQuery += ` set:${set}`;
+            if (sets && sets.length > 0) {
+                fullQuery += ' (';
+                fullQuery += sets.map(s => `set:${s}`).join(' OR ');
+                fullQuery += ')';
+            }
             const response = await fetch(`${apiUrl}?q=${encodeURIComponent(fullQuery)}`);
             const data = await response.json();
             displayResults(data.data); // Scryfall returns cards in 'data'

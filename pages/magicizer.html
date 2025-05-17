@@ -32,12 +32,19 @@
           </button>
         </div>
         <div class="set-select-row">
-          <select id="set-select"></select>
+          <div id="set-select-btn" class="set-chip-container" tabindex="0"></div>
         </div>
       </form>
       <div id="results"></div>
     </main>
   </div>
+  <div id="set-modal" class="set-modal-overlay" style="display:none;">
+    <div class="set-modal-content">
+        <input type="text" id="set-search" placeholder="Search sets...">
+        <ul id="set-list"></ul>
+        <button id="set-modal-close">&times; Close</button>
+    </div>
+</div>
   <script src="/js/magicizer.js"></script>
 </body>
 </html>
