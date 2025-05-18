@@ -178,7 +178,7 @@ main {
     gap: 1.2rem;
     align-items: center;
     width: 100vw;
-    max-width: 99vw;
+    max-width: 95vw;
     padding: 0;
 }
 
@@ -202,10 +202,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 10rem;
-    min-height: 14rem;
-    width: 18vw;
-    max-width: 22rem;
+    /* min-width: 10rem; */
+    /* min-height: 14rem; */
+    /* width: 18vw; */
+    /* max-width: 22rem; */
     aspect-ratio: 223/310;
     background: #222;
     border-radius: 1rem;
@@ -315,8 +315,18 @@ main {
     word-break: break-word;
 }
 
+.card-text img {
+    min-width: 0;
+    width: 0.8em;
+    height: auto;
+    box-shadow: none;
+    padding-right: 4px;
+    vertical-align: middle;
+}
+
 .loading-spinner {
-    display: none; /* Hide by default */
+    display: none;
+    /* Hide by default */
     justify-content: center;
     align-items: center;
     margin: 2em 0;
@@ -358,8 +368,13 @@ main {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);}
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Autocomplete styles */
@@ -783,7 +798,7 @@ body::-webkit-scrollbar,
 
 .mana-filter.selected {
     filter: brightness(1.2) saturate(1.2);
-    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     transform: scale(1.1);
 }
 

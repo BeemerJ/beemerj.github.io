@@ -289,6 +289,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const manaCostIcons = renderManaCost(card.mana_cost);
 
+                // --- Add price and year ---
+                const price = card.prices && card.prices.usd ? `$${parseFloat(card.prices.usd).toFixed(2)}` : 'N/A';
+                const year = card.released_at ? new Date(card.released_at).getFullYear() : '';
+
                 cardElement.innerHTML = `
                     <div class="card-image-wrapper">
                         <div class="card-image-spinner">
@@ -310,6 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="card-info">
                         <div class="card-set">
                             ${card.set_name ? card.set_name : ''}${card.set ? ` (${card.set.toUpperCase()})` : ''}
+                            ${year ? `<span class="card-year"> • ${year}</span>` : ''}
                         </div>
                         <div class="card-rarity ${card.rarity ? card.rarity : ''}">
                             ${card.rarity ? card.rarity : ''}
@@ -317,71 +322,79 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3>${card.name}</h3>
                         <div class="mana-cost">${manaCostIcons}</div>
                         <div class="card-type"><strong>${card.type_line || ''}</strong></div>
-                        <div class="card-text">${card.oracle_text || ''}</div>
+                        <div class="card-text">${renderManaCost(card.oracle_text || '')}</div>
+                        <span class="card-price">${price}</span>
                     </div>
                 `;
                 resultsContainer.appendChild(cardElement);
 
-                cardElement.addEventListener('click', () => {
-                    // Create overlay
-                    const overlay = document.createElement('div');
-                    overlay.className = 'card-fullscreen-overlay';
+                // Only add the click event to the card image
+                const cardImg = cardElement.querySelector('.card-image-wrapper img');
+                if (cardImg) {
+                    cardImg.addEventListener('click', (event) => {
+                        event.stopPropagation(); // Prevent bubbling to cardElement
+                        // Create overlay
+                        const overlay = document.createElement('div');
+                        overlay.className = 'card-fullscreen-overlay';
 
-                    // Card content (reuse card info, but bigger)
-                    overlay.innerHTML = `
-                        <div class="card-fullscreen-content">
-                            <button class="card-fullscreen-close" title="Close">&times;</button>
-                            <div class="card-3d-artwork">
-                                <div class="card-3d-artwork-inner"
-                                    data-tilt
-                                    data-tilt-glare="true"
-                                    data-tilt-max="18"
-                                    data-tilt-glare-max="0.45"
-                                    data-tilt-scale="1.08"
-                                >
-                                    <img src="${imgUrl}" alt="${card.name}">
+                        // Card content (reuse card info, but bigger)
+                        overlay.innerHTML = `
+                            <div class="card-fullscreen-content">
+                                <button class="card-fullscreen-close" title="Close">&times;</button>
+                                <div class="card-3d-artwork">
+                                    <div class="card-3d-artwork-inner"
+                                        data-tilt
+                                        data-tilt-glare="true"
+                                        data-tilt-max="18"
+                                        data-tilt-glare-max="0.45"
+                                        data-tilt-scale="1.08"
+                                    >
+                                        <img src="${imgUrl}" alt="${card.name}">
+                                    </div>
+                                </div>
+                                <div class="card-fullscreen-info">
+                                    <div class="card-set">
+                                        ${card.set_name ? card.set_name : ''}${card.set ? ` (${card.set.toUpperCase()})` : ''}
+                                        ${year ? `<span class="card-year"> • ${year}</span>` : ''}
+                                    </div>
+                                    <div class="card-rarity ${card.rarity ? card.rarity : ''}">
+                                        ${card.rarity ? card.rarity : ''}
+                                    </div>
+                                    <h3>${card.name}</h3>
+                                    <div class="mana-cost">${renderManaCost(card.mana_cost)}</div>
+                                    <div class="card-type"><strong>${card.type_line || ''}</strong></div>
+                                    <div class="card-text">${card.oracle_text || ''}</div>
+                                    <div class="card-price">Price: <strong>${price}</strong></div>
                                 </div>
                             </div>
-                            <div class="card-fullscreen-info">
-                                <div class="card-set">
-                                    ${card.set_name ? card.set_name : ''}${card.set ? ` (${card.set.toUpperCase()})` : ''}
-                                </div>
-                                <div class="card-rarity ${card.rarity ? card.rarity : ''}">
-                                    ${card.rarity ? card.rarity : ''}
-                                </div>
-                                <h3>${card.name}</h3>
-                                <div class="mana-cost">${renderManaCost(card.mana_cost)}</div>
-                                <div class="card-type"><strong>${card.type_line || ''}</strong></div>
-                                <div class="card-text">${card.oracle_text || ''}</div>
-                            </div>
-                        </div>
-                    `;
-                    document.body.appendChild(overlay);
+                        `;
+                        document.body.appendChild(overlay);
 
-                    // ---- THIS IS IMPORTANT: ----
-                    // Wait for the next tick to ensure the element is in the DOM
-                    setTimeout(() => {
-                        if (window.VanillaTilt) {
-                            VanillaTilt.init(overlay.querySelectorAll(".card-3d-artwork-inner"), {
-                                max: 18,
-                                speed: 400,
-                                glare: true,
-                                "max-glare": 0.45,
-                                scale: 1.08,
-                            });
+                        // ---- THIS IS IMPORTANT: ----
+                        // Wait for the next tick to ensure the element is in the DOM
+                        setTimeout(() => {
+                            if (window.VanillaTilt) {
+                                VanillaTilt.init(overlay.querySelectorAll(".card-3d-artwork-inner"), {
+                                    max: 18,
+                                    speed: 400,
+                                    glare: true,
+                                    "max-glare": 0.45,
+                                    scale: 1.08,
+                                });
+                            }
+                        }, 0);
+
+                        // Close logic
+                        function closeOverlay() {
+                            overlay.remove();
+                            document.removeEventListener('keydown', escListener);
                         }
-                    }, 0);
-
-                    // Close logic
-                    function closeOverlay() {
-                        overlay.remove();
-                        document.removeEventListener('keydown', escListener);
-                    }
-                    overlay.querySelector('.card-fullscreen-close').onclick = closeOverlay;
-                    overlay.onclick = (e) => { if (e.target === overlay) closeOverlay(); };
-                    function escListener(e) { if (e.key === 'Escape') closeOverlay(); }
-                    document.addEventListener('keydown', escListener);
-                });
+                        overlay.querySelector('.card-fullscreen-close').onclick = closeOverlay;
+                        overlay.onclick = (e) => { if (e.target === overlay) closeOverlay(); };
+                        function escListener(e) { if (e.key === 'Escape') closeOverlay(); }
+                        document.addEventListener('keydown', escListener);
+                    });
+                }
             });
         } else {
             resultsContainer.innerHTML = '<p>No cards found.</p>';
