@@ -737,3 +737,11 @@ body::-webkit-scrollbar,
     color: #ffd7d7;
     border-color: #ff2d00;
 }
+
+.set-chip.disabled,
+.add-set-btn.disabled,
+.set-chip-container.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}

@@ -15,14 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allSets = [];
     let selectedSets = []; // Now an array
+    let loading = false; // Add this at the top of your DOMContentLoaded handler
 
     function updateSetChips() {
         setSelectBtn.innerHTML = '';
+        if (loading) {
+            setSelectBtn.classList.add('disabled');
+        } else {
+            setSelectBtn.classList.remove('disabled');
+        }
         if (selectedSets.length === 0) {
             // Render "All Sets" as a non-clickable chip
             const allSetsChip = document.createElement('span');
             allSetsChip.className = 'set-chip all-sets';
             allSetsChip.textContent = 'All Sets';
+            if (loading) allSetsChip.classList.add('disabled');
             setSelectBtn.appendChild(allSetsChip);
         } else {
             selectedSets.forEach(code => {
@@ -30,15 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const chip = document.createElement('span');
                 chip.className = 'set-chip selected-chip';
                 chip.textContent = set ? `${set.name} (${set.code.toUpperCase()})` : code.toUpperCase();
-                chip.onclick = (e) => {
-                    e.stopPropagation();
-                    selectedSets = selectedSets.filter(c => c !== code);
-                    updateSetChips();
-                    // Simulate a search when a set is removed
-                    if (searchInput.value.trim()) {
+                if (loading) {
+                    chip.classList.add('disabled');
+                    chip.onclick = null;
+                } else {
+                    chip.onclick = (e) => {
+                        e.stopPropagation();
+                        selectedSets = selectedSets.filter(c => c !== code);
+                        updateSetChips();
+                        // Always trigger a search when a set is removed
                         searchButton.click();
-                    }
-                };
+                    };
+                }
                 setSelectBtn.appendChild(chip);
             });
         }
@@ -47,13 +57,21 @@ document.addEventListener('DOMContentLoaded', () => {
         addBtn.className = 'add-set-btn';
         addBtn.title = 'Add another set';
         addBtn.innerHTML = '+';
-        addBtn.onclick = (e) => {
-            e.stopPropagation();
-            setModal.style.display = 'flex';
-            setSearch.value = '';
-            renderSetList('');
-            setSearch.focus();
-        };
+        if (loading) {
+            addBtn.disabled = true;
+            addBtn.classList.add('disabled');
+            addBtn.onclick = null;
+        } else {
+            addBtn.disabled = false;
+            addBtn.classList.remove('disabled');
+            addBtn.onclick = (e) => {
+                e.stopPropagation();
+                setModal.style.display = 'flex';
+                setSearch.value = '';
+                renderSetList('');
+                setSearch.focus();
+            };
+        }
         setSelectBtn.appendChild(addBtn);
     }
 
@@ -117,18 +135,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     setModalClose.onclick = () => {
         setModal.style.display = 'none';
-        // Simulate a search when closing (acts as Apply)
-        if (searchInput.value.trim()) {
-            searchButton.click();
-        }
+        // Always trigger a search when closing (acts as Apply)
+        searchButton.click();
     };
     setSearch.oninput = () => renderSetList(setSearch.value);
     setModal.onclick = (e) => { if (e.target === setModal) setModal.style.display = 'none'; };
 
     // Update search logic to use selectedSets
     searchButton.addEventListener('click', () => {
-        const query = searchInput.value.trim();
-        if (query) fetchCards(query, selectedSets);
+        let query = searchInput.value.trim();
+        if (!query) {
+            query = '*'; // Use asterisk if input is empty
+        }
+        fetchCards(query, selectedSets);
     });
     searchInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
@@ -138,6 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function fetchCards(query, sets) {
+        loading = true;
+        updateSetChips();
         showLoading();
         try {
             let fullQuery = query;
@@ -151,6 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
             displayResults(data.data); // Scryfall returns cards in 'data'
         } catch (error) {
             resultsContainer.innerHTML = '<p style="color:#d7263d;">Error fetching cards.</p>';
+        } finally {
+            loading = false;
+            updateSetChips();
         }
     }
 
@@ -341,9 +365,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const value = searchInput.value.trim();
         if (value.length > 1) {
             try {
+                // Fetch autocomplete suggestions
                 const res = await fetch(`${autocompleteUrl}?q=${encodeURIComponent(value)}`);
                 const data = await res.json();
-                renderAutocomplete(data.data || []);
+                let suggestions = data.data || [];
+                renderAutocomplete(suggestions);
             } catch {
                 renderAutocomplete([]);
             }
@@ -446,6 +472,18 @@ document.addEventListener('DOMContentLoaded', () => {
             lastTypedValue = selectedText;
             closeAutocomplete();
             searchButton.click();
+        }
+    });
+
+    // Close autocomplete when clicking outside of search input or autocomplete list
+    document.addEventListener('mousedown', (e) => {
+        const autocompleteList = document.getElementById('autocomplete-list');
+        if (!autocompleteList || autocompleteList.style.display !== 'block') return;
+        if (
+            !autocompleteList.contains(e.target) &&
+            e.target !== searchInput
+        ) {
+            closeAutocomplete();
         }
     });
 
