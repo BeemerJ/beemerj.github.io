@@ -17,6 +17,29 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedSets = []; // Now an array
     let loading = false; // Add this at the top of your DOMContentLoaded handler
 
+    // Add fullscreen loading overlay to the DOM
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.id = 'fullscreen-loading-overlay';
+    loadingOverlay.innerHTML = `
+        <div class="fullscreen-loading-svg">
+            <!-- Spinner SVG -->
+            <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" stroke="#FFFFFFFF" class="svg-spinner">
+              <g fill="none" fill-rule="evenodd" stroke-width="2">
+                <circle cx="22" cy="22" r="1">
+                  <animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+                  <animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="22" cy="22" r="1">
+                  <animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+                  <animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+                </circle>
+              </g>
+            </svg>
+        </div>
+    `;
+    loadingOverlay.style.display = 'none';
+    document.body.appendChild(loadingOverlay);
+
     function updateSetChips() {
         setSelectBtn.innerHTML = '';
         if (loading) {
@@ -156,10 +179,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function showInlineSpinner() {
+        const spinner = document.querySelector('.loading-spinner');
+        if (spinner) spinner.style.display = 'flex';
+    }
+
+    function hideInlineSpinner() {
+        const spinner = document.querySelector('.loading-spinner');
+        if (spinner) spinner.style.display = 'none';
+    }
+
     async function fetchCards(query, sets) {
         loading = true;
         updateSetChips();
+        // Show fullscreen loading overlay
+        document.getElementById('fullscreen-loading-overlay').style.display = 'flex';
         showLoading();
+        // Show busy cursor
+        document.body.classList.add('loading');
+        document.getElementById('fullscreen-loading-overlay').classList.add('loading');
         try {
             let fullQuery = query;
             if (sets && sets.length > 0) {
@@ -175,6 +213,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } finally {
             loading = false;
             updateSetChips();
+            // Hide fullscreen loading overlay
+            document.getElementById('fullscreen-loading-overlay').style.display = 'none';
+            // Hide busy cursor
+            document.body.classList.remove('loading');
+            document.getElementById('fullscreen-loading-overlay').classList.remove('loading');
         }
     }
 
@@ -242,7 +285,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 cardElement.innerHTML = `
                     <div class="card-image-wrapper">
-                        <div class="card-image-spinner"></div>
+                        <div class="card-image-spinner">
+                          <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" stroke="#FFFFFFFF" class="svg-spinner">
+                            <g fill="none" fill-rule="evenodd" stroke-width="2">
+                              <circle cx="22" cy="22" r="1">
+                                <animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+                                <animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+                              </circle>
+                              <circle cx="22" cy="22" r="1">
+                                <animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+                                <animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+                              </circle>
+                            </g>
+                          </svg>
+                        </div>
                         <img src="${imgUrl}" alt="${card.name}" style="display:none;" onload="this.style.display='block';this.previousElementSibling.style.display='none';" onerror="this.style.display='block';this.previousElementSibling.style.display='none';this.src='${placeholderImg}';">
                     </div>
                     <div class="card-info">
@@ -370,6 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
             li.tabIndex = -1;
             li.setAttribute('role', 'option');
             li.setAttribute('id', `autocomplete-item-${idx}`);
+            li.dataset.name = name; // <-- Add this line
             li.onclick = () => {
                 searchInput.value = name;
                 autocompleteList.innerHTML = '';
@@ -451,13 +508,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         } else if (e.key === 'Enter') {
-            if (autocompleteList.selectedIndex >= 0 && autocompleteList.selectedIndex < items.length) {
+            // Only select if selectedIndex is set by keyboard navigation
+            if (
+                typeof autocompleteList.selectedIndex === 'number' &&
+                autocompleteList.selectedIndex >= 0 &&
+                autocompleteList.selectedIndex < items.length
+            ) {
                 e.preventDefault();
-                const selectedText = items[autocompleteList.selectedIndex].textContent;
-                searchInput.value = selectedText;
-                lastTypedValue = selectedText;
+                const selectedName = items[autocompleteList.selectedIndex].dataset.name; // <-- Use dataset.name
+                searchInput.value = selectedName;
+                lastTypedValue = selectedName;
                 closeAutocomplete();
-                searchButton.click();
+                // Use exact match query
+                fetchCards(`!"${selectedName}"`, selectedSets);
             } else {
                 // No item highlighted, just search for what's typed
                 e.preventDefault();
@@ -476,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const items = Array.from(autocompleteList.querySelectorAll('li'));
         items.forEach((li, idx) => {
             if (li === e.target) {
-                autocompleteList.selectedIndex = idx;
+                // Only add .focused for styling, do NOT update selectedIndex
                 li.classList.add('focused');
             } else {
                 li.classList.remove('focused');
@@ -492,11 +555,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const idx = items.indexOf(e.target);
         if (idx !== -1) {
             e.preventDefault();
-            const selectedText = items[idx].textContent;
-            searchInput.value = selectedText;
-            lastTypedValue = selectedText;
+            const selectedName = items[idx].dataset.name;
+            searchInput.value = selectedName;
+            lastTypedValue = selectedName;
             closeAutocomplete();
-            searchButton.click();
+            // Use exact match query
+            fetchCards(`!"${selectedName}"`, selectedSets);
         }
     });
 

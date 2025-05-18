@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Roboto', 'Inter', 'Segoe UI', Arial, sans-serif;
-    background: #121212;
+    background: #1e1e1e;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -11,10 +11,11 @@ body {
 }
 
 .page-border-container {
-    min-height: 100vh;
-    min-width: 100vw;
+    /* min-height: 100vh; */
+    /* min-width: 100vw; */
+    max-width: 100%;
     box-sizing: border-box;
-    border: 4px solid #222;
+    /* border: 4px solid #222; */
     /* Material dark border */
     background: #1e1e1e;
     display: flex;
@@ -56,7 +57,6 @@ main {
     display: flex;
     gap: 1.5em;
     margin: 2.2rem;
-    margin-top: 1em;
 }
 
 .mana-title-icons img {
@@ -226,17 +226,6 @@ main {
     justify-content: center;
 }
 
-.card-image-spinner:after {
-    content: "";
-    width: 44px;
-    height: 44px;
-    border: 5px solid #e2c275;
-    border-top: 5px solid #a67c52;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    display: block;
-}
-
 .card img {
     width: auto;
     min-width: 10rem;
@@ -294,7 +283,7 @@ main {
     color: #fff;
     font-weight: 700;
     text-shadow: none;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.8px;
     word-break: break-word;
 }
 
@@ -327,27 +316,50 @@ main {
 }
 
 .loading-spinner {
-    display: flex;
+    display: none; /* Hide by default */
     justify-content: center;
     align-items: center;
     margin: 2em 0;
 }
 
-.loading-spinner:after {
-    content: "";
+.svg-spinner {
     width: 44px;
     height: 44px;
-    border: 5px solid #e2c275;
-    border-top: 5px solid #a67c52;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
     display: block;
+    margin: auto;
+}
+
+/* Remove old spinner CSS */
+.loading-spinner:after,
+.card-image-spinner:after,
+.fullscreen-loading-spinner {
+    display: none !important;
+}
+
+#fullscreen-loading-overlay {
+    position: fixed;
+    z-index: 99999;
+    inset: 0;
+    background: #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+    pointer-events: all;
+}
+
+.fullscreen-loading-spinner {
+    border: 8px solid #444;
+    border-top: 8px solid #ffd700;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
 }
 
 /* Autocomplete styles */
@@ -758,3 +770,24 @@ body::-webkit-scrollbar,
     pointer-events: none;
     cursor: not-allowed;
 }
+
+.mana-filter {
+    cursor: pointer;
+    filter: brightness(0.7) saturate(0.7);
+    transition: filter 0.2s ease-in-out;
+}
+
+.mana-filter:hover {
+    filter: brightness(1) saturate(1);
+}
+
+.mana-filter.selected {
+    filter: brightness(1.2) saturate(1.2);
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    transform: scale(1.1);
+}
+
+/* body.loading,
+#fullscreen-loading-overlay.loading {
+    cursor: wait !important;
+} */
