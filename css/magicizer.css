@@ -344,16 +344,16 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.2s;
+    transition: opacity 256ms;
     pointer-events: all;
 }
 
 .fullscreen-loading-spinner {
     border: 8px solid #444;
-    border-top: 8px solid #ffd700;
+    /* border-top: 8px solid #ffd700; */
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 128px;
+    height: 128px;
     animation: spin 1s linear infinite;
 }
 
@@ -589,7 +589,7 @@ body::-webkit-scrollbar,
     border: 1px solid #444;
     font-size: 1em;
     cursor: pointer;
-    transition: background 0.18s, border 0.18s, color 0.18s;
+    /* transition: background 128ms, border 128ms, color 128ms; */
     box-shadow: 0 1px 4px #0003;
     display: inline-block;
 }
@@ -597,8 +597,8 @@ body::-webkit-scrollbar,
 #set-list li:hover,
 #set-list li:focus {
     background: #333;
-    border-color: #ffd700;
-    color: #ffd700;
+    border-color: #fff;
+    color: #fff;
 }
 
 #set-list li.selected,

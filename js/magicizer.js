@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allSets = [];
     let selectedSets = []; // Now an array
+    let modalSelectedSets = []; // <-- Add this line
     let loading = false; // Add this at the top of your DOMContentLoaded handler
 
     // Add fullscreen loading overlay to the DOM
@@ -89,6 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
             addBtn.classList.remove('disabled');
             addBtn.onclick = (e) => {
                 e.stopPropagation();
+                // When opening modal, copy selectedSets to modalSelectedSets
+                modalSelectedSets = [...selectedSets];
                 setModal.style.display = 'flex';
                 setSearch.value = '';
                 renderSetList('');
@@ -119,15 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li');
             li.textContent = `${set.name} (${set.code.toUpperCase()})`;
             li.onclick = () => {
-                if (selectedSets.includes(set.code)) {
-                    selectedSets = selectedSets.filter(c => c !== set.code);
+                if (modalSelectedSets.includes(set.code)) {
+                    modalSelectedSets = modalSelectedSets.filter(c => c !== set.code);
                 } else {
-                    selectedSets.push(set.code);
+                    modalSelectedSets.push(set.code);
                 }
                 renderSetList(filter); // Re-render to update highlights
-                updateSetChips();
             };
-            if (selectedSets.includes(set.code)) {
+            if (modalSelectedSets.includes(set.code)) {
                 li.classList.add('selected');
                 li.setAttribute('aria-selected', 'true');
             }
@@ -138,11 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li');
             li.textContent = 'All Sets';
             li.onclick = () => {
-                selectedSets = [];
+                modalSelectedSets = [];
                 renderSetList(filter);
-                updateSetChips();
             };
-            if (selectedSets.length === 0) {
+            if (modalSelectedSets.length === 0) {
                 li.style.background = '#444';
                 li.style.fontWeight = 'bold';
             }
@@ -151,6 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setSelectBtn.onclick = () => {
+        // When opening modal, copy selectedSets to modalSelectedSets
+        modalSelectedSets = [...selectedSets];
         setModal.style.display = 'flex';
         setSearch.value = '';
         renderSetList('');
@@ -158,6 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     setModalClose.onclick = () => {
         setModal.style.display = 'none';
+        // Only update selectedSets when closing
+        selectedSets = [...modalSelectedSets];
+        updateSetChips();
         // Always trigger a search when closing (acts as Apply)
         searchButton.click();
     };
@@ -578,6 +584,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setModalApply.onclick = () => {
         setModal.style.display = 'none';
+        // Only update selectedSets when applying
+        selectedSets = [...modalSelectedSets];
+        updateSetChips();
         // Trigger a search if there's a query
         if (searchInput.value.trim()) {
             searchButton.click();
