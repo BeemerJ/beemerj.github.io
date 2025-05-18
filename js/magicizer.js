@@ -363,9 +363,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         cardData.forEach(({ name, set_name }, idx) => {
             const li = document.createElement('li');
-            // Truncate name if too long (e.g. 28 chars for name, 18 for set)
+            // Truncate name if too long
             const truncatedName = truncateText(name, 28);
-            const truncatedSet = set_name ? truncateText(set_name, 28) : '';
+            const truncatedSet = set_name ? truncateText(set_name, 32) : '';
             li.innerHTML = `${truncatedName}${truncatedSet ? ` <span class="autocomplete-set">${truncatedSet}</span>` : ''}`;
             li.tabIndex = -1;
             li.setAttribute('role', 'option');
