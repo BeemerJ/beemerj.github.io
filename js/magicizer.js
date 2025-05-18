@@ -119,7 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (query) fetchCards(query, selectedSets);
     });
     searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') searchButton.click();
+        if (e.key === 'Enter') {
+            e.stopPropagation(); // Prevent bubbling to other handlers
+            searchButton.click();
+        }
     });
 
     async function fetchCards(query, sets) {
@@ -286,6 +289,57 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsContainer.innerHTML = '<p>No cards found.</p>';
         }
     }
+
+    function renderAutocomplete(suggestions) {
+        let autocompleteList = document.getElementById('autocomplete-list');
+        if (!autocompleteList) {
+            autocompleteList = document.createElement('ul');
+            //autocompleteList.id = 'autocomplete-list';
+            autocompleteList.className = 'autocomplete-list';
+            // Append to .search-box for correct positioning
+            const searchBox = searchInput.closest('.search-box');
+            (searchBox || searchInput.parentNode).appendChild(autocompleteList);
+        }
+        autocompleteList.innerHTML = '';
+        suggestions.forEach(suggestion => {
+            const li = document.createElement('li');
+            li.textContent = suggestion;
+            li.tabIndex = 0;
+            li.onclick = () => {
+                searchInput.value = suggestion;
+                autocompleteList.innerHTML = '';
+                searchButton.click();
+            };
+            li.onkeydown = (e) => {
+                if (e.key === 'Enter') {
+                    li.click();
+                }
+            };
+            autocompleteList.appendChild(li);
+        });
+        // Show the list
+        autocompleteList.style.display = suggestions.length ? 'block' : 'none';
+    }
+
+    // Hide autocomplete when clicking outside
+    document.addEventListener('click', (e) => {
+        const autocompleteList = document.getElementById('autocomplete-list');
+        if (autocompleteList && !autocompleteList.contains(e.target) && e.target !== searchInput) {
+            autocompleteList.style.display = 'none';
+        }
+    });
+
+    searchInput.addEventListener('input', async () => {
+        const value = searchInput.value.trim();
+        const autocompleteList = document.getElementById('autocomplete-list');
+        if (value.length > 1) {
+            const res = await fetch(`${autocompleteUrl}?q=${encodeURIComponent(value)}`);
+            const data = await res.json();
+            renderAutocomplete(data.data);
+        } else if (autocompleteList) {
+            autocompleteList.style.display = 'none';
+        }
+    });
 });
 
 let scryfallSymbols = {};

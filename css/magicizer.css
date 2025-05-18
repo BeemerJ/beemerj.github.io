@@ -63,6 +63,10 @@ main {
     width: 64px;
 }
 
+.shoutout {
+    color: gray;
+}
+
 .search-form {
     display: flex;
     flex-direction: column;
@@ -346,15 +350,20 @@ main {
 
 /* Autocomplete styles */
 .autocomplete-list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 1000;
     max-height: 200px;
     overflow-y: auto;
     background: #232323;
     color: #fff;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
     border-radius: 8px;
-    box-shadow: 0 2px 8px #000a;
-    margin-top: 0.2em;
-    z-index: 1000;
+    margin-top: 12px;
+    list-style: none;
+    padding: 0;
 }
 
 .autocomplete-list li {
@@ -364,6 +373,10 @@ main {
     background: #232323;
     transition: background 0.15s;
     border-bottom: 1px solid rgb(65, 65, 65);
+}
+
+.autocomplete-list li:last-child {
+    border-bottom: 5px double rgb(65, 65, 65);
 }
 
 .autocomplete-list li:hover,
