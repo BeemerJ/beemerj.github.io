@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const setList = document.getElementById('set-list');
     const setSearch = document.getElementById('set-search');
     const setModalClose = document.getElementById('set-modal-close');
+    const setModalApply = document.getElementById('set-modal-apply');
 
     let allSets = [];
     let selectedSets = []; // Now an array
@@ -33,6 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.stopPropagation();
                     selectedSets = selectedSets.filter(c => c !== code);
                     updateSetChips();
+                    // Simulate a search when a set is removed
+                    if (searchInput.value.trim()) {
+                        searchButton.click();
+                    }
                 };
                 setSelectBtn.appendChild(chip);
             });
@@ -73,13 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li');
             li.textContent = `${set.name} (${set.code.toUpperCase()})`;
             li.onclick = () => {
-                if (!selectedSets.includes(set.code)) {
+                if (selectedSets.includes(set.code)) {
+                    selectedSets = selectedSets.filter(c => c !== set.code);
+                } else {
                     selectedSets.push(set.code);
                 }
-                setModal.style.display = 'none';
+                renderSetList(filter); // Re-render to update highlights
                 updateSetChips();
             };
-            // Highlight if already selected
             if (selectedSets.includes(set.code)) {
                 li.classList.add('selected');
                 li.setAttribute('aria-selected', 'true');
@@ -92,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             li.textContent = 'All Sets';
             li.onclick = () => {
                 selectedSets = [];
-                setModal.style.display = 'none';
+                renderSetList(filter);
                 updateSetChips();
             };
             if (selectedSets.length === 0) {
@@ -109,7 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
         renderSetList('');
         setSearch.focus();
     };
-    setModalClose.onclick = () => setModal.style.display = 'none';
+    setModalClose.onclick = () => {
+        setModal.style.display = 'none';
+        // Simulate a search when closing (acts as Apply)
+        if (searchInput.value.trim()) {
+            searchButton.click();
+        }
+    };
     setSearch.oninput = () => renderSetList(setSearch.value);
     setModal.onclick = (e) => { if (e.target === setModal) setModal.style.display = 'none'; };
 
@@ -341,6 +353,14 @@ document.addEventListener('DOMContentLoaded', () => {
             autocompleteList.style.display = 'none';
         }
     });
+
+    setModalApply.onclick = () => {
+        setModal.style.display = 'none';
+        // Trigger a search if there's a query
+        if (searchInput.value.trim()) {
+            searchButton.click();
+        }
+    };
 });
 
 let scryfallSymbols = {};
