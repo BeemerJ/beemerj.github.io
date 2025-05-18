@@ -388,6 +388,19 @@ main {
     color: #fff;
 }
 
+.autocomplete-set {
+    color: #aaa;
+    font-size: 0.95em;
+    margin-left: 0.5em;
+    font-style: italic;
+    white-space: wrap;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .mana-cost {
     display: flex;
     align-items: center;

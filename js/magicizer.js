@@ -326,7 +326,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function renderAutocomplete(suggestions) {
+    function truncateText(text, maxLength) {
+        if (text.length <= maxLength) return text;
+        return text.slice(0, maxLength - 3) + '...';
+    }
+
+    async function renderAutocomplete(suggestions) {
         let autocompleteList = document.getElementById('autocomplete-list');
         if (!autocompleteList) {
             autocompleteList = document.createElement('ul');
@@ -339,14 +344,34 @@ document.addEventListener('DOMContentLoaded', () => {
         autocompleteList.innerHTML = '';
         autocompleteList.style.display = suggestions.length ? 'block' : 'none';
 
-        suggestions.forEach((suggestion, idx) => {
+        // Limit to first 10 suggestions for performance
+        const visibleSuggestions = suggestions.slice(0, 10);
+
+        // Fetch set names in parallel
+        const cardData = await Promise.all(
+            visibleSuggestions.map(async (name) => {
+                try {
+                    const res = await fetch(`https://api.scryfall.com/cards/named?exact=${encodeURIComponent(name)}`);
+                    if (!res.ok) throw new Error();
+                    const card = await res.json();
+                    return { name, set_name: card.set_name || '' };
+                } catch {
+                    return { name, set_name: '' };
+                }
+            })
+        );
+
+        cardData.forEach(({ name, set_name }, idx) => {
             const li = document.createElement('li');
-            li.textContent = suggestion;
+            // Truncate name if too long (e.g. 28 chars for name, 18 for set)
+            const truncatedName = truncateText(name, 28);
+            const truncatedSet = set_name ? truncateText(set_name, 28) : '';
+            li.innerHTML = `${truncatedName}${truncatedSet ? ` <span class="autocomplete-set">${truncatedSet}</span>` : ''}`;
             li.tabIndex = -1;
             li.setAttribute('role', 'option');
             li.setAttribute('id', `autocomplete-item-${idx}`);
             li.onclick = () => {
-                searchInput.value = suggestion;
+                searchInput.value = name;
                 autocompleteList.innerHTML = '';
                 autocompleteList.style.display = 'none';
                 searchButton.click();
