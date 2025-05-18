@@ -306,51 +306,146 @@ document.addEventListener('DOMContentLoaded', () => {
         let autocompleteList = document.getElementById('autocomplete-list');
         if (!autocompleteList) {
             autocompleteList = document.createElement('ul');
-            autocompleteList.id = 'autocomplete-list'; // Always set the id!
+            autocompleteList.id = 'autocomplete-list';
             autocompleteList.className = 'autocomplete-list';
+            autocompleteList.setAttribute('role', 'listbox');
             const searchBox = searchInput.closest('.search-box');
             (searchBox || searchInput.parentNode).appendChild(autocompleteList);
         }
-        // Always clear before adding new items
         autocompleteList.innerHTML = '';
-        suggestions.forEach(suggestion => {
+        autocompleteList.style.display = suggestions.length ? 'block' : 'none';
+
+        suggestions.forEach((suggestion, idx) => {
             const li = document.createElement('li');
             li.textContent = suggestion;
-            li.tabIndex = 0;
+            li.tabIndex = -1;
+            li.setAttribute('role', 'option');
+            li.setAttribute('id', `autocomplete-item-${idx}`);
             li.onclick = () => {
                 searchInput.value = suggestion;
                 autocompleteList.innerHTML = '';
-                autocompleteList.style.display = 'none'; // Hide the box
+                autocompleteList.style.display = 'none';
                 searchButton.click();
-            };
-            li.onkeydown = (e) => {
-                if (e.key === 'Enter') {
-                    li.click();
-                }
             };
             autocompleteList.appendChild(li);
         });
-        // Show or hide the list
-        autocompleteList.style.display = suggestions.length ? 'block' : 'none';
+
+        // Keyboard navigation state
+        autocompleteList.selectedIndex = -1;
     }
 
-    // Hide autocomplete when clicking outside
-    document.addEventListener('click', (e) => {
-        const autocompleteList = document.getElementById('autocomplete-list');
-        if (autocompleteList && !autocompleteList.contains(e.target) && e.target !== searchInput) {
-            autocompleteList.style.display = 'none';
+    let lastTypedValue = ""; // Track what the user last typed
+
+    searchInput.addEventListener('input', async () => {
+        lastTypedValue = searchInput.value;
+        const value = searchInput.value.trim();
+        if (value.length > 1) {
+            try {
+                const res = await fetch(`${autocompleteUrl}?q=${encodeURIComponent(value)}`);
+                const data = await res.json();
+                renderAutocomplete(data.data || []);
+            } catch {
+                renderAutocomplete([]);
+            }
+        } else {
+            closeAutocomplete();
         }
     });
 
-    searchInput.addEventListener('input', async () => {
-        const value = searchInput.value.trim();
+    function closeAutocomplete() {
         const autocompleteList = document.getElementById('autocomplete-list');
-        if (value.length > 1) {
-            const res = await fetch(`${autocompleteUrl}?q=${encodeURIComponent(value)}`);
-            const data = await res.json();
-            renderAutocomplete(data.data);
-        } else if (autocompleteList) {
+        if (autocompleteList) {
             autocompleteList.style.display = 'none';
+            autocompleteList.innerHTML = '';
+            autocompleteList.selectedIndex = -1;
+        }
+    }
+
+    // Keyboard navigation for autocomplete
+    searchInput.addEventListener('keydown', (e) => {
+        const autocompleteList = document.getElementById('autocomplete-list');
+        if (!autocompleteList || autocompleteList.style.display !== 'block') {
+            // Only trigger search if autocomplete is closed and Enter is pressed
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                searchButton.click();
+            }
+            return;
+        }
+
+        const items = Array.from(autocompleteList.querySelectorAll('li'));
+        if (!items.length) return;
+
+        // Prevent page scroll with arrow keys
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            e.preventDefault();
+        }
+
+        if (e.key === 'ArrowDown') {
+            autocompleteList.selectedIndex = (autocompleteList.selectedIndex ?? -1) + 1;
+            if (autocompleteList.selectedIndex >= items.length) autocompleteList.selectedIndex = 0;
+            items.forEach((li, idx) => {
+                li.classList.toggle('focused', idx === autocompleteList.selectedIndex);
+                if (idx === autocompleteList.selectedIndex) {
+                    li.scrollIntoView({ block: 'nearest' });
+                }
+            });
+        } else if (e.key === 'ArrowUp') {
+            autocompleteList.selectedIndex = (autocompleteList.selectedIndex ?? items.length) - 1;
+            if (autocompleteList.selectedIndex < 0) autocompleteList.selectedIndex = items.length - 1;
+            items.forEach((li, idx) => {
+                li.classList.toggle('focused', idx === autocompleteList.selectedIndex);
+                if (idx === autocompleteList.selectedIndex) {
+                    li.scrollIntoView({ block: 'nearest' });
+                }
+            });
+        } else if (e.key === 'Enter') {
+            if (autocompleteList.selectedIndex >= 0 && autocompleteList.selectedIndex < items.length) {
+                e.preventDefault();
+                const selectedText = items[autocompleteList.selectedIndex].textContent;
+                searchInput.value = selectedText;
+                lastTypedValue = selectedText;
+                closeAutocomplete();
+                searchButton.click();
+            } else {
+                // No item highlighted, just search for what's typed
+                e.preventDefault();
+                closeAutocomplete();
+                searchButton.click();
+            }
+        } else if (e.key === 'Escape') {
+            closeAutocomplete();
+        }
+    });
+
+    // Mouse hover should highlight, but not change input value until clicked
+    document.addEventListener('mouseover', (e) => {
+        const autocompleteList = document.getElementById('autocomplete-list');
+        if (!autocompleteList) return;
+        const items = Array.from(autocompleteList.querySelectorAll('li'));
+        items.forEach((li, idx) => {
+            if (li === e.target) {
+                autocompleteList.selectedIndex = idx;
+                li.classList.add('focused');
+            } else {
+                li.classList.remove('focused');
+            }
+        });
+    });
+
+    // Mouse click on suggestion
+    document.addEventListener('mousedown', (e) => {
+        const autocompleteList = document.getElementById('autocomplete-list');
+        if (!autocompleteList) return;
+        const items = Array.from(autocompleteList.querySelectorAll('li'));
+        const idx = items.indexOf(e.target);
+        if (idx !== -1) {
+            e.preventDefault();
+            const selectedText = items[idx].textContent;
+            searchInput.value = selectedText;
+            lastTypedValue = selectedText;
+            closeAutocomplete();
+            searchButton.click();
         }
     });
 

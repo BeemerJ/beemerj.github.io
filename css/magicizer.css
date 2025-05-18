@@ -382,7 +382,8 @@ main {
 }
 
 .autocomplete-list li:hover,
-.autocomplete-list li:focus {
+.autocomplete-list li:focus,
+.autocomplete-list li.focused {
     background: #333;
     color: #fff;
 }
