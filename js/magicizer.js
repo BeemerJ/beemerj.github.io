@@ -294,12 +294,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let autocompleteList = document.getElementById('autocomplete-list');
         if (!autocompleteList) {
             autocompleteList = document.createElement('ul');
-            //autocompleteList.id = 'autocomplete-list';
+            autocompleteList.id = 'autocomplete-list'; // Always set the id!
             autocompleteList.className = 'autocomplete-list';
-            // Append to .search-box for correct positioning
             const searchBox = searchInput.closest('.search-box');
             (searchBox || searchInput.parentNode).appendChild(autocompleteList);
         }
+        // Always clear before adding new items
         autocompleteList.innerHTML = '';
         suggestions.forEach(suggestion => {
             const li = document.createElement('li');
@@ -308,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             li.onclick = () => {
                 searchInput.value = suggestion;
                 autocompleteList.innerHTML = '';
+                autocompleteList.style.display = 'none'; // Hide the box
                 searchButton.click();
             };
             li.onkeydown = (e) => {
@@ -317,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             autocompleteList.appendChild(li);
         });
-        // Show the list
+        // Show or hide the list
         autocompleteList.style.display = suggestions.length ? 'block' : 'none';
     }
 

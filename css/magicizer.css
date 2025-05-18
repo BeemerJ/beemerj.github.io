@@ -110,7 +110,9 @@ main {
     transform: translateY(-50%);
     background: none;
     border: none;
-    padding: 0;
+    padding: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
     margin: 0;
     color: #fff;
     cursor: pointer;
@@ -176,7 +178,7 @@ main {
     gap: 1.2rem;
     align-items: center;
     width: 100vw;
-    max-width: 100vw;
+    max-width: 99vw;
     padding: 0;
 }
 
@@ -645,15 +647,15 @@ body::-webkit-scrollbar,
 
 .add-set-btn {
     position: relative;
-    top: -1px;
+    top: -1.5px;
     background: #232323;
-    color: #fffbd5;
+    color: #444;
     border: 1px solid #444;
     border-top-color: rgb(68, 68, 68);
     border-right-color: rgb(68, 68, 68);
     border-bottom-color: rgb(68, 68, 68);
     border-left-color: rgb(68, 68, 68);
-    border-radius: 25%;
+    border-radius: 50%;
     width: fit-content;
     height: fit-content;
     font-size: small;
